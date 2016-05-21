@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		A921F2E51CF0D2E500D295B8 /* OCcharacter.mm in Sources */ = {isa = PBXBuildFile; fileRef = A921F2E41CF0D2E500D295B8 /* OCcharacter.mm */; };
-		A921F2E81CF0E10A00D295B8 /* OCplayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A921F2E71CF0E10A00D295B8 /* OCplayer.m */; };
+		A921F2E81CF0E10A00D295B8 /* OCplayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A921F2E71CF0E10A00D295B8 /* OCplayer.mm */; };
 		A92F4DDC1CEF50BE00BB7FC1 /* Base_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DDB1CEF50BE00BB7FC1 /* Base_ViewController.m */; };
 		A92F4DDE1CEF538100BB7FC1 /* pokemon_dp_map.png in Resources */ = {isa = PBXBuildFile; fileRef = A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */; };
 		A92F4DF11CEFAEFA00BB7FC1 /* archive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DDF1CEFAEFA00BB7FC1 /* archive.cpp */; };
@@ -53,7 +53,7 @@
 		A921F2E31CF0D2E500D295B8 /* OCcharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCcharacter.h; sourceTree = "<group>"; };
 		A921F2E41CF0D2E500D295B8 /* OCcharacter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCcharacter.mm; sourceTree = "<group>"; };
 		A921F2E61CF0E10A00D295B8 /* OCplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCplayer.h; sourceTree = "<group>"; };
-		A921F2E71CF0E10A00D295B8 /* OCplayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCplayer.m; sourceTree = "<group>"; };
+		A921F2E71CF0E10A00D295B8 /* OCplayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCplayer.mm; sourceTree = "<group>"; };
 		A92F4DDA1CEF50BE00BB7FC1 /* Base_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base_ViewController.h; sourceTree = "<group>"; };
 		A92F4DDB1CEF50BE00BB7FC1 /* Base_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base_ViewController.m; sourceTree = "<group>"; };
 		A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemon_dp_map.png; sourceTree = "<group>"; };
@@ -160,7 +160,7 @@
 				A92F4DFA1CEFB11F00BB7FC1 /* OCdragon.h */,
 				A92F4DFB1CEFB11F00BB7FC1 /* OCdragon.mm */,
 				A921F2E61CF0E10A00D295B8 /* OCplayer.h */,
-				A921F2E71CF0E10A00D295B8 /* OCplayer.m */,
+				A921F2E71CF0E10A00D295B8 /* OCplayer.mm */,
 				A92F4DE91CEFAEFA00BB7FC1 /* path_and_skill.cpp */,
 				A92F4DEA1CEFAEFA00BB7FC1 /* path_and_skill.h */,
 				A92F4DEB1CEFAEFA00BB7FC1 /* player.cpp */,
@@ -352,7 +352,7 @@
 				A98D60131CEE648E008F4AE7 /* main.m in Sources */,
 				A92F4DF61CEFAEFA00BB7FC1 /* path_and_skill.cpp in Sources */,
 				A92F4DF81CEFAEFA00BB7FC1 /* quest.cpp in Sources */,
-				A921F2E81CF0E10A00D295B8 /* OCplayer.m in Sources */,
+				A921F2E81CF0E10A00D295B8 /* OCplayer.mm in Sources */,
 				A92F4DF21CEFAEFA00BB7FC1 /* base.cpp in Sources */,
 				A921F2E51CF0D2E500D295B8 /* OCcharacter.mm in Sources */,
 				A92F4DF31CEFAEFA00BB7FC1 /* character.cpp in Sources */,
