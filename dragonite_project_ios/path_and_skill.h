@@ -17,7 +17,7 @@ enum Stats_Type {strength, speed, intelligence, agility,
 
 enum Skill_Type {Base_Stats_Adder, Base_Stats_Multiplier};
 
-class Dragon::Skill {
+class Skill {
     
 protected:
     std::string name;
@@ -31,14 +31,14 @@ public:
 
 //Abstract Class
 //A Skill that affects base_stats of a Dragon
-class Dragon::Base_Stats_Skill: public Dragon::Skill {
+class Base_Stats_Skill: public Skill {
     
 protected:
     std::vector<Stats_Type> affected_base_stats;
 };
 
 //A Skill that multiplies base_stats of a Dragon by certain rates and adds to effective_stats
-class Dragon::Base_Stats_Multiplier: public Dragon::Base_Stats_Skill {
+class Base_Stats_Multiplier: public Base_Stats_Skill {
 private:
     std::vector<double> effect_rates;
     
@@ -47,7 +47,7 @@ public:
 };
 
 //A Skill that adds values to effective_stats of a Dragon
-class Dragon::Base_Stats_Adder: public Dragon::Base_Stats_Skill {
+class Base_Stats_Adder: public Base_Stats_Skill {
 private:
     std::vector<double> effect_values;
     

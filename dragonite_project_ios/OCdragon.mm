@@ -10,13 +10,20 @@
 #import "dragon.h"
 
 
-@interface OCdragon() {
+@interface OCDragon() {
     Dragon *dragon; //wrapped object
 }
 
 @end
 
-@implementation OCdragon
+@interface OCDragon (AccessWrappedObject)
+
+-(Dragon *) getWrappedDragon;
+
+@end
+
+
+@implementation OCDragon
 
 -(id)initDragonWithName:(NSString *)name_in withType:(enum OCDragonType) type_in withGender:(enum OCDragonGender) gender_in withStrength:(double) strength_in withSpeed:(double) speed_in withEndurance:(double) endurance_in withCapacity:(double) capacity_in withLevel:(int) level_in withNumberOfQuestsCompleted:(int) number_of_quests_completed_in isLegendary:(BOOL) legendary_in isMythical:(BOOL) mythical_in {
     self = [super init];
@@ -59,7 +66,7 @@
     return self;
 }
 
-- (void)dealloc {
+- (void) dealloc {
     delete dragon;
 }
 
@@ -71,7 +78,7 @@
     dragon->level_up();
 }
 
--(void)gainExperienceOf:(int) exp_gained {
+-(void)gainExperience:(int) exp_gained {
     dragon->gain_experience(exp_gained);
 }
 
@@ -85,6 +92,11 @@
 
 -(double)getEnergy {
     return dragon->get_energy();
+}
+
+//So that we can access the dragon inside
+-(Dragon *) getWrappedDragon {
+    return dragon;
 }
 
 @end

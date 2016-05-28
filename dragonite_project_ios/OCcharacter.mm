@@ -9,13 +9,13 @@
 #import "OCcharacter.h"
 #import "character.h"
 
-@interface OCcharacter() {
+@interface OCCharacter() {
     Character *character; //wrapped object
 }
 
 @end
 
-@implementation OCcharacter
+@implementation OCCharacter
 
 -(id) initCharacterWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in withLevel:(int) level_in{
     self = [super init];

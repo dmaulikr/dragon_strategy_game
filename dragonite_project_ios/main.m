@@ -13,9 +13,9 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        OCdragon *Dranxia = [[OCdragon alloc] initRandomDragonWithName:@"Dranxia" withType:OCfire withGender:OCDragonfemale];
+        OCDragon *Dranxia = [[OCDragon alloc] initRandomDragonWithName:@"Dranxia" withType:OCfire withGender:OCDragonfemale];
         
-        OCcharacter *Bob = [[OCcharacter alloc] initCharacterWithName:@"Bob" withGender:OCCharactermale withLevel:1];
+        OCCharacter *Bob = [[OCCharacter alloc] initCharacterWithName:@"Bob" withGender:OCCharactermale withLevel:1];
         
         NSLog(@"hey");
         //[new_dragon levelUp];

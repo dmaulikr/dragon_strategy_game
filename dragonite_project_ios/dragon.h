@@ -21,6 +21,11 @@ class Archive;
 enum Gender {female, male};
 enum Dragon_Type {fire, water, wind, earth, other};
 
+class Skill;
+class Base_Stats_Skill;
+class Base_Stats_Multiplier;
+class Base_Stats_Adder;
+
 class Dragon_Stats {
 public:
     
@@ -55,13 +60,13 @@ private:
     }; */
     
 protected:
-    class Skill;
+    //class Skill;
     //friend Skill;
-    class Base_Stats_Skill;
+    //class Base_Stats_Skill;
     //friend Base_Stats_Skill;
-    class Base_Stats_Multiplier;
+    //class Base_Stats_Multiplier;
     friend Base_Stats_Multiplier;
-    class Base_Stats_Adder;
+    //class Base_Stats_Adder;
     friend Base_Stats_Adder;
     
     static std::vector<std::vector<Skill>> speed_path;
@@ -116,6 +121,26 @@ public:
     void increase_energy(double energy_gained);
     
     double get_energy();
+    
+    double get_initial_strength();
+    double get_initial_speed();
+    double get_initial_endurance();
+    double get_initial_capacity();
+    
+    double get_base_strength();
+    double get_base_speed();
+    double get_base_endurance();
+    double get_base_capacity();
+    
+    void set_initial_strength();
+    void set_initial_speed();
+    void set_initial_endurance();
+    void set_initial_capacity();
+
+    void set_base_strength();
+    void set_base_speed();
+    void set_base_endurance();
+    void set_base_capacity();
 
 };
 

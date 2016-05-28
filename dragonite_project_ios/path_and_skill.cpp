@@ -3,7 +3,7 @@
 //#include <iostream>
 //#include "dragons.h"
 
-void Dragon::Base_Stats_Multiplier::activate(Dragon *dragon) {
+void Base_Stats_Multiplier::activate(Dragon *dragon) {
     for (unsigned int i = 0; i < effect_rates.size(); ++i) {
         switch (affected_base_stats[i]) {
                 
@@ -37,7 +37,7 @@ void Dragon::Base_Stats_Multiplier::activate(Dragon *dragon) {
 }
 
 
-void Dragon::Base_Stats_Adder::activate(Dragon *dragon) {
+void Base_Stats_Adder::activate(Dragon *dragon) {
     for (unsigned int i = 0; i < effect_values.size(); ++i) {
         switch (affected_base_stats[i]) {
                 

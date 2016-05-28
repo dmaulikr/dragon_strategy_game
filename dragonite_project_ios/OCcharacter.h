@@ -10,7 +10,7 @@
 
 enum OCCharacterGender {OCCharacterfemale, OCCharactermale};
 
-@interface OCcharacter : NSObject
+@interface OCCharacter : NSObject
 
 -(id) initCharacterWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in
                   withLevel:(int) level_in;

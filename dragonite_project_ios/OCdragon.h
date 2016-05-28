@@ -11,7 +11,7 @@
 enum OCDragonGender {OCDragonfemale, OCDragonmale};
 enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
-@interface OCdragon : NSObject
+@interface OCDragon : NSObject
 
 
 //Constructor that initializes everything with certain values without default arguments
@@ -34,7 +34,7 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
 -(void)levelUp;
 
--(void)gainExperienceOf:(int) exp_gained;
+-(void)gainExperience:(int) exp_gained;
 
 -(void)spendEnergy:(double) energy_spent;
 
