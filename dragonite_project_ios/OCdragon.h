@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+//deneme
+
 enum OCDragonGender {OCDragonfemale, OCDragonmale};
 enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
