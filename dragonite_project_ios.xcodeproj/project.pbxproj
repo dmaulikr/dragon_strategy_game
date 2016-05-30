@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A921F2E51CF0D2E500D295B8 /* OCcharacter.mm in Sources */ = {isa = PBXBuildFile; fileRef = A921F2E41CF0D2E500D295B8 /* OCcharacter.mm */; };
-		A921F2E81CF0E10A00D295B8 /* OCplayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A921F2E71CF0E10A00D295B8 /* OCplayer.mm */; };
+		A921F2E51CF0D2E500D295B8 /* OCCharacter.mm in Sources */ = {isa = PBXBuildFile; fileRef = A921F2E41CF0D2E500D295B8 /* OCCharacter.mm */; };
+		A921F2E81CF0E10A00D295B8 /* OCPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A921F2E71CF0E10A00D295B8 /* OCPlayer.mm */; };
 		A92F4DDC1CEF50BE00BB7FC1 /* Base_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DDB1CEF50BE00BB7FC1 /* Base_ViewController.m */; };
 		A92F4DDE1CEF538100BB7FC1 /* pokemon_dp_map.png in Resources */ = {isa = PBXBuildFile; fileRef = A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */; };
 		A92F4DF11CEFAEFA00BB7FC1 /* archive.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DDF1CEFAEFA00BB7FC1 /* archive.cpp */; };
@@ -19,7 +19,8 @@
 		A92F4DF71CEFAEFA00BB7FC1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DEB1CEFAEFA00BB7FC1 /* player.cpp */; };
 		A92F4DF81CEFAEFA00BB7FC1 /* quest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DED1CEFAEFA00BB7FC1 /* quest.cpp */; };
 		A92F4DF91CEFAEFA00BB7FC1 /* region.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DEF1CEFAEFA00BB7FC1 /* region.cpp */; };
-		A92F4DFC1CEFB11F00BB7FC1 /* OCdragon.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DFB1CEFB11F00BB7FC1 /* OCdragon.mm */; };
+		A92F4DFC1CEFB11F00BB7FC1 /* OCDragon.mm in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DFB1CEFB11F00BB7FC1 /* OCDragon.mm */; };
+		A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */; };
 		A98D60131CEE648E008F4AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60121CEE648E008F4AE7 /* main.m */; };
 		A98D60161CEE648E008F4AE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60151CEE648E008F4AE7 /* AppDelegate.m */; };
 		A98D601C1CEE648E008F4AE7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A98D601A1CEE648E008F4AE7 /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 		A98D60461CEE6D29008F4AE7 /* Map_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60451CEE6D29008F4AE7 /* Map_ViewController.m */; };
 		A98D60491CEE6E14008F4AE7 /* Settings_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60481CEE6E14008F4AE7 /* Settings_ViewController.m */; };
 		A98D604C1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */; };
+		A9E2EC871CFA7C2A0003F433 /* OCskill.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EC861CFA7C2A0003F433 /* OCskill.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,10 +52,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		A921F2E31CF0D2E500D295B8 /* OCcharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCcharacter.h; sourceTree = "<group>"; };
-		A921F2E41CF0D2E500D295B8 /* OCcharacter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCcharacter.mm; sourceTree = "<group>"; };
-		A921F2E61CF0E10A00D295B8 /* OCplayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCplayer.h; sourceTree = "<group>"; };
-		A921F2E71CF0E10A00D295B8 /* OCplayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCplayer.mm; sourceTree = "<group>"; };
+		A921F2E31CF0D2E500D295B8 /* OCCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCCharacter.h; sourceTree = "<group>"; };
+		A921F2E41CF0D2E500D295B8 /* OCCharacter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCCharacter.mm; sourceTree = "<group>"; };
+		A921F2E61CF0E10A00D295B8 /* OCPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCPlayer.h; sourceTree = "<group>"; };
+		A921F2E71CF0E10A00D295B8 /* OCPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCPlayer.mm; sourceTree = "<group>"; };
 		A92F4DDA1CEF50BE00BB7FC1 /* Base_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base_ViewController.h; sourceTree = "<group>"; };
 		A92F4DDB1CEF50BE00BB7FC1 /* Base_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base_ViewController.m; sourceTree = "<group>"; };
 		A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemon_dp_map.png; sourceTree = "<group>"; };
@@ -74,8 +76,10 @@
 		A92F4DEE1CEFAEFA00BB7FC1 /* quest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quest.h; sourceTree = "<group>"; };
 		A92F4DEF1CEFAEFA00BB7FC1 /* region.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = region.cpp; sourceTree = "<group>"; };
 		A92F4DF01CEFAEFA00BB7FC1 /* region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = region.h; sourceTree = "<group>"; };
-		A92F4DFA1CEFB11F00BB7FC1 /* OCdragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCdragon.h; sourceTree = "<group>"; };
-		A92F4DFB1CEFB11F00BB7FC1 /* OCdragon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCdragon.mm; sourceTree = "<group>"; };
+		A92F4DFA1CEFB11F00BB7FC1 /* OCDragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDragon.h; sourceTree = "<group>"; };
+		A92F4DFB1CEFB11F00BB7FC1 /* OCDragon.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCDragon.mm; sourceTree = "<group>"; };
+		A97B71871CFC6FA700192C32 /* OCMultiplierSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMultiplierSkill.h; sourceTree = "<group>"; };
+		A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMultiplierSkill.m; sourceTree = "<group>"; };
 		A98D600E1CEE648E008F4AE7 /* dragonite_project_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dragonite_project_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A98D60121CEE648E008F4AE7 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		A98D60141CEE648E008F4AE7 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 		A98D60481CEE6E14008F4AE7 /* Settings_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings_ViewController.m; sourceTree = "<group>"; };
 		A98D604A1CEE7C22008F4AE7 /* LoadingScreen_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScreen_ViewController.h; sourceTree = "<group>"; };
 		A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScreen_ViewController.m; sourceTree = "<group>"; };
+		A9E2EC851CFA7C2A0003F433 /* OCskill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCskill.h; sourceTree = "<group>"; };
+		A9E2EC861CFA7C2A0003F433 /* OCskill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCskill.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,16 +159,20 @@
 				A92F4DE31CEFAEFA00BB7FC1 /* building.h */,
 				A92F4DE41CEFAEFA00BB7FC1 /* character.cpp */,
 				A92F4DE51CEFAEFA00BB7FC1 /* character.h */,
-				A921F2E31CF0D2E500D295B8 /* OCcharacter.h */,
-				A921F2E41CF0D2E500D295B8 /* OCcharacter.mm */,
+				A921F2E31CF0D2E500D295B8 /* OCCharacter.h */,
+				A921F2E41CF0D2E500D295B8 /* OCCharacter.mm */,
 				A92F4DE61CEFAEFA00BB7FC1 /* dragon.cpp */,
 				A92F4DE71CEFAEFA00BB7FC1 /* dragon.h */,
-				A92F4DFA1CEFB11F00BB7FC1 /* OCdragon.h */,
-				A92F4DFB1CEFB11F00BB7FC1 /* OCdragon.mm */,
-				A921F2E61CF0E10A00D295B8 /* OCplayer.h */,
-				A921F2E71CF0E10A00D295B8 /* OCplayer.mm */,
+				A92F4DFA1CEFB11F00BB7FC1 /* OCDragon.h */,
+				A92F4DFB1CEFB11F00BB7FC1 /* OCDragon.mm */,
+				A921F2E61CF0E10A00D295B8 /* OCPlayer.h */,
+				A921F2E71CF0E10A00D295B8 /* OCPlayer.mm */,
 				A92F4DE91CEFAEFA00BB7FC1 /* path_and_skill.cpp */,
 				A92F4DEA1CEFAEFA00BB7FC1 /* path_and_skill.h */,
+				A9E2EC851CFA7C2A0003F433 /* OCskill.h */,
+				A9E2EC861CFA7C2A0003F433 /* OCskill.m */,
+				A97B71871CFC6FA700192C32 /* OCMultiplierSkill.h */,
+				A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */,
 				A92F4DEB1CEFAEFA00BB7FC1 /* player.cpp */,
 				A92F4DEC1CEFAEFA00BB7FC1 /* player.h */,
 				A92F4DED1CEFAEFA00BB7FC1 /* quest.cpp */,
@@ -349,16 +359,18 @@
 				A98D60491CEE6E14008F4AE7 /* Settings_ViewController.m in Sources */,
 				A98D60161CEE648E008F4AE7 /* AppDelegate.m in Sources */,
 				A98D604C1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m in Sources */,
+				A9E2EC871CFA7C2A0003F433 /* OCskill.m in Sources */,
 				A98D60131CEE648E008F4AE7 /* main.m in Sources */,
 				A92F4DF61CEFAEFA00BB7FC1 /* path_and_skill.cpp in Sources */,
 				A92F4DF81CEFAEFA00BB7FC1 /* quest.cpp in Sources */,
-				A921F2E81CF0E10A00D295B8 /* OCplayer.mm in Sources */,
+				A921F2E81CF0E10A00D295B8 /* OCPlayer.mm in Sources */,
+				A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */,
 				A92F4DF21CEFAEFA00BB7FC1 /* base.cpp in Sources */,
-				A921F2E51CF0D2E500D295B8 /* OCcharacter.mm in Sources */,
+				A921F2E51CF0D2E500D295B8 /* OCCharacter.mm in Sources */,
 				A92F4DF31CEFAEFA00BB7FC1 /* character.cpp in Sources */,
 				A92F4DF71CEFAEFA00BB7FC1 /* player.cpp in Sources */,
 				A92F4DF11CEFAEFA00BB7FC1 /* archive.cpp in Sources */,
-				A92F4DFC1CEFB11F00BB7FC1 /* OCdragon.mm in Sources */,
+				A92F4DFC1CEFB11F00BB7FC1 /* OCDragon.mm in Sources */,
 				A98D60461CEE6D29008F4AE7 /* Map_ViewController.m in Sources */,
 				A92F4DF41CEFAEFA00BB7FC1 /* dragon.cpp in Sources */,
 				A92F4DDC1CEF50BE00BB7FC1 /* Base_ViewController.m in Sources */,

@@ -132,15 +132,29 @@ public:
     double get_base_endurance();
     double get_base_capacity();
     
-    void set_initial_strength();
-    void set_initial_speed();
-    void set_initial_endurance();
-    void set_initial_capacity();
+    double get_effective_strength();
+    double get_effective_speed();
+    double get_effective_endurance();
+    double get_effective_capacity();
+    
+    void set_initial_strength(double val);
+    void set_initial_speed(double val);
+    void set_initial_endurance(double val);
+    void set_initial_capacity(double val);
 
-    void set_base_strength();
-    void set_base_speed();
-    void set_base_endurance();
-    void set_base_capacity();
+    void set_base_strength(double val);
+    void set_base_speed(double val);
+    void set_base_endurance(double val);
+    void set_base_capacity(double val);
+    
+    void set_effective_strength(double val);
+    void set_effective_speed(double val);
+    void set_effective_endurance(double val);
+    void set_effective_capacity(double val);
+    
+    void set_initial_stats(double strength_in, double speed_in, double endurance_in, double capacity_in);
+    void set_base_stats(double strength_in, double speed_in, double endurance_in, double capacity_in);
+    //void set_effective_stats(double strength_in, double speed_in, double endurance_in, double capacity_in);
 
 };
 

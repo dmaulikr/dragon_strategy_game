@@ -70,3 +70,120 @@ double Dragon::get_energy() {
     return energy;
 }
 
+
+double Dragon::get_initial_strength() {
+    return initial_stats.strength;
+}
+
+double Dragon::get_initial_speed() {
+    return initial_stats.speed;
+}
+
+double Dragon::get_initial_endurance() {
+    return initial_stats.endurance;
+}
+
+double Dragon::get_initial_capacity() {
+    return initial_stats.capacity;
+}
+
+
+double Dragon::get_base_strength() {
+    return base_stats.strength;
+}
+
+double Dragon::get_base_speed() {
+    return base_stats.speed;
+}
+
+double Dragon::get_base_endurance() {
+    return base_stats.endurance;
+}
+
+double Dragon::get_base_capacity() {
+    return base_stats.capacity;
+}
+
+
+double Dragon::get_effective_strength() {
+    return effective_stats.strength;
+}
+
+double Dragon::get_effective_speed() {
+    return effective_stats.speed;
+}
+
+double Dragon::get_effective_endurance() {
+    return effective_stats.endurance;
+}
+
+double Dragon::get_effective_capacity() {
+    return effective_stats.capacity;
+}
+
+
+void Dragon::set_initial_strength(double val) {
+    initial_stats.strength = val;
+}
+
+void Dragon::set_initial_speed(double val) {
+    initial_stats.speed = val;
+}
+
+void Dragon::set_initial_endurance(double val) {
+    initial_stats.endurance = val;
+}
+
+void Dragon::set_initial_capacity(double val) {
+    initial_stats.capacity = val;
+}
+
+
+void Dragon::set_base_strength(double val) {
+    base_stats.strength = val;
+}
+
+void Dragon::set_base_speed(double val) {
+    base_stats.speed = val;
+}
+
+void Dragon::set_base_endurance(double val) {
+    base_stats.endurance = val;
+}
+
+void Dragon::set_base_capacity(double val) {
+    base_stats.capacity = val;
+}
+
+
+void Dragon::set_effective_strength(double val) {
+    effective_stats.strength = val;
+}
+
+void Dragon::set_effective_speed(double val) {
+    effective_stats.speed = val;
+}
+
+void Dragon::set_effective_endurance(double val) {
+    effective_stats.endurance = val;
+}
+
+void Dragon::set_effective_capacity(double val) {
+    effective_stats.capacity = val;
+}
+
+
+void Dragon::set_initial_stats(double strength_in, double speed_in, double endurance_in, double capacity_in) {
+    initial_stats.strength = strength_in;
+    initial_stats.speed = speed_in;
+    initial_stats.endurance = endurance_in;
+    initial_stats.capacity = capacity_in;
+}
+
+void Dragon::set_base_stats(double strength_in, double speed_in, double endurance_in, double capacity_in) {
+    base_stats.strength = strength_in;
+    base_stats.speed = speed_in;
+    base_stats.endurance = endurance_in;
+    base_stats.capacity = capacity_in;
+}
+
