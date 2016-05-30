@@ -6,7 +6,7 @@
 //  Copyright © 2016 X. All rights reserved.
 //
 
-#import "OCcharacter.h"
+#import "OCCharacter.h"
 #import "character.h"
 
 @interface OCCharacter() {
