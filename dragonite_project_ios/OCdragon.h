@@ -7,16 +7,19 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCDragonQuestInfo.h"
 
 enum OCDragonGender {OCDragonfemale, OCDragonmale};
 enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
 @interface OCDragon : NSObject
 
+//add these to the constructors
 @property int availableStatPoints;
 @property int availableSkillPoints;
+@property int carriedGold;
 @property BOOL onQuest;
-//@propert
+@property OCDragonQuestInfo *questInfo;
 
 
 

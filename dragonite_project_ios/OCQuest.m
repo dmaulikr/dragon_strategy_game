@@ -10,4 +10,10 @@
 
 @implementation OCQuest
 
+-(void) doQuest:(OCDragon *) dragon and:(OCPlayer *) player {
+    if (/*calculate success*/ 1) {
+        
+    }
+}
+
 @end
