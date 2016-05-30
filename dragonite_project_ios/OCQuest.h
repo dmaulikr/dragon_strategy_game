@@ -7,7 +7,15 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCDragon.h"
 
 @interface OCQuest : NSObject
+
+@property NSString *name;
+@property NSString *explanation;
+@property double distanceFromBase;
+@property int difficultyLevel;
+@property int prizeGold;
+@property int prizeDragonExperience;
 
 @end

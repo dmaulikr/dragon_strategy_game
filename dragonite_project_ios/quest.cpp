@@ -13,9 +13,9 @@ required_player_level{required_player_level_in}, required_energy{required_energy
 prize(award_dragons_in, prize_gold_in, prize_player_experience_in, prize_dragon_experience_in) {}
 
 
-void Quest::do_quest(std::vector<Dragon*> dragons, Player *player) {
+/*void Quest::do_quest(std::vector<Dragon*> dragons, Player *player) {
     
-    if (/*figure out if success or not*/ 0) {
+    //if (figure out if success or not 0) {
         
     }
     
@@ -30,4 +30,4 @@ void Quest::do_quest(std::vector<Dragon*> dragons, Player *player) {
     
     
     
-}
+} */

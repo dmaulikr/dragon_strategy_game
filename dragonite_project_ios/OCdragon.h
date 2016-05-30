@@ -15,6 +15,9 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
 @property int availableStatPoints;
 @property int availableSkillPoints;
+@property BOOL onQuest;
+//@propert
+
 
 
 //Constructor that initializes everything with certain values without default arguments

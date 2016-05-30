@@ -62,7 +62,7 @@ public:
           int prize_player_experience_in, int prize_dragon_experience_in,
           std::vector<Dragon> award_dragons_in = std::vector<Dragon>() );
     
-    void do_quest(std::vector<Dragon*> dragons, Player *player); //pointing at the indices of the player dragon vector?
+    //void do_quest(std::vector<Dragon*> dragons, Player *player); //pointing at the indices of the player dragon vector?
     
 };
 
