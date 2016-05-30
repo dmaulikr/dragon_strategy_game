@@ -31,6 +31,7 @@
 		A9CAF44D1CFC855000D8C1E1 /* OCDragon.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF44A1CFC855000D8C1E1 /* OCDragon.mm */; };
 		A9CAF44E1CFC855000D8C1E1 /* OCPlayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF44C1CFC855000D8C1E1 /* OCPlayer.mm */; };
 		A9CAF4531CFC85A700D8C1E1 /* OCCharacter.mm in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF4521CFC85A700D8C1E1 /* OCCharacter.mm */; };
+		A9CAF4561CFC8B3B00D8C1E1 /* OCQuest.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF4551CFC8B3B00D8C1E1 /* OCQuest.m */; };
 		A9E2EC871CFA7C2A0003F433 /* OCskill.m in Sources */ = {isa = PBXBuildFile; fileRef = A9E2EC861CFA7C2A0003F433 /* OCskill.m */; };
 /* End PBXBuildFile section */
 
@@ -100,6 +101,8 @@
 		A9CAF44C1CFC855000D8C1E1 /* OCPlayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCPlayer.mm; sourceTree = "<group>"; };
 		A9CAF44F1CFC859800D8C1E1 /* OCCharacter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCCharacter.h; sourceTree = "<group>"; };
 		A9CAF4521CFC85A700D8C1E1 /* OCCharacter.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OCCharacter.mm; sourceTree = "<group>"; };
+		A9CAF4541CFC8B3B00D8C1E1 /* OCQuest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCQuest.h; sourceTree = "<group>"; };
+		A9CAF4551CFC8B3B00D8C1E1 /* OCQuest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCQuest.m; sourceTree = "<group>"; };
 		A9E2EC851CFA7C2A0003F433 /* OCskill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCskill.h; sourceTree = "<group>"; };
 		A9E2EC861CFA7C2A0003F433 /* OCskill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCskill.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -165,18 +168,20 @@
 				A9CAF44C1CFC855000D8C1E1 /* OCPlayer.mm */,
 				A9CAF44F1CFC859800D8C1E1 /* OCCharacter.h */,
 				A9CAF4521CFC85A700D8C1E1 /* OCCharacter.mm */,
-				A92F4DE61CEFAEFA00BB7FC1 /* dragon.cpp */,
-				A92F4DE71CEFAEFA00BB7FC1 /* dragon.h */,
-				A92F4DE91CEFAEFA00BB7FC1 /* path_and_skill.cpp */,
-				A92F4DEA1CEFAEFA00BB7FC1 /* path_and_skill.h */,
 				A9E2EC851CFA7C2A0003F433 /* OCskill.h */,
 				A9E2EC861CFA7C2A0003F433 /* OCskill.m */,
 				A97B71871CFC6FA700192C32 /* OCMultiplierSkill.h */,
 				A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */,
+				A92F4DE61CEFAEFA00BB7FC1 /* dragon.cpp */,
+				A92F4DE71CEFAEFA00BB7FC1 /* dragon.h */,
+				A92F4DE91CEFAEFA00BB7FC1 /* path_and_skill.cpp */,
+				A92F4DEA1CEFAEFA00BB7FC1 /* path_and_skill.h */,
 				A92F4DEB1CEFAEFA00BB7FC1 /* player.cpp */,
 				A92F4DEC1CEFAEFA00BB7FC1 /* player.h */,
 				A92F4DED1CEFAEFA00BB7FC1 /* quest.cpp */,
 				A92F4DEE1CEFAEFA00BB7FC1 /* quest.h */,
+				A9CAF4541CFC8B3B00D8C1E1 /* OCQuest.h */,
+				A9CAF4551CFC8B3B00D8C1E1 /* OCQuest.m */,
 				A92F4DEF1CEFAEFA00BB7FC1 /* region.cpp */,
 				A92F4DF01CEFAEFA00BB7FC1 /* region.h */,
 				A98D60141CEE648E008F4AE7 /* AppDelegate.h */,
@@ -372,6 +377,7 @@
 				A92F4DF11CEFAEFA00BB7FC1 /* archive.cpp in Sources */,
 				A98D60461CEE6D29008F4AE7 /* Map_ViewController.m in Sources */,
 				A92F4DF41CEFAEFA00BB7FC1 /* dragon.cpp in Sources */,
+				A9CAF4561CFC8B3B00D8C1E1 /* OCQuest.m in Sources */,
 				A92F4DDC1CEF50BE00BB7FC1 /* Base_ViewController.m in Sources */,
 				A9CAF44D1CFC855000D8C1E1 /* OCDragon.mm in Sources */,
 				A92F4DF91CEFAEFA00BB7FC1 /* region.cpp in Sources */,
