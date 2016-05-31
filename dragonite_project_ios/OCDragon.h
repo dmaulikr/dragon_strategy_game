@@ -17,7 +17,7 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 //add these to the constructors
 @property int availableStatPoints;
 @property int availableSkillPoints;
-@property int carriedGold;
+//@property int carriedGold;
 @property BOOL onQuest;
 @property OCDragonQuestInfo *questInfo;
 
@@ -84,5 +84,8 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 -(void) setInitialStatswithStrength:(double) strength_in withSpeed:(double) speed_in withEndurance:(double) endurance_in withCapacity:(double) capacity_in;
 
 -(void) setBaseStatswithStrength:(double) strength_in withSpeed:(double) speed_in withEndurance:(double) endurance_in withCapacity:(double) capacity_in;
+
+-(int) maxGoldThatCanBeCarried;
+-(int) level;
 
 @end

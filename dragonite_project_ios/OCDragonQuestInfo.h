@@ -11,6 +11,7 @@
 @interface OCDragonQuestInfo : NSObject
 
 @property NSDate *startDate;
+@property NSDate *endDate;
 @property int regionNo; //index
 @property int questNo; //index
 

@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OCDragon.h"
 #import "OCPlayer.h"
+#import <math.h>
 
 @interface OCQuest : NSObject
 
@@ -20,5 +21,7 @@
 @property int prizeDragonExperience;
 
 -(void) doQuest:(OCDragon *) dragon and:(OCPlayer *) player;
+-(int) successRate0To100:(OCDragon *) dragon;
+-(double) successRate0To1:(OCDragon *)dragon;
 
 @end

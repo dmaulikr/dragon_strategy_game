@@ -121,6 +121,7 @@ public:
     void increase_energy(double energy_gained);
     
     double get_energy();
+    int get_level();
     
     double get_initial_strength();
     double get_initial_speed();
@@ -155,6 +156,8 @@ public:
     void set_initial_stats(double strength_in, double speed_in, double endurance_in, double capacity_in);
     void set_base_stats(double strength_in, double speed_in, double endurance_in, double capacity_in);
     //void set_effective_stats(double strength_in, double speed_in, double endurance_in, double capacity_in);
+    
+    int max_gold_that_can_be_carried();
 
 };
 

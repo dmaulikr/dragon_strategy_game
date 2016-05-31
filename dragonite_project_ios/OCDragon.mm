@@ -210,4 +210,12 @@
     dragon->set_base_stats(strength_in, speed_in, endurance_in, capacity_in);
 }
 
+-(int) maxGoldThatCanBeCarried {
+    return dragon->max_gold_that_can_be_carried();
+}
+
+-(int) level {
+    return dragon->get_level();
+}
+
 @end

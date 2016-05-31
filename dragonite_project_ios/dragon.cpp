@@ -70,6 +70,10 @@ double Dragon::get_energy() {
     return energy;
 }
 
+int Dragon::get_level() {
+    return level;
+}
+
 
 double Dragon::get_initial_strength() {
     return initial_stats.strength;
@@ -185,5 +189,10 @@ void Dragon::set_base_stats(double strength_in, double speed_in, double enduranc
     base_stats.speed = speed_in;
     base_stats.endurance = endurance_in;
     base_stats.capacity = capacity_in;
+}
+
+int Dragon::max_gold_that_can_be_carried() {
+    //Fix this
+    return 0;
 }
 

@@ -17,6 +17,7 @@
 		A92F4DF71CEFAEFA00BB7FC1 /* player.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DEB1CEFAEFA00BB7FC1 /* player.cpp */; };
 		A92F4DF81CEFAEFA00BB7FC1 /* quest.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DED1CEFAEFA00BB7FC1 /* quest.cpp */; };
 		A92F4DF91CEFAEFA00BB7FC1 /* region.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DEF1CEFAEFA00BB7FC1 /* region.cpp */; };
+		A93522EC1CFD08CB00A36F98 /* OCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A93522EB1CFD08CB00A36F98 /* OCRegion.m */; };
 		A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */; };
 		A98D60131CEE648E008F4AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60121CEE648E008F4AE7 /* main.m */; };
 		A98D60161CEE648E008F4AE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60151CEE648E008F4AE7 /* AppDelegate.m */; };
@@ -74,6 +75,8 @@
 		A92F4DEE1CEFAEFA00BB7FC1 /* quest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = quest.h; sourceTree = "<group>"; };
 		A92F4DEF1CEFAEFA00BB7FC1 /* region.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = region.cpp; sourceTree = "<group>"; };
 		A92F4DF01CEFAEFA00BB7FC1 /* region.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = region.h; sourceTree = "<group>"; };
+		A93522EA1CFD08CB00A36F98 /* OCRegion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRegion.h; sourceTree = "<group>"; };
+		A93522EB1CFD08CB00A36F98 /* OCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRegion.m; sourceTree = "<group>"; };
 		A97B71871CFC6FA700192C32 /* OCMultiplierSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMultiplierSkill.h; sourceTree = "<group>"; };
 		A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMultiplierSkill.m; sourceTree = "<group>"; };
 		A98D600E1CEE648E008F4AE7 /* dragonite_project_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dragonite_project_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -189,6 +192,8 @@
 				A92F4DEE1CEFAEFA00BB7FC1 /* quest.h */,
 				A92F4DEF1CEFAEFA00BB7FC1 /* region.cpp */,
 				A92F4DF01CEFAEFA00BB7FC1 /* region.h */,
+				A93522EA1CFD08CB00A36F98 /* OCRegion.h */,
+				A93522EB1CFD08CB00A36F98 /* OCRegion.m */,
 				A98D60141CEE648E008F4AE7 /* AppDelegate.h */,
 				A98D60151CEE648E008F4AE7 /* AppDelegate.m */,
 				A98D604A1CEE7C22008F4AE7 /* LoadingScreen_ViewController.h */,
@@ -375,6 +380,7 @@
 				A9E2EC871CFA7C2A0003F433 /* OCskill.m in Sources */,
 				A98D60131CEE648E008F4AE7 /* main.m in Sources */,
 				A92F4DF61CEFAEFA00BB7FC1 /* path_and_skill.cpp in Sources */,
+				A93522EC1CFD08CB00A36F98 /* OCRegion.m in Sources */,
 				A92F4DF81CEFAEFA00BB7FC1 /* quest.cpp in Sources */,
 				A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */,
 				A92F4DF21CEFAEFA00BB7FC1 /* base.cpp in Sources */,
