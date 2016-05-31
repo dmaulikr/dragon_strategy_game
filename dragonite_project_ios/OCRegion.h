@@ -12,11 +12,15 @@
 @interface OCRegion : NSObject
 
 @property NSString *name;
-@property NSString *imageName;
-@property NSMutableArray *questList;
+@property NSString *imageName; //might change this to some kind of a coordinate info
+@property NSMutableArray *questList; //includes quest objects inside
+@property NSMutableArray *buttonList;
 @property int distanceFromBase; //check tomorrow for double
+@property int regionNumber; //might need it to index
 @property BOOL explored;
 
+//-(void) init; Figure out what you need later
+-(void) generateQuestButtons:(NSMutableArray *) coordinates;
 -(void) setImageView:(UIImageView *) image;
 
 

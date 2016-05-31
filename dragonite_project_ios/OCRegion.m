@@ -10,4 +10,12 @@
 
 @implementation OCRegion
 
+-(void) generateQuestButtons:(NSMutableArray *) coordinates {
+    
+}
+
+-(void) setImageView:(UIImageView *) image {
+    
+}
+
 @end

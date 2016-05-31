@@ -10,15 +10,36 @@
 
 @implementation OCQuest
 
+-(id) initWithDistanceFromBase:(double) distance_in difficultyLevel:(int) level_in withDragonExperienceReward:(int) exp_in {
+    
+    self = [super init];
+    if (self) {
+        
+        self.distanceFromBase = distance_in;
+        self.difficultyLevel = level_in;
+        //self.goldReward = gold_in;
+        self.dragonExperienceReward = exp_in;
+        
+    }
+    return self;
+}
+
+
 -(void) doQuest:(OCDragon *) dragon and:(OCPlayer *) player {
+    
+    
+    //CUT DOWN ENERGY FROM DRAGON!!!!!!! don't forget
+    
     if ([self successful:dragon]) {
         
-        [dragon gainExperience:self.prizeDragonExperience];
+        int rewardGold = [self calculateGoldReward];
         
-        if (self.prizeGold > [dragon maxGoldThatCanBeCarried])
+        [dragon gainExperience:self.dragonExperienceReward];
+        
+        if (rewardGold > [dragon maxGoldThatCanBeCarried])
             [player earnGold:[dragon maxGoldThatCanBeCarried]];
         
-        else [player earnGold:self.prizeGold];
+        else [player earnGold:rewardGold];
     }
     
     else {
@@ -58,7 +79,11 @@
 }
 
 -(int) failedQuestExperience: (OCDragon *) dragon {
-    return self.prizeDragonExperience * [self successRate0To1:dragon] / 4;
+    return self.dragonExperienceReward * [self successRate0To1:dragon] / 4;
 }
 
+-(int) calculateGoldReward {
+    int centerVal = 150 * pow(1.2, self.difficultyLevel);
+    return (centerVal - centerVal/7) + arc4random_uniform(2*centerVal/7);
+}
 @end

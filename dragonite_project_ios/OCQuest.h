@@ -17,9 +17,10 @@
 @property NSString *explanation;
 @property double distanceFromBase;
 @property int difficultyLevel;
-@property int prizeGold;
-@property int prizeDragonExperience;
+//@property int goldReward;
+@property int dragonExperienceReward;
 
+-(id) initWithDistanceFromBase:(double) distance_in difficultyLevel:(int) level_in withDragonExperienceReward:(int) exp_in;
 -(void) doQuest:(OCDragon *) dragon and:(OCPlayer *) player;
 -(int) successRate0To100:(OCDragon *) dragon;
 -(double) successRate0To1:(OCDragon *)dragon;
