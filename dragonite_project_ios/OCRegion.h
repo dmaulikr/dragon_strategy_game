@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "OCQuest.h"
 
 @interface OCRegion : NSObject
 
@@ -19,10 +20,11 @@
 @property int regionNumber; //might need it to index
 @property BOOL explored;
 
-//-(void) init; Figure out what you need later
+//Figure out what you need later for the init
+-(id) initWithImageName:(NSString *) region_image_in withDistanceFromBase:(int) distance_in withRegionNo:(int) region_idx;
 -(void) generateQuestButtons:(NSMutableArray *) coordinates;
--(void) setView:(UIView *) view;
-//-(void) setImageView:(UIImageView *) image;
+-(void) setImageView:(UIImageView *) imageView;
+
 
 
 @end

@@ -28,5 +28,6 @@
 -(void) finishQuest:(OCDragon *) dragon and:(OCPlayer *) player;
 -(int) successRate0To100:(OCDragon *) dragon;
 -(double) successRate0To1:(OCDragon *)dragon;
+-(NSString *) questButtonImage;
 
 @end

@@ -35,6 +35,21 @@
     
     //NSLog(@"hey");
     
+    self.region = [[OCRegion alloc] initWithImageName:@"District 12" withDistanceFromBase:200 withRegionNo:0];
+    OCQuest *questPtr = [[OCQuest alloc] initWithDistanceFromBase:210 withDifficultyLevel:1 withRequiredDragonType:OCfire withDragonExperienceReward:5 atRegion:0 withIndex:0];
+    [self.region.questList addObject:questPtr];
+    self.region.imageName = @"pokemon_dp_map.png";
+    
+    self.RegionImageView.userInteractionEnabled = YES;
+    
+    
+    NSMutableArray *temp = [[NSMutableArray alloc] init];
+    [temp addObject:@11];[temp addObject:@11];
+    [self.region generateQuestButtons:temp];
+    [[self.region.buttonList objectAtIndex:0] setBackgroundColor:[UIColor redColor]];
+    
+    [self.region setImageView:self.RegionImageView];
+    
 }
 
 - (void)didReceiveMemoryWarning {

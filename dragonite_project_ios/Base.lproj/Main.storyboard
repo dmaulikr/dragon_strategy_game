@@ -140,6 +140,15 @@
                                     </button>
                                 </subviews>
                             </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jca-hR-q2i">
+                                <rect key="frame" x="512" y="37" width="199" height="184"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="o7c-Oh-yRM">
+                                        <rect key="frame" x="21" y="8" width="163" height="138"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -148,6 +157,8 @@
                     <connections>
                         <outlet property="Button" destination="NCy-Jk-uhF" id="2yH-1V-MnC"/>
                         <outlet property="ImageView" destination="a30-EV-kf8" id="pHy-qx-siM"/>
+                        <outlet property="RegionImageView" destination="o7c-Oh-yRM" id="CJl-2l-xyq"/>
+                        <outlet property="RegionView" destination="jca-hR-q2i" id="I2R-Ty-fxG"/>
                         <outlet property="ScrollView" destination="Q7W-DS-0kf" id="UKL-7J-whG"/>
                     </connections>
                 </viewController>
@@ -195,6 +206,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Qxf-y9-xnb"/>
-        <segue reference="3sk-tS-GBu"/>
+        <segue reference="sAJ-ba-PF1"/>
     </inferredMetricsTieBreakers>
 </document>
