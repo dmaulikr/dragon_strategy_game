@@ -19,6 +19,15 @@
     // Do any additional setup after loading the view.
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    /*button = [UIButton buttonWithType:UIButtonTypeCustom];
+    [button addTarget:self
+               action:@selector(aMethod:)
+     forControlEvents:UIControlEventTouchUpInside];
+    [button setTitle:@"Show View" forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor redColor];
+    button.frame = CGRectMake(80.0, 210.0, 160.0, 40.0);
+    [self.view addSubview:button]; */
 }
 
 - (void)didReceiveMemoryWarning {

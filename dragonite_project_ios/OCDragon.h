@@ -86,6 +86,13 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 -(void) setBaseStatswithStrength:(double) strength_in withSpeed:(double) speed_in withEndurance:(double) endurance_in withCapacity:(double) capacity_in;
 
 -(int) maxGoldThatCanBeCarried;
+
 -(int) level;
+
+-(void) goToQuestNumber:(int) quest_idx atRegion:(int) region_idx withDifficultyLevel:(int) quest_level;
+
+-(int) calculateLengthForQuestWithDifficulty:(int) quest_level;
+
+
 
 @end

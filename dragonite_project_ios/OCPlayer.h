@@ -12,8 +12,8 @@
 
 @interface OCPlayer : OCCharacter
 
-@property NSMutableArray *dragon_list; //Dragons that the player has
-@property double energy_regen_per_minute; //same for each one of the dragons
+@property NSMutableArray *dragonList; //Dragons that the player has
+@property double energyRegenPerMinute; //same for each one of the dragons
 
 -(id) initPlayerWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in;
 
@@ -34,5 +34,7 @@
 -(void) updateDragonEnergies;
 
 -(void) addNewDragon:(OCDragon *) new_dragon;
+
+-(void) releaseDragon:(OCDragon *) poor_dragon; //:(
 
 @end

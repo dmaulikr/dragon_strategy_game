@@ -15,6 +15,6 @@
 @property int regionNo; //index
 @property int questNo; //index
 
--(void) dragonGoesAt:(NSDate *) date_in to:(int) region_idx to:(int) quest_idx;
+-(void) dragonGoesAt:(NSDate *) start_date_in toQuest:(int) quest_idx atRegion:(int) region_idx andComesBackAt:(NSDate *) end_date_in;
 
 @end

@@ -10,22 +10,27 @@
 
 @implementation OCQuest
 
--(id) initWithDistanceFromBase:(double) distance_in difficultyLevel:(int) level_in withDragonExperienceReward:(int) exp_in {
+-(id) initWithDistanceFromBase:(double) distance_in withDifficultyLevel:(int) level_in withRequiredDragonType:(enum OCDragonType) type_in withDragonExperienceReward:(int) exp_in atRegion:(int) region_idx withIndex:(int) quest_idx {
     
     self = [super init];
     if (self) {
         
         self.distanceFromBase = distance_in;
         self.difficultyLevel = level_in;
-        //self.goldReward = gold_in;
+        self.requiredType = type_in;
         self.dragonExperienceReward = exp_in;
+        self.regionNo = region_idx;
+        self.index = quest_idx;
         
     }
     return self;
 }
 
+-(void) startQuest:(OCDragon *) dragon {
+    [dragon goToQuestNumber:self.index atRegion:self.regionNo withDifficultyLevel:self.difficultyLevel];
+}
 
--(void) doQuest:(OCDragon *) dragon and:(OCPlayer *) player {
+-(void) finishQuest:(OCDragon *) dragon and:(OCPlayer *) player {
     
     
     //CUT DOWN ENERGY FROM DRAGON!!!!!!! don't forget
@@ -49,6 +54,8 @@
         
         [dragon gainExperience:[self failedQuestExperience:dragon]];
     }
+    
+    dragon.onQuest = NO;
 }
 
 -(int) successRate0To100:(OCDragon *) dragon {
@@ -86,4 +93,14 @@
     int centerVal = 150 * pow(1.2, self.difficultyLevel);
     return (centerVal - centerVal/7) + arc4random_uniform(2*centerVal/7);
 }
+
+-(NSString *) questButtonImage {
+    if (self.requiredType == OCfire)
+        return @"fire_dragon.png";
+    else if (self.requiredType == OCwater)
+        return @"water_dragon.png";
+    else
+        return @"wind_dragon.png";
+}
+
 @end

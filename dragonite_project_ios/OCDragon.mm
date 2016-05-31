@@ -218,4 +218,20 @@
     return dragon->get_level();
 }
 
+-(void) goToQuestNumber:(int) quest_idx atRegion:(int) region_idx withDifficultyLevel:(int) quest_level {
+    
+    NSDate *current = [NSDate date];
+    NSTimeInterval questLength = [self calculateLengthForQuestWithDifficulty:quest_level];
+    NSDate *questEnd = [current initWithTimeIntervalSinceNow:questLength];
+    
+    [self.questInfo dragonGoesAt:current toQuest:quest_idx atRegion:region_idx andComesBackAt:questEnd];
+    
+    self.onQuest = YES;
+}
+
+-(int) calculateLengthForQuestWithDifficulty:(int) quest_level {
+    double questLengthWithoutBoost = 20 * pow(quest_level, 1.75);
+    return questLengthWithoutBoost * pow(0.9968, dragon->get_effective_speed());
+}
+
 @end

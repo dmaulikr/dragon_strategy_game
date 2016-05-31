@@ -21,7 +21,8 @@
 
 //-(void) init; Figure out what you need later
 -(void) generateQuestButtons:(NSMutableArray *) coordinates;
--(void) setImageView:(UIImageView *) image;
+-(void) setView:(UIView *) view;
+//-(void) setImageView:(UIImageView *) image;
 
 
 @end

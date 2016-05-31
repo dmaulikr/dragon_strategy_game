@@ -10,10 +10,11 @@
 
 @implementation OCDragonQuestInfo
 
--(void) dragonGoesAt:(NSDate *) date_in to:(int) region_idx to:(int) quest_idx {
-    self.startDate = [date_in copy];
-    self.regionNo = region_idx;
+-(void) dragonGoesAt:(NSDate *) start_date_in toQuest:(int) quest_idx atRegion:(int) region_idx andComesBackAt:(NSDate *) end_date_in {
+    self.startDate = [start_date_in copy];
     self.questNo = quest_idx;
+    self.regionNo = region_idx;
+    self.endDate = [end_date_in copy];
 }
 
 @end

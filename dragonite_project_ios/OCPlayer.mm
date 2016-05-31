@@ -56,11 +56,19 @@
 }
 
 -(void) updateDragonEnergies {
+    for (OCDragon *i in self.dragonList) {
+        [i increaseEnergy:self.energyRegenPerMinute];
+    }
+    
     player->update_dragon_energies();
 }
 
 -(void) addNewDragon:(OCDragon *) new_dragon {
-    //player->add_new_dragon([new_dragon getWrappedDragon]);
+    [self.dragonList addObject:new_dragon];
+}
+
+-(void) releaseDragon:(OCDragon *) poor_dragon {
+    [self.dragonList removeObject:poor_dragon];
 }
 
 @end
