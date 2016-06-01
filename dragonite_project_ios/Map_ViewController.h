@@ -19,10 +19,12 @@
 
 - (IBAction)IncreaseCountButton:(id)sender;
 
+@property (weak, nonatomic) IBOutlet UIScrollView *mapScrollView;
+@property (weak, nonatomic) IBOutlet UIImageView *mapImageView;
+//@property (weak, nonatomic) IBOutlet UIButton *button;
+@property (weak, nonatomic) IBOutlet UIView *regionView;
+@property (weak, nonatomic) IBOutlet UIImageView *regionImageView;
+
 @property (weak, nonatomic) IBOutlet UIButton *Button;
-@property (weak, nonatomic) IBOutlet UIScrollView *ScrollView;
-@property (weak, nonatomic) IBOutlet UIImageView *ImageView;
-@property (weak, nonatomic) IBOutlet UIView *RegionView;
-@property (weak, nonatomic) IBOutlet UIImageView *RegionImageView;
 
 @end

@@ -20,18 +20,19 @@
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UIImage* image = self.ImageView.image;
-    self.ImageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-    self.ScrollView.contentSize = image.size;
+    UIImage* image = self.mapImageView.image;
+    self.mapImageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+    self.mapScrollView.contentSize = image.size;
+    self.mapScrollView.contentSize=CGSizeMake(self.mapImageView.frame.size.width, self.mapImageView.frame.size.height); //qswdersdtytgefdw
+    self.mapScrollView.minimumZoomScale=1.0;
+    self.mapScrollView.maximumZoomScale=2.0;
     
-    self.ScrollView.minimumZoomScale=0.9;
-    self.ScrollView.maximumZoomScale=2.0;
-    self.ScrollView.delegate=self;
+    self.mapScrollView.delegate=self;
     
-    _ScrollView.delaysContentTouches = NO;
-    _ScrollView.canCancelContentTouches = NO;
+    _mapScrollView.delaysContentTouches = NO;
+    _mapScrollView.canCancelContentTouches = NO;
     
-    self.ScrollView.userInteractionEnabled = YES;
+    self.mapScrollView.userInteractionEnabled = YES;
     
     //NSLog(@"hey");
     
@@ -40,7 +41,7 @@
     [self.region.questList addObject:questPtr];
     self.region.imageName = @"pokemon_dp_map.png";
     
-    self.RegionImageView.userInteractionEnabled = YES;
+    self.regionImageView.userInteractionEnabled = YES;
     
     
     NSMutableArray *temp = [[NSMutableArray alloc] init];
@@ -48,7 +49,7 @@
     [self.region generateQuestButtons:temp];
     [[self.region.buttonList objectAtIndex:0] setBackgroundColor:[UIColor redColor]];
     
-    [self.region setImageView:self.RegionImageView];
+    [self.region setImageView:self.regionImageView];
     
 }
 
@@ -67,29 +68,33 @@
 }
 */
 
-/*- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(float)scale
+- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
 {
+    NSLog(@"hey");
     //[self manageImageOnScrollView];//here i managed the image's coordinates and zoom
     [self manageButtonCoordinatesWithRespectToImageWithScale:scale];
-    
+   
     NSLog(@"hey");
+    
 }
 
--(void)manageButtonCoordinatesWithRespectToImageWithScale:(float)scaleFactor
-{
+-(void)manageButtonCoordinatesWithRespectToImageWithScale:(float)scaleFactor {
     
     //initialButtonFrame is frame of button
+    float x = self.Button.frame.origin.x;
+    float xx = x*scaleFactor;
     self.Button.frame = CGRectMake((self.Button.frame.origin.x * scaleFactor),
                                    (self.Button.frame.origin.y * scaleFactor),
                                    self.Button.frame.size.width,
                                    self.Button.frame.size.height);
+    [self.Button setTitle:[[NSNumber numberWithFloat:xx] stringValue] forState:UIControlStateNormal];
     
-    [self.ScrollView addSubview:self.Button];// I removed the button from superview while zooming and later added with updated button coordinates which I got here
-} */
+    //[self.ScrollView addSubview:self.Button];// I removed the button from superview while zooming and later added with updated button coordinates which I got here
+}
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)ScrollView
 {
-    return self.ImageView;
+    return self.mapImageView;
 }
 
 - (IBAction)IncreaseCountButton:(id)sender {

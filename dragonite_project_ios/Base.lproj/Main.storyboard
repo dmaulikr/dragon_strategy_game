@@ -156,10 +156,10 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="Button" destination="NCy-Jk-uhF" id="2yH-1V-MnC"/>
-                        <outlet property="ImageView" destination="a30-EV-kf8" id="pHy-qx-siM"/>
-                        <outlet property="RegionImageView" destination="o7c-Oh-yRM" id="CJl-2l-xyq"/>
-                        <outlet property="RegionView" destination="jca-hR-q2i" id="I2R-Ty-fxG"/>
-                        <outlet property="ScrollView" destination="Q7W-DS-0kf" id="UKL-7J-whG"/>
+                        <outlet property="mapImageView" destination="a30-EV-kf8" id="nQk-6j-8dT"/>
+                        <outlet property="mapScrollView" destination="Q7W-DS-0kf" id="JGw-wb-nZY"/>
+                        <outlet property="regionImageView" destination="o7c-Oh-yRM" id="HvG-js-MAF"/>
+                        <outlet property="regionView" destination="jca-hR-q2i" id="rLk-wY-9xL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBJ-he-Am8" userLabel="First Responder" sceneMemberID="firstResponder"/>

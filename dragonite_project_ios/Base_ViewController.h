@@ -11,7 +11,6 @@
 
 @interface Base_ViewController : UIViewController {
     AppDelegate *appDelegate;
-    //UIButton *button; //delete
 }
 
 - (IBAction)IncreaseCountButton:(id)sender;
