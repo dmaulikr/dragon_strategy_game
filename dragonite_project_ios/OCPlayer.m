@@ -7,13 +7,6 @@
 //
 
 #import "OCplayer.h"
-#import "player.h"
-
-@interface OCPlayer() {
-    Player *player;
-}
-
-@end
 
 @implementation OCPlayer
 
@@ -21,46 +14,24 @@
     self = [super init];
     if (self)
     {
-        player = new Player(std::string([name_in UTF8String]), (Gender)gender_in);
-        if (!player) self = nil;
+        self.name = [name_in copy];
+        self.gender = gender_in;
     }
     return self;
 }
 
-- (void)dealloc {
-    delete player;
-}
-
--(int) getGold {
-    return player->get_gold();
-}
-
--(int) getExperience {
-    return player->get_experience();
-}
-
--(void) levelUp {
-    player->level_up();
-}
-
--(void) gainExperience:(int) exp_gained {
-    player->gain_experience(exp_gained);
-}
-
 -(void) earnGold:(int) gold_earned {
-    player->earn_gold(gold_earned);
+    self.gold += gold_earned;
 }
 
 -(void) spendGold:(int) gold_spent {
-    player->spend_gold(gold_spent);
+    self.gold -= gold_spent;
 }
 
 -(void) updateDragonEnergies {
     for (OCDragon *i in self.dragonList) {
         [i increaseEnergy:self.energyRegenPerMinute];
     }
-    
-    player->update_dragon_energies();
 }
 
 -(void) addNewDragon:(OCDragon *) new_dragon {
