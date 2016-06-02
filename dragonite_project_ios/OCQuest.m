@@ -22,6 +22,10 @@
         self.regionNo = region_idx;
         self.index = quest_idx;
         
+        self.counter = 0;
+        self.lastCounterUpdate = [NSDate date];
+        
+        
     }
     return self;
 }
@@ -45,6 +49,10 @@
             [player earnGold:[dragon maxGoldThatCanBeCarried]];
         
         else [player earnGold:rewardGold];
+        
+        if (self.counter < 8) self.counter += 1; //might wanna change 8
+        
+        if (self.counter == 1) self.lastCounterUpdate = [NSDate date];
     }
     
     else {
@@ -60,7 +68,7 @@
 
 -(int) successRate0To100:(OCDragon *) dragon {
     
-    double rate = 1 / 4.3 * pow((dragon.level + (dragon.effectiveStrength / 40) - self.difficultyLevel), (1/3)) + 0.5;
+    double rate = 1 / 4.3 * pow((dragon.level + (dragon.effectiveStats.strength / 40) - self.difficultyLevel), (1/3)) + 0.5;
     
     if (rate <= 0) return 0;
     else if (rate >= 1) return 100;
@@ -68,7 +76,7 @@
 }
 
 -(double) successRate0To1:(OCDragon *)dragon {
-    double rate = 1 / 4.3 * pow((dragon.level + (dragon.effectiveStrength / 40) - self.difficultyLevel), (1/3)) + 0.5;
+    double rate = 1 / 4.3 * pow((dragon.level + (dragon.effectiveStats.strength / 40) - self.difficultyLevel), (1/3)) + 0.5;
     
     if (rate <= 0) return 0;
     else if (rate >= 1) return 1;
@@ -91,7 +99,9 @@
 
 -(int) calculateGoldReward {
     int centerVal = 150 * pow(1.2, self.difficultyLevel);
-    return (centerVal - centerVal/7) + arc4random_uniform(2*centerVal/7);
+    
+    //might wanna change 0.8
+    return ((centerVal - centerVal/7) + arc4random_uniform(2*centerVal/7))*pow(0.8, self.counter);
 }
 
 -(NSString *) questButtonImage {
@@ -102,5 +112,20 @@
     else
         return @"wind_dragon.png";
 }
+
+-(NSTimeInterval) counterUpdateTimeInterval {
+    //fix this--calculate
+    return 0;
+}
+
+//does the check too
+-(void) checkAndUpdateCounter {
+    if (self.counter > 0 && ( [[NSDate date] compare:[NSDate dateWithTimeInterval:[self counterUpdateTimeInterval] sinceDate:self.lastCounterUpdate]] == NSOrderedDescending )) {
+        
+        self.counter -=1;
+        self.lastCounterUpdate = [NSDate date];
+    }
+}
+
 
 @end

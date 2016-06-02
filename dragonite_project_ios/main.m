@@ -13,16 +13,6 @@
 
 int main(int argc, char * argv[]) {
     @autoreleasepool {
-        OCDragon *Dranxia = [[OCDragon alloc] initRandomDragonWithName:@"Dranxia" withType:OCfire withGender:OCDragonfemale];
-        
-        OCCharacter *Bob = [[OCCharacter alloc] initCharacterWithName:@"Bob" withGender:OCCharactermale withLevel:1];
-        
-        NSLog(@"hey");
-        //[new_dragon levelUp];
-        
-        Dranxia = nil;
-        Bob = nil;
-        
         return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
     }
 }

@@ -15,11 +15,12 @@
 
 @property NSString *name;
 @property NSString *explanation;
+@property NSDate *lastCounterUpdate; //when was the last time we updated the counter
+@property int counter; //increment after each successful attempt
 @property int regionNo;
 @property int index; //object lives at which index of region's quest list
 @property double distanceFromBase;
 @property int difficultyLevel;
-//@property int goldReward;
 @property int dragonExperienceReward;
 @property enum OCDragonType requiredType;
 
@@ -29,5 +30,7 @@
 -(int) successRate0To100:(OCDragon *) dragon;
 -(double) successRate0To1:(OCDragon *)dragon;
 -(NSString *) questButtonImage;
+-(NSTimeInterval) counterUpdateTimeInterval;
+-(void) checkAndUpdateCounter;
 
 @end
