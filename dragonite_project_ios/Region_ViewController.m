@@ -18,6 +18,31 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    OCPlayer *player = [[OCPlayer alloc] init];
+    [player initPlayerWithName:@"Bob" withGender:OCCharactermale];
+    
+    OCDragon *dragon = [[OCDragon alloc] init];
+    
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.level = 3;
+    dragon.name = @"Khalimus";
+    [player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Zheltia";
+    [player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Jiekha";
+    [player addNewDragon:dragon];
+    dragon = nil;
+    
+    
+    
     
     self.region = [[OCRegion alloc] initWithImageName:@"District 12" withDistanceFromBase:200 withRegionNo:0];
     OCQuest *questPtr = [[OCQuest alloc] initWithDistanceFromBase:210 withDifficultyLevel:1 withRequiredDragonType:OCfire withDragonExperienceReward:5 atRegion:0 withIndex:0];
@@ -33,6 +58,11 @@
     [[self.region.buttonList objectAtIndex:0] setBackgroundColor:[UIColor redColor]];
     
     [self.region setImageView:self.regionImageView];
+    //[self.region placeButtonsOn:self.regionView];
+    
+    [questPtr setScrollView:self.dragonScrollView forDragons:player.dragonList];
+    
+    
     
 }
 

@@ -12,6 +12,7 @@
 		A93208851CFF4D12004DB9B7 /* OCDragonStats.m in Sources */ = {isa = PBXBuildFile; fileRef = A93208841CFF4D12004DB9B7 /* OCDragonStats.m */; };
 		A93522EC1CFD08CB00A36F98 /* OCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A93522EB1CFD08CB00A36F98 /* OCRegion.m */; };
 		A93A921A1CFFB1B3006FFBBC /* Region_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A93A92191CFFB1B3006FFBBC /* Region_ViewController.m */; };
+		A97915A51D00BFCC00F0951D /* dragon_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A97915A41D00BFCC00F0951D /* dragon_sample.jpg */; };
 		A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */; };
 		A98D60131CEE648E008F4AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60121CEE648E008F4AE7 /* main.m */; };
 		A98D60161CEE648E008F4AE7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60151CEE648E008F4AE7 /* AppDelegate.m */; };
@@ -58,6 +59,7 @@
 		A93522EB1CFD08CB00A36F98 /* OCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRegion.m; sourceTree = "<group>"; };
 		A93A92181CFFB1B3006FFBBC /* Region_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region_ViewController.h; sourceTree = "<group>"; };
 		A93A92191CFFB1B3006FFBBC /* Region_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region_ViewController.m; sourceTree = "<group>"; };
+		A97915A41D00BFCC00F0951D /* dragon_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dragon_sample.jpg; sourceTree = "<group>"; };
 		A97B71871CFC6FA700192C32 /* OCMultiplierSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMultiplierSkill.h; sourceTree = "<group>"; };
 		A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMultiplierSkill.m; sourceTree = "<group>"; };
 		A98D600E1CEE648E008F4AE7 /* dragonite_project_ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = dragonite_project_ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -185,6 +187,7 @@
 			isa = PBXGroup;
 			children = (
 				A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */,
+				A97915A41D00BFCC00F0951D /* dragon_sample.jpg */,
 				A98D60121CEE648E008F4AE7 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -312,6 +315,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A98D60211CEE648E008F4AE7 /* LaunchScreen.storyboard in Resources */,
+				A97915A51D00BFCC00F0951D /* dragon_sample.jpg in Resources */,
 				A98D601E1CEE648E008F4AE7 /* Assets.xcassets in Resources */,
 				A92F4DDE1CEF538100BB7FC1 /* pokemon_dp_map.png in Resources */,
 				A98D601C1CEE648E008F4AE7 /* Main.storyboard in Resources */,

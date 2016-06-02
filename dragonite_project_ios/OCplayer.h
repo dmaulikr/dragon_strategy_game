@@ -14,18 +14,9 @@
 
 @property NSMutableArray *dragonList; //Dragons that the player has
 @property double energyRegenPerMinute; //same for each one of the dragons
+@property int gold;
 
 -(id) initPlayerWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in;
-
--(void) dealloc;
-
--(int) getGold;
-
--(int) getExperience;
-
--(void) levelUp;
-
--(void) gainExperience:(int) exp_gained;
 
 -(void) earnGold:(int) gold_earned;
 

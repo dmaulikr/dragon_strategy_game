@@ -19,6 +19,10 @@
         self.name = [[NSString alloc] init];
         self.type = type_in;
         
+        self.initialStats = [[OCDragonStats alloc] init];
+        self.baseStats = [[OCDragonStats alloc] init];
+        self.effectiveStats = [[OCDragonStats alloc] init];
+        
         self.initialStats.strength = arc4random_uniform(range_in)+4;
         self.initialStats.speed = arc4random_uniform(range_in)+4;
         self.initialStats.endurance = arc4random_uniform(range_in)+4;

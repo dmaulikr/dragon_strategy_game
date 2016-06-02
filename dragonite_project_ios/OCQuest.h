@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 #import "OCDragon.h"
 #import "OCPlayer.h"
 #import <math.h>
@@ -32,5 +33,8 @@
 -(NSString *) questButtonImage;
 -(NSTimeInterval) counterUpdateTimeInterval;
 -(void) checkAndUpdateCounter;
+
+//For the region screen
+-(void) setScrollView:(UIScrollView *) scrollView forDragons:(NSMutableArray *) dragonList;
 
 @end

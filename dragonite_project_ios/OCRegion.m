@@ -31,8 +31,8 @@
     for (unsigned int i = 0; i < [coordinates count]; i+=2) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        /*[button addTarget:self
-                   action:@selector(aMethod:) forControlEvents:UIControlEventTouchUpInside]; */
+        [button addTarget:self
+                   action:@selector(loadQuest) forControlEvents:UIControlEventTouchUpInside];
         
         button.frame = CGRectMake([[coordinates objectAtIndex:i] doubleValue], [[coordinates objectAtIndex:i+1] doubleValue], 20, 20); //change size vals
         
@@ -49,11 +49,21 @@
     }
 }
 
+-(void) loadQuest {
+    NSLog(@"heyy");
+}
+
 -(void) setImageView:(UIImageView *) imageView {
     imageView.image = [UIImage imageNamed: self.imageName]; //might need to change this
     
     for (UIButton *button in self.buttonList) {
         [imageView addSubview:button];
+    }
+}
+
+-(void) placeButtonsOn:(UIView *) view {
+    for (UIButton *button in self.buttonList) {
+        [view addSubview:button];
     }
 }
 

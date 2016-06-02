@@ -128,4 +128,58 @@
 }
 
 
+-(void) setScrollView:(UIScrollView *) scrollView forDragons:(NSMutableArray *) dragonList {
+    //clear contents of the scrollview
+    [scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
+    
+    scrollView.pagingEnabled = YES;
+    
+    int buttonsAdded = 0;
+    
+    for (OCDragon *dragon in dragonList) {
+        if (!dragon.onQuest && dragon.type == self.requiredType) {
+            
+            //create the hidden button
+            UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+            [button addTarget:self
+                       action:@selector(selectDragon) forControlEvents:UIControlEventTouchUpInside];
+            button.frame = CGRectMake(buttonsAdded*160, 0, 160, scrollView.frame.size.height); //change size vals
+            
+            if (buttonsAdded %2 == 0) [button setBackgroundColor:[UIColor blueColor]];
+            else [button setBackgroundColor:[UIColor redColor]];
+            
+            [scrollView addSubview:button];
+            
+            //create imageview
+            UIImageView *imageView =[[UIImageView alloc] initWithFrame:CGRectMake(buttonsAdded*160, 0, 160, scrollView.frame.size.height*4/5)];
+            imageView.image=[UIImage imageNamed:@"dragon_sample.jpg"];
+            [scrollView addSubview:imageView];
+            
+            //create lvl label
+            UILabel *lvlLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonsAdded*160+120, 0, 40, scrollView.frame.size.height*1/5)];
+            [lvlLabel setBackgroundColor:[UIColor clearColor]];
+            [lvlLabel setText:[NSString stringWithFormat:@"%d", dragon.level]];
+            [scrollView addSubview:lvlLabel];
+            //[LvlLabel release];
+            
+            //create name label
+            UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonsAdded*160, scrollView.frame.size.height*4/5, 160, scrollView.frame.size.height/5)];
+            [nameLabel setBackgroundColor:[UIColor clearColor]];
+            [nameLabel setText:dragon.name];
+            [scrollView addSubview:nameLabel];
+            //[LvlLabel release];
+            
+            buttonsAdded += 1;
+        }
+        
+        scrollView.contentSize=CGSizeMake(160*buttonsAdded, scrollView.frame.size.height);
+    }
+    
+    
+}
+
+-(void) selectDragon {
+    NSLog(@"Dragon says sup");
+}
+
 @end

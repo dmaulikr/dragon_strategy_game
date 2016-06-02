@@ -12,6 +12,10 @@
 @interface Region_ViewController : UIViewController
 
 @property OCRegion *region;
+//@property OCPlayer *player;
 
+@property (strong, nonatomic) IBOutlet UIView *regionView;
 @property (weak, nonatomic) IBOutlet UIImageView *regionImageView;
+@property (weak, nonatomic) IBOutlet UIScrollView *dragonScrollView;
+
 @end

@@ -16,6 +16,8 @@
     {
         self.name = [name_in copy];
         self.gender = gender_in;
+        
+        self.dragonList = [[NSMutableArray alloc] init];
     }
     return self;
 }

@@ -7,7 +7,6 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <UIKit/UIKit.h>
 #import "OCQuest.h"
 
 @interface OCRegion : NSObject
@@ -24,6 +23,7 @@
 -(id) initWithImageName:(NSString *) region_image_in withDistanceFromBase:(int) distance_in withRegionNo:(int) region_idx;
 -(void) generateQuestButtons:(NSMutableArray *) coordinates;
 -(void) setImageView:(UIImageView *) imageView;
+-(void) placeButtonsOn:(UIView *) view;
 
 
 
