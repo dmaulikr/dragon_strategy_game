@@ -132,7 +132,7 @@
     //clear contents of the scrollview
     [scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    scrollView.pagingEnabled = YES;
+    //scrollView.pagingEnabled = YES;
     
     int buttonsAdded = 0;
     
@@ -159,6 +159,7 @@
             UILabel *lvlLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonsAdded*160+120, 0, 40, scrollView.frame.size.height*1/5)];
             [lvlLabel setBackgroundColor:[UIColor clearColor]];
             [lvlLabel setText:[NSString stringWithFormat:@"%d", dragon.level]];
+            lvlLabel.textAlignment = NSTextAlignmentCenter;
             [scrollView addSubview:lvlLabel];
             //[LvlLabel release];
             
@@ -166,13 +167,15 @@
             UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonsAdded*160, scrollView.frame.size.height*4/5, 160, scrollView.frame.size.height/5)];
             [nameLabel setBackgroundColor:[UIColor clearColor]];
             [nameLabel setText:dragon.name];
+            nameLabel.textAlignment = NSTextAlignmentCenter;
             [scrollView addSubview:nameLabel];
             //[LvlLabel release];
             
             buttonsAdded += 1;
         }
         
-        scrollView.contentSize=CGSizeMake(160*buttonsAdded, scrollView.frame.size.height);
+        scrollView.contentSize = CGSizeMake(160*buttonsAdded, scrollView.frame.size.height);
+        //[scrollView setContentOffset:CGPointMake(160,0)];
     }
     
     

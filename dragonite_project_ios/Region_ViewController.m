@@ -10,6 +10,8 @@
 
 @interface Region_ViewController ()
 
+//@property OCDragon *selectedDragon;
+
 @end
 
 @implementation Region_ViewController
@@ -41,6 +43,30 @@
     [player addNewDragon:dragon];
     dragon = nil;
     
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Mumu";
+    [player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Spitza";
+    [player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Ktaskia";
+    [player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Uud";
+    [player addNewDragon:dragon];
+    dragon = nil;
     
     
     
