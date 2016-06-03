@@ -31,8 +31,8 @@
     for (unsigned int i = 0; i < [coordinates count]; i+=2) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        [button addTarget:self
-                   action:@selector(loadQuest) forControlEvents:UIControlEventTouchUpInside];
+        /*[button addTarget:self
+                   action:@selector(loadQuest) forControlEvents:UIControlEventTouchUpInside]; */
         
         button.frame = CGRectMake([[coordinates objectAtIndex:i] doubleValue], [[coordinates objectAtIndex:i+1] doubleValue], 20, 20); //change size vals
         
@@ -49,7 +49,7 @@
     }
 }
 
--(void) loadQuest {
+/*-(void) loadQuest {
     NSLog(@"heyy");
 }
 
@@ -65,6 +65,6 @@
     for (UIButton *button in self.buttonList) {
         [view addSubview:button];
     }
-}
+} */
 
 @end

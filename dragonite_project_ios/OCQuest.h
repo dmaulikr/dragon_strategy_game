@@ -35,6 +35,6 @@
 -(void) checkAndUpdateCounter;
 
 //For the region screen
--(void) setScrollView:(UIScrollView *) scrollView forDragons:(NSMutableArray *) dragonList;
+//-(void) setScrollView:(UIScrollView *) scrollView forDragons:(NSMutableArray *) dragonList;
 
 @end

@@ -128,7 +128,7 @@
 }
 
 
--(void) setScrollView:(UIScrollView *) scrollView forDragons:(NSMutableArray *) dragonList {
+/*-(void) setScrollView:(UIScrollView *) scrollView forDragons:(NSMutableArray *) dragonList {
     //clear contents of the scrollview
     [scrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
@@ -183,6 +183,6 @@
 
 -(void) selectDragon {
     NSLog(@"Dragon says sup");
-}
+} */
 
 @end

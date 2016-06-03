@@ -11,6 +11,7 @@
 
 @interface Region_ViewController : UIViewController
 
+@property OCPlayer *player;
 @property OCRegion *region;
 //@property OCPlayer *player;
 

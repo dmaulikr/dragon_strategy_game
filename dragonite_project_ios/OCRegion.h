@@ -22,8 +22,8 @@
 //Figure out what you need later for the init
 -(id) initWithImageName:(NSString *) region_image_in withDistanceFromBase:(int) distance_in withRegionNo:(int) region_idx;
 -(void) generateQuestButtons:(NSMutableArray *) coordinates;
--(void) setImageView:(UIImageView *) imageView;
--(void) placeButtonsOn:(UIView *) view;
+//-(void) setImageView:(UIImageView *) imageView;
+//-(void) placeButtonsOn:(UIView *) view;
 
 
 
