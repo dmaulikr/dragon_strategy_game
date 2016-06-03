@@ -68,9 +68,9 @@
 
 -(int) successRate0To100:(OCDragon *) dragon {
     
-    double rate = 1 / 4.3 * pow((dragon.level + (dragon.effectiveStats.strength / 40) - self.difficultyLevel), (1/3)) + 0.5;
+    double rate = 1 / 4.3 * pow((dragon.level + (dragon.effectiveStats.strength / 40) - self.difficultyLevel), (1.0/3.0)) + 0.5;
     
-    if (rate <= 0) return 0;
+    if ( rate != rate || rate <= 0) return 0;
     else if (rate >= 1) return 100;
     else return rate*100;
 }

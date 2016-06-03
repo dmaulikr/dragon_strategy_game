@@ -21,23 +21,24 @@
         self.explored = NO;
         
         self.questList = [[NSMutableArray alloc] init];
-        self.buttonList = [[NSMutableArray alloc] init];
+        //self.buttonList = [[NSMutableArray alloc] init];
     }
     return self;
 }
 
--(void) generateQuestButtons:(NSMutableArray *) coordinates {
+/*-(void) generateQuestButtons:(NSMutableArray *) coordinates {
     
     for (unsigned int i = 0; i < [coordinates count]; i+=2) {
         
         UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
-        /*[button addTarget:self
-                   action:@selector(loadQuest) forControlEvents:UIControlEventTouchUpInside]; */
+        //[button addTarget:self
+          //         action:@selector(loadQuest) forControlEvents:UIControlEventTouchUpInside];
         
         button.frame = CGRectMake([[coordinates objectAtIndex:i] doubleValue], [[coordinates objectAtIndex:i+1] doubleValue], 20, 20); //change size vals
         
         //To make buttons round. Check if works with images!
         button.layer.cornerRadius = button.bounds.size.width/2;
+        button.tag = i/2;
         
         //[view addSubview:button];
         
@@ -47,7 +48,7 @@
         
         [self.buttonList addObject:button];
     }
-}
+} */
 
 /*-(void) loadQuest {
     NSLog(@"heyy");

@@ -13,6 +13,9 @@
 @property OCDragon *selectedDragon;
 @property OCQuest *selectedQuest;
 
+//@property NSMutableArray *questList; //includes quest objects inside
+@property NSMutableArray *buttonList;
+
 @end
 
 @implementation Region_ViewController
@@ -20,6 +23,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    //self.questList = [[NSMutableArray alloc] init];
+    self.buttonList = [[NSMutableArray alloc] init];
+    
+    self.questLengthTitle.hidden = YES;
+    self.questLengthVal.hidden = YES;
+    self.questSuccessChanceTitle.hidden = YES;
+    self.questSuccessChanceVal.hidden = YES;
+    self.dragonCapacityTitle.hidden = YES;
+    self.dragonCapacityVal.hidden = YES;
+    
+    self.startQuestButton.enabled = NO;
+    
+    
+    
+    
     
     self.player = [[OCPlayer alloc] init];
     [self.player initPlayerWithName:@"Bob" withGender:OCCharactermale];
@@ -33,7 +52,7 @@
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
     dragon.name = @"Zheltia";
     [self.player addNewDragon:dragon];
     dragon = nil;
@@ -41,6 +60,7 @@
     dragon = [[OCDragon alloc] init];
     [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
     dragon.name = @"Jiekha";
+    dragon.effectiveStats.strength = 500;
     [self.player addNewDragon:dragon];
     dragon = nil;
     
@@ -52,7 +72,7 @@
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
     dragon.name = @"Spitza";
     [self.player addNewDragon:dragon];
     dragon = nil;
@@ -64,8 +84,9 @@
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
     dragon.name = @"Uud";
+    dragon.effectiveStats.strength = 100;
     [self.player addNewDragon:dragon];
     dragon = nil;
     
@@ -74,20 +95,23 @@
     self.region = [[OCRegion alloc] initWithImageName:@"District 12" withDistanceFromBase:200 withRegionNo:0];
     OCQuest *questPtr = [[OCQuest alloc] initWithDistanceFromBase:210 withDifficultyLevel:1 withRequiredDragonType:OCfire withDragonExperienceReward:5 atRegion:0 withIndex:0];
     [self.region.questList addObject:questPtr];
+    OCQuest *questPtr2 = [[OCQuest alloc] initWithDistanceFromBase:500 withDifficultyLevel:10 withRequiredDragonType:OCwind withDragonExperienceReward:5 atRegion:0 withIndex:1];
+    [self.region.questList addObject:questPtr2];
     self.region.imageName = @"pokemon_dp_map.png";
     
-    self.regionImageView.userInteractionEnabled = YES;
+    
     
     
     NSMutableArray *temp = [[NSMutableArray alloc] init];
-    [temp addObject:@11];[temp addObject:@11];
-    [self.region generateQuestButtons:temp];
-    [[self.region.buttonList objectAtIndex:0] setBackgroundColor:[UIColor redColor]];
+    [temp addObject:@11];[temp addObject:@11]; [temp addObject:@30];[temp addObject:@23];
+    
+    self.regionImageView.userInteractionEnabled = YES;
+    [self generateQuestButtons:temp];
+    [[self.buttonList objectAtIndex:0] setBackgroundColor:[UIColor redColor]];
+    [[self.buttonList objectAtIndex:1] setBackgroundColor:[UIColor redColor]];
     
     [self setImageViewAndQuestButtons];
     //[self.region placeButtonsOn:self.regionView];
-    
-    [self setScrollViewForQuest:questPtr];
     
 }
 
@@ -106,18 +130,67 @@
 }
 */
 
+//creates the buttons but doesn't add them to the view
+-(void) generateQuestButtons:(NSMutableArray *) coordinates {
+    
+    for (unsigned int i = 0; i < [coordinates count]; i+=2) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+        [button addTarget:self
+                   action:@selector(loadQuest:) forControlEvents:UIControlEventTouchUpInside];
+        
+        button.frame = CGRectMake([[coordinates objectAtIndex:i] doubleValue], [[coordinates objectAtIndex:i+1] doubleValue], 20, 20); //change size vals
+        
+        //To make buttons round. Check if works with images!
+        button.layer.cornerRadius = button.bounds.size.width/2;
+        button.tag = i/2;
+        
+        //[view addSubview:button];
+        
+        OCQuest *questPtr = [self.region.questList objectAtIndex:i/2];
+        UIImage *buttonImage = [UIImage imageNamed:[questPtr questButtonImage]];
+        [button setImage:buttonImage forState:UIControlStateNormal];
+        
+        [self.buttonList addObject:button];
+    }
+}
+
 -(void) setImageViewAndQuestButtons {
     
     self.regionImageView.image = [UIImage imageNamed: self.region.imageName]; //might need to change this
     
-    for (UIButton *button in self.region.buttonList) {
-        [button addTarget:self
-                   action:@selector(loadQuest) forControlEvents:UIControlEventTouchUpInside];
+    for (UIButton *button in self.buttonList) {
+        /*[button addTarget:self
+                   action:@selector(loadQuest) forControlEvents:UIControlEventTouchUpInside]; */
         [self.regionImageView addSubview:button];
     }
 }
 
--(void) loadQuest {
+-(IBAction) loadQuest:(UIButton *) sender {
+    
+    //maybe prevent the user from pressing on the same quest and losing the selected dragon
+    //or maybe disable the quest button until another one is pressed
+    
+    self.questLengthVal.text = @"";
+    self.questSuccessChanceVal.text = @"";
+    self.dragonCapacityVal.text = @"";
+    self.startQuestButton.enabled = NO;
+    
+    if (self.selectedQuest == nil) {
+        self.noQuestsSelectedTitle.hidden = YES;
+        self.questLengthTitle.hidden = NO;
+        self.questLengthVal.hidden = NO;
+        self.questSuccessChanceTitle.hidden = NO;
+        self.questSuccessChanceVal.hidden = NO;
+        self.dragonCapacityTitle.hidden = NO;
+        self.dragonCapacityVal.hidden = NO;
+    }
+    
+    self.selectedQuest = [self.region.questList objectAtIndex:sender.tag];
+    [self setScrollViewForQuest:self.selectedQuest];
+    self.selectedDragon = nil;
+    
+    
     NSLog(@"QuestLoaded");
 }
 
@@ -136,7 +209,7 @@
             //create the hidden button
             UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
             [button addTarget:self
-                       action:@selector(selectDragon) forControlEvents:UIControlEventTouchUpInside];
+                       action:@selector(selectDragon:) forControlEvents:UIControlEventTouchUpInside];
             button.frame = CGRectMake(buttonsAdded*160, 0, 160, self.dragonScrollView.frame.size.height); //change size vals
             button.tag = dragonIndex;
             
@@ -178,12 +251,20 @@
     
 }
 
--(void) selectDragon {
+-(IBAction) selectDragon:(UIButton *) sender {
     
-    //self.selectedDragon = [self.player.dragonList objectAtIndex:sender.tag];
+    self.selectedDragon = [self.player.dragonList objectAtIndex:sender.tag];
     
-    NSLog(@"Dragon says sup");
+    self.questLengthVal.text = [NSString stringWithFormat:@"%d", [self.selectedDragon calculateLengthForQuestWithDifficulty:self.selectedQuest.difficultyLevel]];
+    self.questSuccessChanceVal.text = [NSString stringWithFormat:@"%d%%", [self.selectedQuest successRate0To100:self.selectedDragon]];
+    self.dragonCapacityVal.text = [NSString stringWithFormat:@"%d", [self.selectedDragon maxGoldThatCanBeCarried]];
+    
+    self.startQuestButton.enabled = YES;
+    
+    NSLog(@"%@ says sup", self.selectedDragon.name);
 }
 
 
+- (IBAction)startQuest:(id)sender {
+}
 @end
