@@ -12,6 +12,8 @@
 		A93208851CFF4D12004DB9B7 /* OCDragonStats.m in Sources */ = {isa = PBXBuildFile; fileRef = A93208841CFF4D12004DB9B7 /* OCDragonStats.m */; };
 		A93522EC1CFD08CB00A36F98 /* OCRegion.m in Sources */ = {isa = PBXBuildFile; fileRef = A93522EB1CFD08CB00A36F98 /* OCRegion.m */; };
 		A93A921A1CFFB1B3006FFBBC /* Region_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A93A92191CFFB1B3006FFBBC /* Region_ViewController.m */; };
+		A978B6AF1D03B26B004311FC /* OCBuilding.m in Sources */ = {isa = PBXBuildFile; fileRef = A978B6AE1D03B26B004311FC /* OCBuilding.m */; };
+		A978B6B21D03B90C004311FC /* OCBase.m in Sources */ = {isa = PBXBuildFile; fileRef = A978B6B11D03B90C004311FC /* OCBase.m */; };
 		A97915A51D00BFCC00F0951D /* dragon_sample.jpg in Resources */ = {isa = PBXBuildFile; fileRef = A97915A41D00BFCC00F0951D /* dragon_sample.jpg */; };
 		A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */ = {isa = PBXBuildFile; fileRef = A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */; };
 		A98D60131CEE648E008F4AE7 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60121CEE648E008F4AE7 /* main.m */; };
@@ -59,6 +61,10 @@
 		A93522EB1CFD08CB00A36F98 /* OCRegion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRegion.m; sourceTree = "<group>"; };
 		A93A92181CFFB1B3006FFBBC /* Region_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Region_ViewController.h; sourceTree = "<group>"; };
 		A93A92191CFFB1B3006FFBBC /* Region_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Region_ViewController.m; sourceTree = "<group>"; };
+		A978B6AD1D03B26B004311FC /* OCBuilding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBuilding.h; sourceTree = "<group>"; };
+		A978B6AE1D03B26B004311FC /* OCBuilding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBuilding.m; sourceTree = "<group>"; };
+		A978B6B01D03B90C004311FC /* OCBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCBase.h; sourceTree = "<group>"; };
+		A978B6B11D03B90C004311FC /* OCBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCBase.m; sourceTree = "<group>"; };
 		A97915A41D00BFCC00F0951D /* dragon_sample.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dragon_sample.jpg; sourceTree = "<group>"; };
 		A97B71871CFC6FA700192C32 /* OCMultiplierSkill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCMultiplierSkill.h; sourceTree = "<group>"; };
 		A97B71881CFC6FA800192C32 /* OCMultiplierSkill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCMultiplierSkill.m; sourceTree = "<group>"; };
@@ -163,6 +169,10 @@
 				A93522EA1CFD08CB00A36F98 /* OCRegion.h */,
 				A93522EB1CFD08CB00A36F98 /* OCRegion.m */,
 				A98D60141CEE648E008F4AE7 /* AppDelegate.h */,
+				A978B6AD1D03B26B004311FC /* OCBuilding.h */,
+				A978B6B01D03B90C004311FC /* OCBase.h */,
+				A978B6B11D03B90C004311FC /* OCBase.m */,
+				A978B6AE1D03B26B004311FC /* OCBuilding.m */,
 				A98D60151CEE648E008F4AE7 /* AppDelegate.m */,
 				A98D604A1CEE7C22008F4AE7 /* LoadingScreen_ViewController.h */,
 				A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */,
@@ -347,6 +357,7 @@
 				A9CAF4531CFC85A700D8C1E1 /* OCCharacter.m in Sources */,
 				A98D60491CEE6E14008F4AE7 /* Settings_ViewController.m in Sources */,
 				A9CAF4591CFC91C400D8C1E1 /* OCDragonQuestInfo.m in Sources */,
+				A978B6B21D03B90C004311FC /* OCBase.m in Sources */,
 				A93A921A1CFFB1B3006FFBBC /* Region_ViewController.m in Sources */,
 				A98D60161CEE648E008F4AE7 /* AppDelegate.m in Sources */,
 				A98D604C1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m in Sources */,
@@ -356,6 +367,7 @@
 				A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */,
 				A93208851CFF4D12004DB9B7 /* OCDragonStats.m in Sources */,
 				A98D60461CEE6D29008F4AE7 /* Map_ViewController.m in Sources */,
+				A978B6AF1D03B26B004311FC /* OCBuilding.m in Sources */,
 				A9CAF4561CFC8B3B00D8C1E1 /* OCQuest.m in Sources */,
 				A92F4DDC1CEF50BE00BB7FC1 /* Base_ViewController.m in Sources */,
 				A9CAF44D1CFC855000D8C1E1 /* OCDragon.m in Sources */,

@@ -14,6 +14,9 @@
 
 @property NSMutableArray *dragonList; //Dragons that the player has
 @property double energyRegenPerMinute; //same for each one of the dragons
+@property int maxBuildingLevel; //current lvl of main building
+@property int maxGold; //depends on the treasury
+@property int maxDragonCount; //depends on dragons' den
 @property int gold;
 
 -(id) initPlayerWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in;
