@@ -35,8 +35,4 @@
 }
 */
 
-
-- (IBAction)IncreaseCountButton:(id)sender {
-    ++appDelegate->count;
-}
 @end

@@ -18,6 +18,7 @@
         self.gender = gender_in;
         
         self.dragonList = [[NSMutableArray alloc] init];
+        self.lastEnergyUpdateDate = [NSDate date]; //should I keep it this way?
     }
     return self;
 }
@@ -34,6 +35,7 @@
     for (OCDragon *i in self.dragonList) {
         [i increaseEnergy:self.energyRegenPerMinute];
     }
+    self.lastEnergyUpdateDate = [NSDate date];
 }
 
 -(void) addNewDragon:(OCDragon *) new_dragon {

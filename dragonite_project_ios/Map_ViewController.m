@@ -91,7 +91,4 @@
     [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, scrollView.contentOffset.y) animated:NO];
 } */
 
-- (IBAction)IncreaseCountButton:(id)sender {
-    ++appDelegate->count;
-}
 @end

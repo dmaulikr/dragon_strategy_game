@@ -65,13 +65,6 @@
                                     <segue destination="oNf-Hx-qnz" kind="show" id="3sk-tS-GBu"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnX-fN-A4y">
-                                <rect key="frame" x="345" y="137" width="46" height="30"/>
-                                <state key="normal" title="++"/>
-                                <connections>
-                                    <action selector="IncreaseCountButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ppo-z0-248"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -111,13 +104,6 @@
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <segue destination="oNf-Hx-qnz" kind="show" id="sAJ-ba-PF1"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JuH-QO-r0u">
-                                <rect key="frame" x="496" y="364" width="46" height="30"/>
-                                <state key="normal" title="++"/>
-                                <connections>
-                                    <action selector="IncreaseCountButton:" destination="DvJ-gu-T5R" eventType="touchUpInside" id="fEa-Wd-dJ8"/>
                                 </connections>
                             </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7W-DS-0kf">

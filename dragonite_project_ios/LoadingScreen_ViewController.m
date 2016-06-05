@@ -20,7 +20,28 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
-    appDelegate->count = 0;
+    appDelegate.mainTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
+}
+
+-(void) timerCheck {
+    
+    
+    //quest end check
+    for (OCDragon *dragon in appDelegate.player.dragonList) {
+        if ( dragon.onQuest && ([[NSDate date] compare:dragon.questInfo.endDate] == NSOrderedDescending)) {
+            OCRegion *region = [appDelegate.regionList objectAtIndex:dragon.questInfo.regionNo];
+            OCQuest *quest = [region.questList objectAtIndex:dragon.questInfo.questNo];
+            [quest finishQuest:dragon and:appDelegate.player];
+        }
+    }
+    
+    
+    //dragon energy regen
+    if (([[NSDate date] compare:[NSDate dateWithTimeInterval:60 sinceDate:appDelegate.player.lastEnergyUpdateDate]] == NSOrderedDescending)) {
+        [appDelegate.player updateDragonEnergies];
+    }
+    
+    NSLog(@"time...");
 }
 
 - (void)didReceiveMemoryWarning {
