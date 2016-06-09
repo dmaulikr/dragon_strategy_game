@@ -7,11 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "OCRegion.h"
+#import "AppDelegate.h"
+//#import "OCRegion.h"
 
-@interface Region_ViewController : UIViewController
+@interface Region_ViewController : UIViewController {
+    AppDelegate *appDelegate;
+}
 
-@property OCPlayer *player;
+//@property OCPlayer *player;
 @property OCRegion *region;
 //@property OCPlayer *player;
 

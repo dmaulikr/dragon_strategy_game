@@ -13,7 +13,7 @@
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     //@public int count;
-    int prev_screen_for_setting;
+    //int prev_screen_for_setting;
 }
 
 @property (strong, nonatomic) UIWindow *window;

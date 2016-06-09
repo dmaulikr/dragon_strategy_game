@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91267F31D07598E00CC24C7 /* DragonList_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A91267F21D07598E00CC24C7 /* DragonList_ViewController.m */; };
 		A92F4DDC1CEF50BE00BB7FC1 /* Base_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A92F4DDB1CEF50BE00BB7FC1 /* Base_ViewController.m */; };
 		A92F4DDE1CEF538100BB7FC1 /* pokemon_dp_map.png in Resources */ = {isa = PBXBuildFile; fileRef = A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */; };
 		A93208851CFF4D12004DB9B7 /* OCDragonStats.m in Sources */ = {isa = PBXBuildFile; fileRef = A93208841CFF4D12004DB9B7 /* OCDragonStats.m */; };
@@ -52,6 +53,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A91267F11D07598E00CC24C7 /* DragonList_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DragonList_ViewController.h; sourceTree = "<group>"; };
+		A91267F21D07598E00CC24C7 /* DragonList_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DragonList_ViewController.m; sourceTree = "<group>"; };
 		A92F4DDA1CEF50BE00BB7FC1 /* Base_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Base_ViewController.h; sourceTree = "<group>"; };
 		A92F4DDB1CEF50BE00BB7FC1 /* Base_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Base_ViewController.m; sourceTree = "<group>"; };
 		A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = pokemon_dp_map.png; sourceTree = "<group>"; };
@@ -168,12 +171,12 @@
 				A9CAF4551CFC8B3B00D8C1E1 /* OCQuest.m */,
 				A93522EA1CFD08CB00A36F98 /* OCRegion.h */,
 				A93522EB1CFD08CB00A36F98 /* OCRegion.m */,
-				A98D60141CEE648E008F4AE7 /* AppDelegate.h */,
-				A98D60151CEE648E008F4AE7 /* AppDelegate.m */,
 				A978B6AD1D03B26B004311FC /* OCBuilding.h */,
 				A978B6B01D03B90C004311FC /* OCBase.h */,
 				A978B6B11D03B90C004311FC /* OCBase.m */,
 				A978B6AE1D03B26B004311FC /* OCBuilding.m */,
+				A98D60141CEE648E008F4AE7 /* AppDelegate.h */,
+				A98D60151CEE648E008F4AE7 /* AppDelegate.m */,
 				A98D604A1CEE7C22008F4AE7 /* LoadingScreen_ViewController.h */,
 				A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */,
 				A92F4DDA1CEF50BE00BB7FC1 /* Base_ViewController.h */,
@@ -184,6 +187,8 @@
 				A93A92191CFFB1B3006FFBBC /* Region_ViewController.m */,
 				A98D60471CEE6E14008F4AE7 /* Settings_ViewController.h */,
 				A98D60481CEE6E14008F4AE7 /* Settings_ViewController.m */,
+				A91267F11D07598E00CC24C7 /* DragonList_ViewController.h */,
+				A91267F21D07598E00CC24C7 /* DragonList_ViewController.m */,
 				A98D601A1CEE648E008F4AE7 /* Main.storyboard */,
 				A98D601D1CEE648E008F4AE7 /* Assets.xcassets */,
 				A98D601F1CEE648E008F4AE7 /* LaunchScreen.storyboard */,
@@ -358,6 +363,7 @@
 				A98D60491CEE6E14008F4AE7 /* Settings_ViewController.m in Sources */,
 				A9CAF4591CFC91C400D8C1E1 /* OCDragonQuestInfo.m in Sources */,
 				A978B6B21D03B90C004311FC /* OCBase.m in Sources */,
+				A91267F31D07598E00CC24C7 /* DragonList_ViewController.m in Sources */,
 				A93A921A1CFFB1B3006FFBBC /* Region_ViewController.m in Sources */,
 				A98D60161CEE648E008F4AE7 /* AppDelegate.m in Sources */,
 				A98D604C1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m in Sources */,

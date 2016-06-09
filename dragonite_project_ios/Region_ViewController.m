@@ -25,6 +25,9 @@
     // Do any additional setup after loading the view.
     
     //self.questList = [[NSMutableArray alloc] init];
+    
+    appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     self.buttonList = [[NSMutableArray alloc] init];
     
     self.questLengthTitle.hidden = YES;
@@ -36,59 +39,7 @@
     
     self.startQuestButton.enabled = NO;
     
-    
-    
-    
-    
-    self.player = [[OCPlayer alloc] init];
-    [self.player initPlayerWithName:@"Bob" withGender:OCCharactermale];
-    
-    OCDragon *dragon = [[OCDragon alloc] init];
-    
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
-    dragon.level = 3;
-    dragon.name = @"Khalimus";
-    [self.player addNewDragon:dragon];
-    dragon = nil;
-    
-    dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
-    dragon.name = @"Zheltia";
-    [self.player addNewDragon:dragon];
-    dragon = nil;
-    
-    dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
-    dragon.name = @"Jiekha";
-    dragon.effectiveStats.strength = 500;
-    [self.player addNewDragon:dragon];
-    dragon = nil;
-    
-    
-    dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
-    dragon.name = @"Mumu";
-    [self.player addNewDragon:dragon];
-    dragon = nil;
-    
-    dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
-    dragon.name = @"Spitza";
-    [self.player addNewDragon:dragon];
-    dragon = nil;
-    
-    dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
-    dragon.name = @"Ktaskia";
-    [self.player addNewDragon:dragon];
-    dragon = nil;
-    
-    dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
-    dragon.name = @"Uud";
-    dragon.effectiveStats.strength = 100;
-    [self.player addNewDragon:dragon];
-    dragon = nil;
+
     
     
     
@@ -203,7 +154,7 @@
     int buttonsAdded = 0;
     int dragonIndex = 0;
     
-    for (OCDragon *dragon in self.player.dragonList) {
+    for (OCDragon *dragon in appDelegate.player.dragonList) {
         if (!dragon.onQuest && dragon.type == quest.requiredType) {
             
             //create the hidden button
@@ -253,7 +204,7 @@
 
 -(IBAction) selectDragon:(UIButton *) sender {
     
-    self.selectedDragon = [self.player.dragonList objectAtIndex:sender.tag];
+    self.selectedDragon = [appDelegate.player.dragonList objectAtIndex:sender.tag];
     
     self.questLengthVal.text = [NSString stringWithFormat:@"%d", [self.selectedDragon calculateLengthForQuestWithDifficulty:self.selectedQuest.difficultyLevel]];
     self.questSuccessChanceVal.text = [NSString stringWithFormat:@"%d%%", [self.selectedQuest successRate0To100:self.selectedDragon]];

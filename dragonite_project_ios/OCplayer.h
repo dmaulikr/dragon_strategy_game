@@ -14,7 +14,11 @@
 
 @property NSMutableArray *dragonList; //Dragons that the player has
 @property double energyRegenPerMinute; //same for each one of the dragons
+@property int maxBuildingLevel; //current lvl of main building
+@property int maxGold; //depends on the treasury
+@property int maxDragonCount; //depends on dragons' den
 @property int gold;
+@property NSDate *lastEnergyUpdateDate;
 
 -(id) initPlayerWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in;
 
@@ -27,5 +31,7 @@
 -(void) addNewDragon:(OCDragon *) new_dragon;
 
 -(void) releaseDragon:(OCDragon *) poor_dragon; //:(
+
+//-(void) checkIfQuestsEnded;
 
 @end

@@ -117,4 +117,13 @@
     return questLengthWithoutBoost * pow(0.9968, self.effectiveStats.speed);
 }
 
+- (NSString *)typeText {
+    if (self.type == OCfire)
+        return [NSString stringWithFormat:@"Fire Dragon"];
+    else if (self.type == OCwater)
+        return [NSString stringWithFormat:@"Water Dragon"];
+    else
+        return [NSString stringWithFormat:@"Wind Dragon"];
+}
+
 @end

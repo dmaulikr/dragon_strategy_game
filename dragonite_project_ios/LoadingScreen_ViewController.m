@@ -21,6 +21,58 @@
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.mainTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
+    
+    
+    appDelegate.player = [[OCPlayer alloc] init];
+    [appDelegate.player initPlayerWithName:@"Bob" withGender:OCCharactermale];
+    
+    OCDragon *dragon = [[OCDragon alloc] init];
+    
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.level = 3;
+    dragon.name = @"Khalimus";
+    [appDelegate.player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Zheltia";
+    [appDelegate.player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Jiekha";
+    dragon.effectiveStats.strength = 500;
+    [appDelegate.player addNewDragon:dragon];
+    dragon = nil;
+    
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Mumu";
+    [appDelegate.player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Spitza";
+    [appDelegate.player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Ktaskia";
+    [appDelegate.player addNewDragon:dragon];
+    dragon = nil;
+    
+    dragon = [[OCDragon alloc] init];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    dragon.name = @"Uud";
+    dragon.effectiveStats.strength = 100;
+    [appDelegate.player addNewDragon:dragon];
+    dragon = nil;
+    
 }
 
 -(void) timerCheck {
