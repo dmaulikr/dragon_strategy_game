@@ -60,4 +60,8 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
 -(int) calculateLengthForQuestWithDifficulty:(int) quest_level;
 
+- (NSString *)typeText;
+
+- (NSTimeInterval)remainingQuestTime;
+
 @end

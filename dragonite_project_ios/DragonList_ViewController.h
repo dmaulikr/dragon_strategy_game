@@ -15,6 +15,9 @@
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (weak, nonatomic) IBOutlet UIStackView *stackView;
+//size depends on the number of dragon views. for each one of them, have a bool that shows if
+//stats view and skills view active
+//@property NSMutableArray *extraActiveViews;
 
 
 @end

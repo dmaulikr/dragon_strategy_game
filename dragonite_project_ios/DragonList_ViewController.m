@@ -27,6 +27,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+/*- (void)viewDidLayoutSubviews {
+    [super viewDidLayoutSubviews];
+    self.scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height);
+} */
+
 /*
 #pragma mark - Navigation
 
@@ -41,12 +46,13 @@
 - (void)setDragonListScene {
     
     int viewHeight = 100; //adjust this
-    self.scrollView.contentSize = CGSizeMake(0, viewHeight * [appDelegate.player.dragonList count]);
+    int dragonCount = 0;
+    //self.scrollView.contentSize = CGSizeMake(0, (viewHeight+6.0f) * [appDelegate.player.dragonList count]);
     
     for (OCDragon *dragon in appDelegate.player.dragonList) {
         
         UIView *view = [[UIView alloc] init];
-        view.frame = CGRectMake(10, 10, self.scrollView.frame.size.width, viewHeight);
+        view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, viewHeight);
         //view.backgroundColor = [UIColor yellowColor];
         view.layer.borderColor = [UIColor yellowColor].CGColor;
         view.layer.borderWidth = 3.0f;
@@ -78,33 +84,199 @@
         //create level label
         UILabel *lvlLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 70, 120, 20)];
         [lvlLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
-        [lvlLabel setText:[NSString stringWithFormat:@"%d", dragon.level]];
+        [lvlLabel setText:[NSString stringWithFormat:@"Level %d", dragon.level]];
         lvlLabel.textAlignment = NSTextAlignmentCenter;
         [view addSubview:lvlLabel];
         
+        //create quest info label, (on quest or not?)
+        UILabel *questInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 10, 120, 20)];
+        [questInfoLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        if (dragon.onQuest) {
+            [questInfoLabel setText:@"On Quest"];
+        }
+        else [questInfoLabel setText:@"Not On Quest"];
         
-        //create lvl label
-      /*  UILabel *lvlLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonsAdded*160+120, 0, 40, self.dragonScrollView.frame.size.height*1/5)];
-        [lvlLabel setBackgroundColor:[UIColor clearColor]];
-        [lvlLabel setText:[NSString stringWithFormat:@"%d", dragon.level]];
-        lvlLabel.textAlignment = NSTextAlignmentCenter;
-        [self.dragonScrollView addSubview:lvlLabel];
-        //[LvlLabel release];
+        questInfoLabel.textAlignment = NSTextAlignmentCenter;
+        [view addSubview:questInfoLabel];
         
-        //create name label
-        UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(buttonsAdded*160, self.dragonScrollView.frame.size.height*4/5, 160, self.dragonScrollView.frame.size.height/5)];
-        [nameLabel setBackgroundColor:[UIColor clearColor]];
-        [nameLabel setText:dragon.name];
-        nameLabel.textAlignment = NSTextAlignmentCenter;
-        [self.dragonScrollView addSubview:nameLabel];
-        //[LvlLabel release];
         
-        buttonsAdded += 1; */
+        //create quest time label
+        if (dragon.onQuest) {
+            UILabel *questTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 40, 120, 20)];
+            [questTimeLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+            questTimeLabel.tag = dragonCount;
+            [self setQuestTimeLabel:questTimeLabel];
+            questTimeLabel.textAlignment = NSTextAlignmentCenter;
+            [view addSubview:questTimeLabel];
+        }
+        
+        //create experience progress view and the title label
+        UIProgressView *progressView = [[UIProgressView alloc] init];
+        
+        //check these two lines
+        progressView.frame = CGRectMake(280,70,200,50);
+        //[progressView setTransform:CGAffineTransformMakeScale(2.0f, 10.0f)];
+        
+        
+        progressView.progress = (float)dragon.experience /
+        (float)dragon.experienceRequiredToLevelUp;
+        progressView.progressTintColor = [UIColor redColor];
+        progressView.trackTintColor = [UIColor blueColor];
+        [view addSubview:progressView];
+        
+        UILabel *expTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 70, 30, 20)];
+        [expTitleLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        [expTitleLabel setText:@"Exp"];
+        expTitleLabel.textAlignment = NSTextAlignmentCenter;
+        [view addSubview:expTitleLabel];
+        
+        //create experience val label
+        //change the width to fit the big numbers
+        UILabel *expValLabel = [[UILabel alloc]initWithFrame:CGRectMake(600, 70, 130, 20)];
+        [expValLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        [expValLabel setText:[NSString stringWithFormat:@"%d/%d", dragon.experience, dragon.experienceRequiredToLevelUp]];
+        expValLabel.textAlignment = NSTextAlignmentCenter;
+        [view addSubview:expValLabel];
+        
+        
+        //create stats button
+        UIButton *statsButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [statsButton addTarget:self
+                   action:@selector(showStats:) forControlEvents:UIControlEventTouchUpInside];
+        statsButton.frame = CGRectMake(500, 10, 80, 20); //change size vals
+        statsButton.tag = dragonCount;
+        [statsButton setTitle:@"Stats" forState:UIControlStateNormal];
+        statsButton.backgroundColor = [UIColor blueColor];
+        
+        [view addSubview:statsButton];
+        
+        //create skill button
+        UIButton *skillButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [skillButton addTarget:self
+                        action:@selector(showSkills:) forControlEvents:UIControlEventTouchUpInside];
+        skillButton.frame = CGRectMake(600, 10, 80, 20); //change size vals
+        skillButton.tag = dragonCount;
+        [skillButton setTitle:@"Skill" forState:UIControlStateNormal];
+        skillButton.backgroundColor = [UIColor blueColor];
+        
+        [view addSubview:skillButton];
         
         
         
         [self.stackView addArrangedSubview:view];
+        
+        
+        
+        
+        //UIView * firstView = self.stackView.arrangedSubviews[0];
+        //firstView.hidden = YES;
+        
+        
+        dragonCount += 1;
+    }//for
+    
+    //figure out the constraint stuff and replace the contentsize line below
+    
+    
+    self.scrollView.contentSize = CGSizeMake(0, (viewHeight+6) * dragonCount);
+    /*self.extraActiveViews = [[NSMutableArray alloc]init];
+    for (int i = 0; i < dragonCount*2; ++i) {
+        [self.extraActiveViews addObject:@NO];
+    } */
+    
+}
+
+
+-(IBAction) showStats:(UIButton *) sender {
+    
+    int viewHeight = 100;
+    
+    if ([sender isSelected]) {
+        
+        UIView *view = [self.stackView.arrangedSubviews objectAtIndex:sender.tag+1];
+        [self.stackView removeArrangedSubview:view];
+        //view.hidden = YES;
+        [view removeFromSuperview];
+        [sender setSelected:NO];
+        
     }
+    
+    else {
+        UIView *view = [[UIView alloc] init];
+        view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, viewHeight);
+        //view.backgroundColor = [UIColor yellowColor];
+        view.layer.borderColor = [UIColor yellowColor].CGColor;
+        view.layer.borderWidth = 3.0f;
+        
+        [view.heightAnchor constraintEqualToConstant:viewHeight].active = true;
+        [view.widthAnchor constraintEqualToConstant:self.stackView.frame.size.width].active = true;
+        
+        //create title label
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 40, 20)];
+        [titleLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        [titleLabel setText:@"Stats"];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        [view addSubview:titleLabel];
+        
+        [self.stackView insertArrangedSubview:view atIndex:sender.tag+1];
+        [sender setSelected:YES];
+    }
+    
+}
+
+-(IBAction) showSkills:(UIButton *) sender {
+    
+    UIButton *statsButton = sender.superview.subviews[8];
+    int viewHeight = 100;
+    
+    if ([sender isSelected]) {
+        
+        UIView *view;
+        if ([statsButton isSelected]) {
+            view = [self.stackView.arrangedSubviews objectAtIndex:sender.tag+2];
+        }
+        else {
+            view = [self.stackView.arrangedSubviews objectAtIndex:sender.tag+1];
+        }
+        
+        [self.stackView removeArrangedSubview:view];
+        [view removeFromSuperview];
+        [sender setSelected:NO];
+        
+    }
+    
+    else {
+        UIView *view = [[UIView alloc] init];
+        view.frame = CGRectMake(0, 0, self.scrollView.frame.size.width, viewHeight);
+        //view.backgroundColor = [UIColor yellowColor];
+        view.layer.borderColor = [UIColor yellowColor].CGColor;
+        view.layer.borderWidth = 3.0f;
+        
+        [view.heightAnchor constraintEqualToConstant:viewHeight].active = true;
+        [view.widthAnchor constraintEqualToConstant:self.stackView.frame.size.width].active = true;
+        
+        //create title label
+        UILabel *titleLabel = [[UILabel alloc]initWithFrame:CGRectMake(10, 10, 40, 20)];
+        [titleLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        [titleLabel setText:@"Skills"];
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        [view addSubview:titleLabel];
+        
+        //if stat view is on
+        if ([statsButton isSelected]) {
+            [self.stackView insertArrangedSubview:view atIndex:sender.tag+2];
+        }
+        else [self.stackView insertArrangedSubview:view atIndex:sender.tag+1];
+        [sender setSelected:YES];
+        
+        
+    }
+    
+}
+
+
+- (void)setQuestTimeLabel:(UILabel *)label {
+    label.text = @"Quest Time Remaining: %d", [[appDelegate.player.dragonList objectAtIndex:label.tag] remainingQuestTime];
 }
 
 @end

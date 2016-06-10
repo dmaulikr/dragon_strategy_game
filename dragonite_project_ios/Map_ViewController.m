@@ -22,6 +22,8 @@
     
     UIImage* image = self.mapImageView.image;
     self.mapImageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
+    
+    //WTF?
     self.mapScrollView.contentSize = image.size;
     self.mapScrollView.contentSize=CGSizeMake(self.mapImageView.frame.size.width, self.mapImageView.frame.size.height); //qswdersdtytgefdw
     self.mapScrollView.minimumZoomScale=1.0;

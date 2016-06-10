@@ -31,6 +31,7 @@
     [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
     dragon.level = 3;
     dragon.name = @"Khalimus";
+    dragon.experience = 50;
     [appDelegate.player addNewDragon:dragon];
     dragon = nil;
     

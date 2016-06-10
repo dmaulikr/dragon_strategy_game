@@ -66,7 +66,7 @@
 
 -(int) experienceRequiredToLevelUp {
     //fix this
-    return 1;
+    return 100;
 }
 
 -(double) maxEnergy {
@@ -124,6 +124,10 @@
         return [NSString stringWithFormat:@"Water Dragon"];
     else
         return [NSString stringWithFormat:@"Wind Dragon"];
+}
+
+- (NSTimeInterval)remainingQuestTime {
+    return [self.questInfo.endDate timeIntervalSinceNow];
 }
 
 @end
