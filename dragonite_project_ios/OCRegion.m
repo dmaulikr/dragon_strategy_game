@@ -10,20 +10,27 @@
 
 @implementation OCRegion
 
--(id) initWithImageName:(NSString *) region_image_in withDistanceFromBase:(int) distance_in withRegionNo:(int) region_idx {
+-(id) initWithDistanceFromBase:(int) distance_in withRegionNo:(int) region_idx {
     
     self = [super init];
     if (self)
     {
-        self.imageName = region_image_in;
+        //self.imageName = region_image_in;
         self.distanceFromBase = distance_in;
         self.regionNumber = region_idx;
         self.explored = NO;
         
         self.questList = [[NSMutableArray alloc] init];
+        self.questButtonCoordinates = [[NSMutableArray alloc] init];
+        //self.imageInfo = [[NSMutableArray alloc] init];
         //self.buttonList = [[NSMutableArray alloc] init];
     }
     return self;
+}
+
+- (void)setImageInfoX:(float) x_in y:(float) y_in width:(float) width_in height:(float)height_in {
+    self.imageOrigin = CGPointMake(x_in, y_in);
+    self.imageSize = CGSizeMake(width_in, height_in);    
 }
 
 /*-(void) generateQuestButtons:(NSMutableArray *) coordinates {

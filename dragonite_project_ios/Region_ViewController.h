@@ -14,11 +14,11 @@
     AppDelegate *appDelegate;
 }
 
-//@property OCPlayer *player;
+@property int regionIndex;
 @property OCRegion *region;
-//@property OCPlayer *player;
 
 - (IBAction)startQuest:(id)sender;
+- (IBAction)backButton:(id)sender;
 
 
 

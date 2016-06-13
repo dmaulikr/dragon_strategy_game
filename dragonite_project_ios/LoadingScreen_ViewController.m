@@ -20,6 +20,29 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    //Set region button coordinates for map view
+    appDelegate.regionButtonCoordinates = [[NSArray alloc] initWithObjects:@50, @50, @250, @250, @450, @250, nil];
+    
+    
+    //Set region infos
+    appDelegate.regionList = [[NSMutableArray alloc] init];
+    
+    OCRegion *region = [[OCRegion alloc] initWithDistanceFromBase:200 withRegionNo:0];
+    OCQuest *questPtr = [[OCQuest alloc] initWithDistanceFromBase:210 withDifficultyLevel:1 withRequiredDragonType:OCfire withDragonExperienceReward:5 atRegion:0 withIndex:0];
+    [region.questList addObject:questPtr];
+    OCQuest *questPtr2 = [[OCQuest alloc] initWithDistanceFromBase:500 withDifficultyLevel:10 withRequiredDragonType:OCwind withDragonExperienceReward:5 atRegion:0 withIndex:1];
+    [region.questList addObject:questPtr2];
+    //self.region.imageName = @"pokemon_dp_map.png";
+    [region setImageInfoX:50 y:40 width:100 height:200];
+    [region.questButtonCoordinates addObject:@30];
+    [region.questButtonCoordinates addObject:@40];
+    [region.questButtonCoordinates addObject:@70];
+    [region.questButtonCoordinates addObject:@60];
+    [appDelegate.regionList addObject:region];
+    
+    
+    //Start timer
     appDelegate.mainTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
     
     
@@ -94,7 +117,7 @@
         [appDelegate.player updateDragonEnergies];
     }
     
-    NSLog(@"time...");
+    //NSLog(@"time...");
 }
 
 - (void)didReceiveMemoryWarning {

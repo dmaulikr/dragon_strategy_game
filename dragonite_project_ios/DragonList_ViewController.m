@@ -70,6 +70,7 @@
         //create name label
         UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 10, 120, 20)];
         [nameLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        nameLabel.textColor = [UIColor whiteColor];
         [nameLabel setText:dragon.name];
         nameLabel.textAlignment = NSTextAlignmentCenter;
         [view addSubview:nameLabel];
@@ -77,6 +78,7 @@
         //create type label
         UILabel *typeLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 40, 120, 20)];
         [typeLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        typeLabel.textColor = [UIColor whiteColor];
         [typeLabel setText:[dragon typeText]];
         typeLabel.textAlignment = NSTextAlignmentCenter;
         [view addSubview:typeLabel];
@@ -84,6 +86,7 @@
         //create level label
         UILabel *lvlLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 70, 120, 20)];
         [lvlLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        lvlLabel.textColor = [UIColor whiteColor];
         [lvlLabel setText:[NSString stringWithFormat:@"Level %d", dragon.level]];
         lvlLabel.textAlignment = NSTextAlignmentCenter;
         [view addSubview:lvlLabel];
@@ -91,6 +94,7 @@
         //create quest info label, (on quest or not?)
         UILabel *questInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 10, 120, 20)];
         [questInfoLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        questInfoLabel.textColor = [UIColor whiteColor];
         if (dragon.onQuest) {
             [questInfoLabel setText:@"On Quest"];
         }
@@ -104,6 +108,7 @@
         if (dragon.onQuest) {
             UILabel *questTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 40, 120, 20)];
             [questTimeLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+            questTimeLabel.textColor = [UIColor whiteColor];
             questTimeLabel.tag = dragonCount;
             [self setQuestTimeLabel:questTimeLabel];
             questTimeLabel.textAlignment = NSTextAlignmentCenter;
@@ -126,6 +131,7 @@
         
         UILabel *expTitleLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 70, 30, 20)];
         [expTitleLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        expTitleLabel.textColor = [UIColor whiteColor];
         [expTitleLabel setText:@"Exp"];
         expTitleLabel.textAlignment = NSTextAlignmentCenter;
         [view addSubview:expTitleLabel];
@@ -134,6 +140,7 @@
         //change the width to fit the big numbers
         UILabel *expValLabel = [[UILabel alloc]initWithFrame:CGRectMake(600, 70, 130, 20)];
         [expValLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        expValLabel.textColor = [UIColor whiteColor];
         [expValLabel setText:[NSString stringWithFormat:@"%d/%d", dragon.experience, dragon.experienceRequiredToLevelUp]];
         expValLabel.textAlignment = NSTextAlignmentCenter;
         [view addSubview:expValLabel];
@@ -276,7 +283,19 @@
 
 
 - (void)setQuestTimeLabel:(UILabel *)label {
-    label.text = @"Quest Time Remaining: %d", [[appDelegate.player.dragonList objectAtIndex:label.tag] remainingQuestTime];
+    label.text = [self stringFromTimeInterval:[[appDelegate.player.dragonList objectAtIndex:label.tag] remainingQuestTime]];
+}
+
+- (IBAction)backButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)timeInterval {
+    NSInteger time = (NSInteger)timeInterval;
+    NSInteger seconds = time % 60;
+    NSInteger minutes = (time / 60) % 60;
+    NSInteger hours = (time / 3600);
+    return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
 }
 
 @end

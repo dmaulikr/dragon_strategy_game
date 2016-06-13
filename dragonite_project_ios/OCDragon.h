@@ -62,4 +62,6 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
 - (NSString *)typeText;
 
+- (NSTimeInterval)remainingQuestTime;
+
 @end

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "OCPlayer.h"
 
-enum OCBuildingType {OCMainBuilding, OCDragonsDen, OCTreasury, OCFountain};
+enum OCBuildingType {OCMainBuilding, OCDragonsDen, OCTreasury, OCFountain, OCSpring};
 
 @interface OCBuilding : NSObject
 

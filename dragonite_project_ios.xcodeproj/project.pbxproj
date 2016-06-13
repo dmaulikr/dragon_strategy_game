@@ -27,6 +27,8 @@
 		A98D60461CEE6D29008F4AE7 /* Map_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60451CEE6D29008F4AE7 /* Map_ViewController.m */; };
 		A98D60491CEE6E14008F4AE7 /* Settings_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D60481CEE6E14008F4AE7 /* Settings_ViewController.m */; };
 		A98D604C1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */; };
+		A99BB4D01D0C90FD00FD11B4 /* witch_king.png in Resources */ = {isa = PBXBuildFile; fileRef = A99BB4CF1D0C90FD00FD11B4 /* witch_king.png */; };
+		A99BB4D21D0CC3F100FD11B4 /* main_map.png in Resources */ = {isa = PBXBuildFile; fileRef = A99BB4D11D0CC3F100FD11B4 /* main_map.png */; };
 		A9CAF44D1CFC855000D8C1E1 /* OCDragon.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF44A1CFC855000D8C1E1 /* OCDragon.m */; };
 		A9CAF44E1CFC855000D8C1E1 /* OCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF44C1CFC855000D8C1E1 /* OCPlayer.m */; };
 		A9CAF4531CFC85A700D8C1E1 /* OCCharacter.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF4521CFC85A700D8C1E1 /* OCCharacter.m */; };
@@ -91,6 +93,8 @@
 		A98D60481CEE6E14008F4AE7 /* Settings_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Settings_ViewController.m; sourceTree = "<group>"; };
 		A98D604A1CEE7C22008F4AE7 /* LoadingScreen_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoadingScreen_ViewController.h; sourceTree = "<group>"; };
 		A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScreen_ViewController.m; sourceTree = "<group>"; };
+		A99BB4CF1D0C90FD00FD11B4 /* witch_king.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = witch_king.png; sourceTree = "<group>"; };
+		A99BB4D11D0CC3F100FD11B4 /* main_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_map.png; sourceTree = "<group>"; };
 		A9CAF4491CFC855000D8C1E1 /* OCDragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDragon.h; sourceTree = "<group>"; };
 		A9CAF44A1CFC855000D8C1E1 /* OCDragon.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCDragon.m; sourceTree = "<group>"; };
 		A9CAF44B1CFC855000D8C1E1 /* OCPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCPlayer.h; sourceTree = "<group>"; };
@@ -172,9 +176,9 @@
 				A93522EA1CFD08CB00A36F98 /* OCRegion.h */,
 				A93522EB1CFD08CB00A36F98 /* OCRegion.m */,
 				A978B6AD1D03B26B004311FC /* OCBuilding.h */,
+				A978B6AE1D03B26B004311FC /* OCBuilding.m */,
 				A978B6B01D03B90C004311FC /* OCBase.h */,
 				A978B6B11D03B90C004311FC /* OCBase.m */,
-				A978B6AE1D03B26B004311FC /* OCBuilding.m */,
 				A98D60141CEE648E008F4AE7 /* AppDelegate.h */,
 				A98D60151CEE648E008F4AE7 /* AppDelegate.m */,
 				A98D604A1CEE7C22008F4AE7 /* LoadingScreen_ViewController.h */,
@@ -201,6 +205,8 @@
 		A98D60111CEE648E008F4AE7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A99BB4D11D0CC3F100FD11B4 /* main_map.png */,
+				A99BB4CF1D0C90FD00FD11B4 /* witch_king.png */,
 				A92F4DDD1CEF538100BB7FC1 /* pokemon_dp_map.png */,
 				A97915A41D00BFCC00F0951D /* dragon_sample.jpg */,
 				A98D60121CEE648E008F4AE7 /* main.m */,
@@ -333,7 +339,9 @@
 				A97915A51D00BFCC00F0951D /* dragon_sample.jpg in Resources */,
 				A98D601E1CEE648E008F4AE7 /* Assets.xcassets in Resources */,
 				A92F4DDE1CEF538100BB7FC1 /* pokemon_dp_map.png in Resources */,
+				A99BB4D01D0C90FD00FD11B4 /* witch_king.png in Resources */,
 				A98D601C1CEE648E008F4AE7 /* Main.storyboard in Resources */,
+				A99BB4D21D0CC3F100FD11B4 /* main_map.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

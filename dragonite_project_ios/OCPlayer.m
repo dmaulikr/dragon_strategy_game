@@ -33,7 +33,7 @@
 
 -(void) updateDragonEnergies {
     for (OCDragon *i in self.dragonList) {
-        [i increaseEnergy:self.energyRegenPerMinute];
+        if (!i.onQuest) [i increaseEnergy:self.energyRegenPerMinute];
     }
     self.lastEnergyUpdateDate = [NSDate date];
 }

@@ -23,6 +23,7 @@
 @property OCPlayer *player;
 @property NSMutableArray *skillTree;
 @property NSMutableArray *regionList;
+@property NSArray *regionButtonCoordinates;
 
 
 

@@ -41,23 +41,10 @@
     
 
     
-    
-    
-    self.region = [[OCRegion alloc] initWithImageName:@"District 12" withDistanceFromBase:200 withRegionNo:0];
-    OCQuest *questPtr = [[OCQuest alloc] initWithDistanceFromBase:210 withDifficultyLevel:1 withRequiredDragonType:OCfire withDragonExperienceReward:5 atRegion:0 withIndex:0];
-    [self.region.questList addObject:questPtr];
-    OCQuest *questPtr2 = [[OCQuest alloc] initWithDistanceFromBase:500 withDifficultyLevel:10 withRequiredDragonType:OCwind withDragonExperienceReward:5 atRegion:0 withIndex:1];
-    [self.region.questList addObject:questPtr2];
-    self.region.imageName = @"pokemon_dp_map.png";
-    
-    
-    
-    
-    NSMutableArray *temp = [[NSMutableArray alloc] init];
-    [temp addObject:@11];[temp addObject:@11]; [temp addObject:@30];[temp addObject:@23];
+    self.region = [appDelegate.regionList objectAtIndex:self.regionIndex];
     
     self.regionImageView.userInteractionEnabled = YES;
-    [self generateQuestButtons:temp];
+    [self generateQuestButtons:self.region.questButtonCoordinates];
     [[self.buttonList objectAtIndex:0] setBackgroundColor:[UIColor redColor]];
     [[self.buttonList objectAtIndex:1] setBackgroundColor:[UIColor redColor]];
     
@@ -108,7 +95,15 @@
 
 -(void) setImageViewAndQuestButtons {
     
-    self.regionImageView.image = [UIImage imageNamed: self.region.imageName]; //might need to change this
+    self.regionImageView.image = [UIImage imageNamed: @"pokemon_dp_map.png"]; //might need to change this
+    self.regionImageView.backgroundColor = [UIColor blueColor];
+    //self.regionImageView.contentMode = UIViewContentModeCenter;
+    //self.regionImageView.clipsToBounds = YES;
+    
+    CGImageRef imageRef = CGImageCreateWithImageInRect([self.regionImageView.image CGImage], CGRectMake(self.region.imageOrigin.x, self.region.imageOrigin.y, self.region.imageSize.width, self.region.imageSize.height));
+    UIImage *cropimage = [[UIImage alloc] initWithCGImage:imageRef];
+    CGImageRelease(imageRef);
+    self.regionImageView.image = cropimage;
     
     for (UIButton *button in self.buttonList) {
         /*[button addTarget:self
@@ -206,7 +201,7 @@
     
     self.selectedDragon = [appDelegate.player.dragonList objectAtIndex:sender.tag];
     
-    self.questLengthVal.text = [NSString stringWithFormat:@"%d", [self.selectedDragon calculateLengthForQuestWithDifficulty:self.selectedQuest.difficultyLevel]];
+    self.questLengthVal.text = [NSString stringWithFormat:[self stringFromTimeInterval:[self.selectedDragon calculateLengthForQuestWithDifficulty:self.selectedQuest.difficultyLevel]]];
     self.questSuccessChanceVal.text = [NSString stringWithFormat:@"%d%%", [self.selectedQuest successRate0To100:self.selectedDragon]];
     self.dragonCapacityVal.text = [NSString stringWithFormat:@"%d", [self.selectedDragon maxGoldThatCanBeCarried]];
     
@@ -217,5 +212,19 @@
 
 
 - (IBAction)startQuest:(id)sender {
+    [self.selectedDragon goToQuestNumber:self.selectedQuest.index atRegion:self.selectedQuest.regionNo withDifficultyLevel:self.selectedQuest.difficultyLevel];
 }
+
+- (IBAction)backButton:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+- (NSString *)stringFromTimeInterval:(NSTimeInterval)timeInterval {
+    NSInteger time = (NSInteger)timeInterval;
+    NSInteger seconds = time % 60;
+    NSInteger minutes = (time / 60) % 60;
+    NSInteger hours = (time / 3600);
+    return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
+}
+
 @end

@@ -8,17 +8,18 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "Region_ViewController.h"
 
 @interface Map_ViewController : UIViewController {
     AppDelegate *appDelegate;
+    NSMutableArray *buttons;
+    CGFloat upperBound;
+    CGFloat lowerBound;
 }
-
-- (IBAction)IncreaseCountButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *mapScrollView;
 @property (weak, nonatomic) IBOutlet UIImageView *mapImageView;
-//@property (weak, nonatomic) IBOutlet UIButton *button;
-
-@property (weak, nonatomic) IBOutlet UIButton *Button;
+@property (weak, nonatomic) IBOutlet UIImageView *upperBoundView;
+@property (weak, nonatomic) IBOutlet UIImageView *lowerBoundView;
 
 @end

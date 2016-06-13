@@ -20,29 +20,38 @@
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UIImage* image = self.mapImageView.image;
-    self.mapImageView.bounds = CGRectMake(0, 0, image.size.width, image.size.height);
-    
-    //WTF?
-    self.mapScrollView.contentSize = image.size;
     self.mapScrollView.contentSize=CGSizeMake(self.mapImageView.frame.size.width, self.mapImageView.frame.size.height); //qswdersdtytgefdw
     self.mapScrollView.minimumZoomScale=1.0;
-    self.mapScrollView.maximumZoomScale=2.0;
+    self.mapScrollView.maximumZoomScale=8.0;
+    
+    self.mapScrollView.bouncesZoom = NO;
+    self.mapScrollView.bounces = NO;
     
     self.mapScrollView.delegate=self;
     
-    _mapScrollView.delaysContentTouches = NO;
-    _mapScrollView.canCancelContentTouches = NO;
+    self.mapScrollView.delaysContentTouches = NO;
+    self.mapScrollView.canCancelContentTouches = NO;
     
     self.mapScrollView.userInteractionEnabled = YES;
     
-    //NSLog(@"hey");
     
     
+    buttons = [[NSMutableArray alloc] init];
     
-    //self.regionView.hidden = YES;
-    //self.regionView = YES;
+    for (int i = 0; i < [appDelegate.regionButtonCoordinates count]/2; ++i) {
+        
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        button.tag = i;
+        button.frame = CGRectMake([[appDelegate.regionButtonCoordinates objectAtIndex:i*2] intValue], [[appDelegate.regionButtonCoordinates objectAtIndex:i*2+1] intValue], 20, 20);
+        [button addTarget:self
+                   action:@selector(sayHi:) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:button];
+        
+        [buttons addObject:button];
+    }
     
+    upperBound = self.upperBoundView.frame.origin.y+self.upperBoundView.frame.size.height;
+    lowerBound = self.lowerBoundView.frame.origin.y;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -60,37 +69,76 @@
 }
 */
 
-- (void)scrollViewDidEndZooming:(UIScrollView *)scrollView withView:(UIView *)view atScale:(CGFloat)scale
+
+////////////////////////////////////////////////////////////////////////////////////////
+//#pragma mark - Positions
+
+- (void)updatePositionForViews {
+    CGFloat scale = self.mapScrollView.zoomScale;
+    CGPoint contentOffset = self.mapScrollView.contentOffset;
+    for (UIButton *button in buttons) {
+        CGPoint basePosition = [self basePositionForView:button];
+        [self updatePositionForView:button scale:scale basePosition:basePosition offset:contentOffset];
+    }
+}
+
+- (CGPoint)basePositionForView:(UIButton *)button
 {
-    NSLog(@"hey");
-    //[self manageImageOnScrollView];//here i managed the image's coordinates and zoom
-    [self manageButtonCoordinatesWithRespectToImageWithScale:scale];
+    
+    return CGPointMake([[appDelegate.regionButtonCoordinates objectAtIndex:button.tag*2] intValue], [[appDelegate.regionButtonCoordinates objectAtIndex:button.tag*2+1] intValue]);
+}
+
+
+- (void)updatePositionForView:(UIButton *)button scale:(CGFloat)scale basePosition:(CGPoint)basePosition offset:(CGPoint)offset;
+{
+    CGPoint position;
+    position.x = (basePosition.x * scale) - offset.x;
+    position.y = (basePosition.y * scale) - offset.y;
+    
+    CGRect frame = button.frame;
+    frame.origin = position;
+    button.frame = frame;
+    
+    if (button.frame.origin.y <= upperBound || button.frame.origin.y+button.frame.size.height >= lowerBound) {
+        button.enabled = NO;
+        button.hidden = YES;
+    }
+    else {
+        button.enabled = YES;
+        button.hidden = NO;
+    }
+    
+    NSLog(@"tag:%d, coordinates:%f,%f", button.tag, button.frame.origin.x, button.frame.origin.y);
+}
+
+//////////////////////////////////////////////////////////////////////////////////////
+//#pragma mark - UIScrollViewDelegate
+
+- (void)scrollViewDidZoom:(UIScrollView *)scrollView
+{
+    [self updatePositionForViews];
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self updatePositionForViews];
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView;
+{
+    return _mapImageView;
+}
+
+
+-(IBAction) sayHi:(UIButton *) sender {
+    NSLog(@"hi");
+    
+    NSString * storyboardName = @"Main";
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
    
-    NSLog(@"hey");
-    
+    Region_ViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Region_ViewController"];
+    vc.regionIndex = sender.tag;
+    [self presentViewController:vc animated:YES completion:nil];
 }
-
--(void)manageButtonCoordinatesWithRespectToImageWithScale:(float)scaleFactor {
-    
-    //initialButtonFrame is frame of button
-    float x = self.Button.frame.origin.x;
-    float xx = x*scaleFactor;
-    self.Button.frame = CGRectMake((self.Button.frame.origin.x * scaleFactor),
-                                   (self.Button.frame.origin.y * scaleFactor),
-                                   self.Button.frame.size.width,
-                                   self.Button.frame.size.height);
-    [self.Button setTitle:[[NSNumber numberWithFloat:xx] stringValue] forState:UIControlStateNormal];
-    
-    //[self.ScrollView addSubview:self.Button];// I removed the button from superview while zooming and later added with updated button coordinates which I got here
-}
-
-- (UIView *)viewForZoomingInScrollView:(UIScrollView *)ScrollView
-{
-    return self.mapImageView;
-}
-
-/*- (void):(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate {
-    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x, scrollView.contentOffset.y) animated:NO];
-} */
 
 @end

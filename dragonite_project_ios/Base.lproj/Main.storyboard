@@ -34,6 +34,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
@@ -61,6 +62,13 @@
                                     </stackView>
                                 </subviews>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-u5-vd8">
+                                <rect key="frame" x="686" y="0.0" width="50" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="hYu-1h-vaF" eventType="touchUpInside" id="vDI-Ix-0Gt"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -85,34 +93,71 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6oE-Zr-hcZ">
-                                <rect key="frame" x="287" y="145" width="162" height="110"/>
-                                <state key="normal" title="Go To Map"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="D9Y-6F-EB9">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
+                                <color key="backgroundColor" red="0.54768386994949503" green="0.2593343404130608" blue="0.067696073062454204" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1C-H1-jnH">
+                                <rect key="frame" x="178" y="3" width="46" height="30"/>
+                                <state key="normal" title="Gold"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GoldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBW-pi-Bqu">
+                                <rect key="frame" x="245" y="7" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RDL-iw-odE">
+                                <rect key="frame" x="0.0" y="356" width="736" height="58"/>
+                                <color key="backgroundColor" red="0.54768386989999995" green="0.25933434039999997" blue="0.06769607306" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s71-eY-4e5">
+                                <rect key="frame" x="640" y="356" width="96" height="58"/>
+                                <state key="normal" title="Dragons"/>
                                 <connections>
-                                    <segue destination="DvJ-gu-T5R" kind="show" id="DSI-tp-NiR"/>
+                                    <segue destination="hYu-1h-vaF" kind="show" id="QYV-QF-GM4"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is the base" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Hiz-EP-fhu">
-                                <rect key="frame" x="310" y="84" width="116" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P2b-Be-Fwc">
-                                <rect key="frame" x="334" y="235" width="68" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mE-st-PAY">
+                                <rect key="frame" x="620" y="3" width="116" height="30"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
-                                    <segue destination="oNf-Hx-qnz" kind="show" id="3sk-tS-GBu"/>
+                                    <segue destination="oNf-Hx-qnz" kind="show" id="KIn-q0-m0r"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DragonLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-mF-tqq">
+                                <rect key="frame" x="507" y="7" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI0-Ce-V1H">
+                                <rect key="frame" x="440" y="3" width="59" height="30"/>
+                                <state key="normal" title="Dragon"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adU-vW-W6y">
+                                <rect key="frame" x="0.0" y="356" width="96" height="58"/>
+                                <state key="normal" title="Map"/>
+                                <connections>
+                                    <segue destination="DvJ-gu-T5R" kind="show" id="IlK-rf-HaG"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Base" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5SU-ou-3kL">
+                                <rect key="frame" x="294" y="362" width="148" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="140" y="314"/>
+            <point key="canvasLocation" x="168" y="282"/>
         </scene>
         <!--Map-->
         <scene sceneID="fZv-tX-Yko">
@@ -126,57 +171,80 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G8f-Lb-lLi">
-                                <rect key="frame" x="132" y="324" width="162" height="110"/>
-                                <state key="normal" title="Go To Base"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="Qxf-y9-xnb"/>
-                                </connections>
-                            </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="This is the map" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Fz-Yg-9TY">
-                                <rect key="frame" x="74" y="45" width="116" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Mtu-gA-dUD">
-                                <rect key="frame" x="334" y="364" width="68" height="30"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="oNf-Hx-qnz" kind="show" id="sAJ-ba-PF1"/>
-                                </connections>
-                            </button>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q7W-DS-0kf">
-                                <rect key="frame" x="247" y="106" width="243" height="164"/>
+                                <rect key="frame" x="0.0" y="31" width="736" height="327"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokemon_dp_map.png" translatesAutoresizingMaskIntoConstraints="NO" id="a30-EV-kf8">
-                                        <rect key="frame" x="-8" y="-8" width="251" height="172"/>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="main_map.png" translatesAutoresizingMaskIntoConstraints="NO" id="a30-EV-kf8">
+                                        <rect key="frame" x="0.0" y="0.0" width="736" height="327"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lsw-Wm-ifg">
-                                        <rect key="frame" x="109" y="89" width="17" height="15"/>
-                                        <state key="normal" title="B">
-                                            <color key="titleColor" red="1" green="0.1202878627" blue="0.17864360579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NCy-Jk-uhF">
-                                        <rect key="frame" x="81" y="31" width="14" height="12"/>
-                                        <state key="normal" title="B">
-                                            <color key="titleColor" red="1" green="0.1202878627" blue="0.17864360579999999" alpha="1" colorSpace="calibratedRGB"/>
-                                        </state>
-                                        <connections>
-                                            <segue destination="L46-r7-2r1" kind="show" id="SDC-2Q-nGi"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </scrollView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KP2-vq-MPY">
+                                <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
+                                <color key="backgroundColor" red="0.54768386989999995" green="0.25933434039999997" blue="0.06769607306" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9C8-gL-c7p">
+                                <rect key="frame" x="178" y="3" width="46" height="30"/>
+                                <state key="normal" title="Gold"/>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GoldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2I-8E-lzf">
+                                <rect key="frame" x="245" y="7" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnl-gl-F18">
+                                <rect key="frame" x="620" y="3" width="116" height="30"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="oNf-Hx-qnz" kind="show" id="kfM-Lb-wKl"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DragonLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d3-zw-J8V">
+                                <rect key="frame" x="507" y="7" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgQ-Oi-vdX">
+                                <rect key="frame" x="440" y="3" width="59" height="30"/>
+                                <state key="normal" title="Dragon"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="loI-Lf-m3j">
+                                <rect key="frame" x="0.0" y="356" width="736" height="58"/>
+                                <color key="backgroundColor" red="0.54768386989999995" green="0.25933434039999997" blue="0.06769607306" alpha="1" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Leis'bhur" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSd-GB-rGI">
+                                <rect key="frame" x="294" y="362" width="148" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5GL-yd-sYH">
+                                <rect key="frame" x="640" y="356" width="96" height="58"/>
+                                <state key="normal" title="Dragons"/>
+                                <connections>
+                                    <segue destination="hYu-1h-vaF" kind="show" id="cTk-bY-twm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xCt-5S-57t">
+                                <rect key="frame" x="0.0" y="356" width="96" height="58"/>
+                                <state key="normal" title="Base"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="PRb-7K-IeC"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
-                        <outlet property="Button" destination="NCy-Jk-uhF" id="2yH-1V-MnC"/>
+                        <outlet property="lowerBoundView" destination="loI-Lf-m3j" id="5y5-yM-gjc"/>
                         <outlet property="mapImageView" destination="a30-EV-kf8" id="nQk-6j-8dT"/>
                         <outlet property="mapScrollView" destination="Q7W-DS-0kf" id="JGw-wb-nZY"/>
+                        <outlet property="upperBoundView" destination="KP2-vq-MPY" id="B5M-Lq-ubo"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="JBJ-he-Am8" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -186,7 +254,7 @@
         <!--Region View Controller-->
         <scene sceneID="2HS-hQ-oc1">
             <objects>
-                <viewController id="L46-r7-2r1" customClass="Region_ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Region_ViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="L46-r7-2r1" customClass="Region_ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eea-cu-Z0o"/>
                         <viewControllerLayoutGuide type="bottom" id="W3p-ch-DGf"/>
@@ -195,8 +263,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokemon_dp_map.png" translatesAutoresizingMaskIntoConstraints="NO" id="o7c-Oh-yRM">
-                                <rect key="frame" x="0.0" y="20" width="460" height="260"/>
+                            <imageView clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="pokemon_dp_map.png" translatesAutoresizingMaskIntoConstraints="NO" id="o7c-Oh-yRM">
+                                <rect key="frame" x="9" y="20" width="451" height="260"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7w-7v-O6l">
                                 <rect key="frame" x="619" y="81" width="88" height="21"/>
@@ -251,9 +319,19 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FfE-f6-H6c">
+                                <rect key="frame" x="690" y="0.0" width="46" height="30"/>
+                                <state key="normal" title="Back"/>
+                                <connections>
+                                    <action selector="backButton:" destination="L46-r7-2r1" eventType="touchUpInside" id="ykK-8G-bVR"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.87239819491635551" blue="0.15715877167800851" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <nil key="simulatedStatusBarMetrics"/>
+                    <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="dragonCapacityTitle" destination="aaq-sg-HNz" id="jaC-i5-Lym"/>
                         <outlet property="dragonCapacityVal" destination="3XS-9u-7oF" id="Dsk-0J-jru"/>
@@ -270,7 +348,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ihY-MS-Q8w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2011" y="308"/>
+            <point key="canvasLocation" x="2040" y="307"/>
         </scene>
         <!--Settings-->
         <scene sceneID="AZt-hd-Qbs">
@@ -308,10 +386,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="main_map.png" width="3618" height="1626"/>
         <image name="pokemon_dp_map.png" width="400" height="351"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="EM3-cy-3cJ"/>
-        <segue reference="sAJ-ba-PF1"/>
+        <segue reference="coW-mI-W9m"/>
+        <segue reference="PRb-7K-IeC"/>
+        <segue reference="kfM-Lb-wKl"/>
     </inferredMetricsTieBreakers>
 </document>
