@@ -43,7 +43,7 @@
     
     
     //Start timer
-    appDelegate.mainTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
+    NSTimer *mainTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
     
     
     appDelegate.player = [[OCPlayer alloc] init];
@@ -101,7 +101,6 @@
 
 -(void) timerCheck {
     
-    
     //quest end check
     for (OCDragon *dragon in appDelegate.player.dragonList) {
         if ( dragon.onQuest && ([[NSDate date] compare:dragon.questInfo.endDate] == NSOrderedDescending)) {
@@ -117,7 +116,7 @@
         [appDelegate.player updateDragonEnergies];
     }
     
-    //NSLog(@"time...");
+    NSLog(@"time...");
 }
 
 - (void)didReceiveMemoryWarning {

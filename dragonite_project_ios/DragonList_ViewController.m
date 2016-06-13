@@ -8,7 +8,15 @@
 
 #import "DragonList_ViewController.h"
 
+enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel};
+
 @interface DragonList_ViewController ()
+
+//@property int selectedDragonViewIndex;//the dragon view for which the stats and skills
+//are being shown
+@property int statsButtonIndex; //index in subview array
+@property int questInfoLabelIndex;
+@property int questTimeLabelIndex;
 
 @end
 
@@ -18,8 +26,15 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
     
     [self setDragonListScene];
+    //self.selectedDragonViewIndex = -1;
+    
+    self.statsButtonIndex = 9;
+    self.questInfoLabelIndex = 4;
+    self.questTimeLabelIndex = 5;
+    NSLog(@"ghj");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -56,6 +71,7 @@
         //view.backgroundColor = [UIColor yellowColor];
         view.layer.borderColor = [UIColor yellowColor].CGColor;
         view.layer.borderWidth = 3.0f;
+        view.tag = DragonView;
         
         [view.heightAnchor constraintEqualToConstant:viewHeight].active = true;
         [view.widthAnchor constraintEqualToConstant:self.stackView.frame.size.width].active = true;
@@ -95,6 +111,7 @@
         UILabel *questInfoLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 10, 120, 20)];
         [questInfoLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
         questInfoLabel.textColor = [UIColor whiteColor];
+        questInfoLabel.tag = QuestInfoLabel;
         if (dragon.onQuest) {
             [questInfoLabel setText:@"On Quest"];
         }
@@ -105,15 +122,16 @@
         
         
         //create quest time label
+        UILabel *questTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 40, 120, 20)];
+        [questTimeLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
+        questTimeLabel.textColor = [UIColor whiteColor];
+        questTimeLabel.tag = dragonCount;
+        questTimeLabel.textAlignment = NSTextAlignmentCenter;
         if (dragon.onQuest) {
-            UILabel *questTimeLabel = [[UILabel alloc]initWithFrame:CGRectMake(240, 40, 120, 20)];
-            [questTimeLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
-            questTimeLabel.textColor = [UIColor whiteColor];
-            questTimeLabel.tag = dragonCount;
             [self setQuestTimeLabel:questTimeLabel];
-            questTimeLabel.textAlignment = NSTextAlignmentCenter;
-            [view addSubview:questTimeLabel];
         }
+        else questTimeLabel.hidden = YES;
+        [view addSubview:questTimeLabel];
         
         //create experience progress view and the title label
         UIProgressView *progressView = [[UIProgressView alloc] init];
@@ -197,10 +215,15 @@
 -(IBAction) showStats:(UIButton *) sender {
     
     int viewHeight = 100;
+    int viewIndex = 0;
+    while ([self.stackView.arrangedSubviews objectAtIndex:viewIndex] != sender.superview)
+        ++viewIndex;
     
     if ([sender isSelected]) {
         
-        UIView *view = [self.stackView.arrangedSubviews objectAtIndex:sender.tag+1];
+        
+        
+        UIView *view = [self.stackView.arrangedSubviews objectAtIndex:viewIndex+1];
         [self.stackView removeArrangedSubview:view];
         //view.hidden = YES;
         [view removeFromSuperview];
@@ -214,6 +237,7 @@
         //view.backgroundColor = [UIColor yellowColor];
         view.layer.borderColor = [UIColor yellowColor].CGColor;
         view.layer.borderWidth = 3.0f;
+        view.tag = StatsView;
         
         [view.heightAnchor constraintEqualToConstant:viewHeight].active = true;
         [view.widthAnchor constraintEqualToConstant:self.stackView.frame.size.width].active = true;
@@ -225,7 +249,7 @@
         titleLabel.textAlignment = NSTextAlignmentCenter;
         [view addSubview:titleLabel];
         
-        [self.stackView insertArrangedSubview:view atIndex:sender.tag+1];
+        [self.stackView insertArrangedSubview:view atIndex:viewIndex+1];
         [sender setSelected:YES];
     }
     
@@ -233,17 +257,21 @@
 
 -(IBAction) showSkills:(UIButton *) sender {
     
-    UIButton *statsButton = sender.superview.subviews[8];
+    UIButton *statsButton = sender.superview.subviews[self.statsButtonIndex];
+    NSString *h = statsButton.titleLabel.text;
     int viewHeight = 100;
+    int viewIndex = 0;
+    while ([self.stackView.arrangedSubviews objectAtIndex:viewIndex] != sender.superview)
+        ++viewIndex;
     
     if ([sender isSelected]) {
         
         UIView *view;
         if ([statsButton isSelected]) {
-            view = [self.stackView.arrangedSubviews objectAtIndex:sender.tag+2];
+            view = [self.stackView.arrangedSubviews objectAtIndex:viewIndex+2];
         }
         else {
-            view = [self.stackView.arrangedSubviews objectAtIndex:sender.tag+1];
+            view = [self.stackView.arrangedSubviews objectAtIndex:viewIndex+1];
         }
         
         [self.stackView removeArrangedSubview:view];
@@ -258,6 +286,7 @@
         //view.backgroundColor = [UIColor yellowColor];
         view.layer.borderColor = [UIColor yellowColor].CGColor;
         view.layer.borderWidth = 3.0f;
+        view.tag = SkillsView;
         
         [view.heightAnchor constraintEqualToConstant:viewHeight].active = true;
         [view.widthAnchor constraintEqualToConstant:self.stackView.frame.size.width].active = true;
@@ -271,9 +300,9 @@
         
         //if stat view is on
         if ([statsButton isSelected]) {
-            [self.stackView insertArrangedSubview:view atIndex:sender.tag+2];
+            [self.stackView insertArrangedSubview:view atIndex:viewIndex+2];
         }
-        else [self.stackView insertArrangedSubview:view atIndex:sender.tag+1];
+        else [self.stackView insertArrangedSubview:view atIndex:viewIndex+1];
         [sender setSelected:YES];
         
         
@@ -284,6 +313,7 @@
 
 - (void)setQuestTimeLabel:(UILabel *)label {
     label.text = [self stringFromTimeInterval:[[appDelegate.player.dragonList objectAtIndex:label.tag] remainingQuestTime]];
+    label.hidden = NO;
 }
 
 - (IBAction)backButton:(id)sender {
@@ -296,6 +326,24 @@
     NSInteger minutes = (time / 60) % 60;
     NSInteger hours = (time / 3600);
     return [NSString stringWithFormat:@"%02ld:%02ld:%02ld", (long)hours, (long)minutes, (long)seconds];
+}
+
+
+- (void)timerCheck {
+    for (UIView *view in self.stackView.arrangedSubviews) {
+        if (view.tag == DragonView) {
+            OCDragon *dragon = [appDelegate.player.dragonList objectAtIndex:[view.subviews objectAtIndex:9].tag];
+            if (dragon.onQuest) {
+                [[view.subviews objectAtIndex:self.questInfoLabelIndex] setText:@"On Quest"];
+                [self setQuestTimeLabel:[view.subviews objectAtIndex:self.questTimeLabelIndex]];
+            }
+            else {
+                [[view.subviews objectAtIndex:self.questInfoLabelIndex] setText:@"Not On Quest"];
+                [view.subviews objectAtIndex:self.questTimeLabelIndex].hidden = YES;
+            }
+            
+        }
+    }
 }
 
 @end

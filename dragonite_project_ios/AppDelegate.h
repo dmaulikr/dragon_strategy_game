@@ -19,7 +19,7 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
-@property NSTimer *mainTimer;
+//@property NSTimer *mainTimer;
 @property OCPlayer *player;
 @property NSMutableArray *skillTree;
 @property NSMutableArray *regionList;
