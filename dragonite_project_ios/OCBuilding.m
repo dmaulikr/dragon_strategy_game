@@ -12,7 +12,19 @@
 
 
 -(void) applyEffect:(OCPlayer *) player {
-    if (self.type == OCMainBuilding ) {
+    if (self.type == OCMainBuilding) {
+        player.maxBuildingLevel = self.level;
+    }
+    else if (self.type == OCDragonsDen) {
+        
+    }
+    else if (self.type == OCTreasury) {
+        
+    }
+    else if (self.type == OCFountain) {
+        
+    }
+    else if (self.type == OCSpring) {
         
     }
     

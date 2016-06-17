@@ -35,6 +35,7 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 @property int availableSkillPoints;
 @property BOOL onQuest;
 @property OCDragonQuestInfo *questInfo;
+@property BOOL isResting;
 
 //Use this to create random dragons. set the values by using property methods if needed.
 -(id) initNewDragonOfType:(enum OCDragonType) type_in withStatsRange:(int) range_in ThatIsLegendary:(BOOL) legendary_in isMythical:(BOOL) mythical_in;

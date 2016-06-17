@@ -130,4 +130,5 @@
     return [self.questInfo.endDate timeIntervalSinceNow];
 }
 
+
 @end

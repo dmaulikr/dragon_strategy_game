@@ -16,6 +16,10 @@
     {
         self.name = [name_in copy];
         self.gender = gender_in;
+        self.gold = 0;
+        self.gem = 0;
+        
+        //max dragon count?
         
         self.dragonList = [[NSMutableArray alloc] init];
         self.lastEnergyUpdateDate = [NSDate date]; //should I keep it this way?
@@ -44,6 +48,14 @@
 
 -(void) releaseDragon:(OCDragon *) poor_dragon {
     [self.dragonList removeObject:poor_dragon];
+}
+
+- (int)numberOfDragonsAvailable {
+    int count = 0;
+    for (OCDragon *dragon in self.dragonList) {
+        if (!dragon.onQuest && !dragon.isResting) ++count;
+    }
+    return count;
 }
 
 @end

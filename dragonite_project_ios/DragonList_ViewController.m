@@ -28,6 +28,10 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     NSTimer *timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
     
+    /*UIEdgeInsets insets = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0);
+    self.scrollView.contentInset = insets;
+    self.scrollView.scrollIndicatorInsets = insets; */
+    
     [self setDragonListScene];
     //self.selectedDragonViewIndex = -1;
     
@@ -42,11 +46,6 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
     // Dispose of any resources that can be recreated.
 }
 
-/*- (void)viewDidLayoutSubviews {
-    [super viewDidLayoutSubviews];
-    self.scrollView.contentSize = CGSize(width: stackView.frame.width, height: stackView.frame.height);
-} */
-
 /*
 #pragma mark - Navigation
 
@@ -57,12 +56,10 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
 }
 */
 
-
 - (void)setDragonListScene {
     
     int viewHeight = 100; //adjust this
     int dragonCount = 0;
-    //self.scrollView.contentSize = CGSizeMake(0, (viewHeight+6.0f) * [appDelegate.player.dragonList count]);
     
     for (OCDragon *dragon in appDelegate.player.dragonList) {
         
@@ -203,12 +200,11 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
     //figure out the constraint stuff and replace the contentsize line below
     
     
-    self.scrollView.contentSize = CGSizeMake(0, (viewHeight+6) * dragonCount);
-    /*self.extraActiveViews = [[NSMutableArray alloc]init];
-    for (int i = 0; i < dragonCount*2; ++i) {
-        [self.extraActiveViews addObject:@NO];
-    } */
+    self.scrollView.contentSize = CGSizeMake(0, (viewHeight) * dragonCount);
     
+    CGFloat content_y = self.scrollView.contentSize.height;
+    CGFloat stack_y = self.stackView.frame.size.height;
+    NSLog(@"hey");
 }
 
 

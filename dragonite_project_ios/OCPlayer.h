@@ -18,6 +18,8 @@
 @property int maxGold; //depends on the treasury
 @property int maxDragonCount; //depends on dragons' den
 @property int gold;
+@property int gem;
+@property int numberOfResets;
 @property NSDate *lastEnergyUpdateDate;
 
 -(id) initPlayerWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in;
@@ -34,4 +36,5 @@
 
 //-(void) checkIfQuestsEnded;
 
+- (int)numberOfDragonsAvailable;
 @end

@@ -10,6 +10,7 @@
 #import "OCPlayer.h"
 #import "OCRegion.h"
 #import "OCskill.h"
+#import "OCAchievement.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     //@public int count;
@@ -24,6 +25,9 @@
 @property NSMutableArray *skillTree;
 @property NSMutableArray *regionList;
 @property NSArray *regionButtonCoordinates;
+@property NSArray *achievementList;
+@property NSDate *lastAchievementCheckDate;
+
 
 
 

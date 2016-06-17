@@ -18,6 +18,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    self.gemLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gem];
+    self.goldLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gold];
+    self.dragonLabel.text = [NSString stringWithFormat:@"%d/%d", [appDelegate.player numberOfDragonsAvailable], (int)[appDelegate.player.dragonList count] ];
 }
 
 - (void)didReceiveMemoryWarning {

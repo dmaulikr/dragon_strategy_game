@@ -20,6 +20,10 @@
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
+    self.gemLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gem];
+    self.goldLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gold];
+    self.dragonLabel.text = [NSString stringWithFormat:@"%d/%d", [appDelegate.player numberOfDragonsAvailable], (int)[appDelegate.player.dragonList count] ];
+    
     self.mapScrollView.contentSize=CGSizeMake(self.mapImageView.frame.size.width, self.mapImageView.frame.size.height); //qswdersdtytgefdw
     self.mapScrollView.minimumZoomScale=1.0;
     self.mapScrollView.maximumZoomScale=8.0;
@@ -59,6 +63,10 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewWillAppear:(BOOL)animated {
+    self.dragonLabel.text = [NSString stringWithFormat:@"%d/%d", [appDelegate.player numberOfDragonsAvailable], (int)[appDelegate.player.dragonList count] ];
+}
+
 /*
 #pragma mark - Navigation
 
@@ -84,7 +92,6 @@
 
 - (CGPoint)basePositionForView:(UIButton *)button
 {
-    
     return CGPointMake([[appDelegate.regionButtonCoordinates objectAtIndex:button.tag*2] intValue], [[appDelegate.regionButtonCoordinates objectAtIndex:button.tag*2+1] intValue]);
 }
 
@@ -99,7 +106,8 @@
     frame.origin = position;
     button.frame = frame;
     
-    if (button.frame.origin.y <= upperBound || button.frame.origin.y+button.frame.size.height >= lowerBound) {
+    if (button.frame.origin.y <= upperBound ||
+        button.frame.origin.y+button.frame.size.height >= lowerBound) {
         button.enabled = NO;
         button.hidden = YES;
     }
@@ -108,7 +116,7 @@
         button.hidden = NO;
     }
     
-    NSLog(@"tag:%d, coordinates:%f,%f", button.tag, button.frame.origin.x, button.frame.origin.y);
+    NSLog(@"tag:%d, coordinates:%f,%f", (int)button.tag, button.frame.origin.x, button.frame.origin.y);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -133,9 +141,7 @@
 -(IBAction) sayHi:(UIButton *) sender {
     NSLog(@"hi");
     
-    NSString * storyboardName = @"Main";
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboardName bundle: nil];
-   
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     Region_ViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Region_ViewController"];
     vc.regionIndex = sender.tag;
     [self presentViewController:vc animated:YES completion:nil];

@@ -36,14 +36,11 @@
     self.questSuccessChanceVal.hidden = YES;
     self.dragonCapacityTitle.hidden = YES;
     self.dragonCapacityVal.hidden = YES;
-    
     self.startQuestButton.enabled = NO;
-    
-
-    
-    self.region = [appDelegate.regionList objectAtIndex:self.regionIndex];
-    
     self.regionImageView.userInteractionEnabled = YES;
+
+    self.region = [appDelegate.regionList objectAtIndex:self.regionIndex];
+
     [self generateQuestButtons:self.region.questButtonCoordinates];
     [[self.buttonList objectAtIndex:0] setBackgroundColor:[UIColor redColor]];
     [[self.buttonList objectAtIndex:1] setBackgroundColor:[UIColor redColor]];
@@ -95,7 +92,7 @@
 
 -(void) setImageViewAndQuestButtons {
     
-    self.regionImageView.image = [UIImage imageNamed: @"pokemon_dp_map.png"]; //might need to change this
+    self.regionImageView.image = [UIImage imageNamed: @"main_map.png"]; //might need to change this
     self.regionImageView.backgroundColor = [UIColor blueColor];
     //self.regionImageView.contentMode = UIViewContentModeCenter;
     //self.regionImageView.clipsToBounds = YES;
@@ -213,6 +210,7 @@
 
 - (IBAction)startQuest:(id)sender {
     [self.selectedDragon goToQuestNumber:self.selectedQuest.index atRegion:self.selectedQuest.regionNo withDifficultyLevel:self.selectedQuest.difficultyLevel];
+    [self setScrollViewForQuest:self.selectedQuest];
 }
 
 - (IBAction)backButton:(id)sender {

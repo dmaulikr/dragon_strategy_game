@@ -13,5 +13,9 @@
     AppDelegate *appDelegate;
 }
 
-- (IBAction)IncreaseCountButton:(id)sender;
+@property (weak, nonatomic) IBOutlet UILabel *gemLabel;
+@property (weak, nonatomic) IBOutlet UILabel *goldLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dragonLabel;
+
+
 @end

@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Loading Screen View Controller-->
@@ -17,26 +18,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="skQ-Ie-oTK">
-                                <rect key="frame" x="340" y="112" width="57" height="30"/>
-                                <state key="normal" title="START"/>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="EM3-cy-3cJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iiV-xC-HS3">
-                                <rect key="frame" x="337" y="200" width="75" height="30"/>
-                                <state key="normal" title="DragonList"/>
-                                <connections>
-                                    <segue destination="hYu-1h-vaF" kind="show" id="coW-mI-W9m"/>
-                                </connections>
-                            </button>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Pb6-qv-Ir1">
+                                <rect key="frame" x="364" y="263" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="Pb6-qv-Ir1" id="jWY-kQ-OAj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbG-0c-Ojr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -54,13 +47,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="736" height="414"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fye-7s-FYk">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fye-7s-FYk">
                                 <rect key="frame" x="0.0" y="20" width="736" height="580"/>
                                 <subviews>
-                                    <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="jUF-C3-rWC">
+                                    <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" preservesSuperviewLayoutMargins="YES" axis="vertical" distribution="equalSpacing" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jUF-C3-rWC">
                                         <rect key="frame" x="0.0" y="0.0" width="736" height="580"/>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="jUF-C3-rWC" secondAttribute="trailing" id="1AW-FP-obJ"/>
+                                    <constraint firstAttribute="bottom" secondItem="jUF-C3-rWC" secondAttribute="bottom" id="NC8-cF-xOA"/>
+                                    <constraint firstItem="jUF-C3-rWC" firstAttribute="leading" secondItem="fye-7s-FYk" secondAttribute="leading" id="T8G-pO-kLy"/>
+                                    <constraint firstItem="jUF-C3-rWC" firstAttribute="top" secondItem="fye-7s-FYk" secondAttribute="top" constant="40" id="qGz-Ti-CV8"/>
+                                </constraints>
                             </scrollView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fDj-u5-vd8">
                                 <rect key="frame" x="686" y="0.0" width="50" height="30"/>
@@ -71,6 +70,13 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="UPL-Z6-kQP" firstAttribute="top" secondItem="fye-7s-FYk" secondAttribute="bottom" id="29R-dY-tDq"/>
+                            <constraint firstItem="fye-7s-FYk" firstAttribute="height" secondItem="TbL-qt-MhK" secondAttribute="height" id="35U-hy-sS6"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fye-7s-FYk" secondAttribute="trailing" constant="-20" id="F9r-uK-CgR"/>
+                            <constraint firstItem="fye-7s-FYk" firstAttribute="top" secondItem="zYU-3y-aco" secondAttribute="bottom" constant="20" id="nQD-Jd-QKA"/>
+                            <constraint firstItem="fye-7s-FYk" firstAttribute="leading" secondItem="TbL-qt-MhK" secondAttribute="leadingMargin" constant="-20" id="wkh-gL-J5B"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="fye-7s-FYk" id="SCM-qC-FuK"/>
@@ -79,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jGs-g7-7mI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-398" y="948"/>
+            <point key="canvasLocation" x="-373" y="978"/>
         </scene>
         <!--Base-->
         <scene sceneID="tne-QT-ifu">
@@ -97,12 +103,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                 <color key="backgroundColor" red="0.54768386994949503" green="0.2593343404130608" blue="0.067696073062454204" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v1C-H1-jnH">
-                                <rect key="frame" x="178" y="3" width="46" height="30"/>
-                                <state key="normal" title="Gold"/>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GoldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mBW-pi-Bqu">
-                                <rect key="frame" x="245" y="7" width="130" height="21"/>
+                                <rect key="frame" x="245" y="8" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
@@ -118,23 +120,12 @@
                                     <segue destination="hYu-1h-vaF" kind="show" id="QYV-QF-GM4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mE-st-PAY">
-                                <rect key="frame" x="620" y="3" width="116" height="30"/>
-                                <state key="normal" title="Settings"/>
-                                <connections>
-                                    <segue destination="oNf-Hx-qnz" kind="show" id="KIn-q0-m0r"/>
-                                </connections>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DragonLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecR-mF-tqq">
-                                <rect key="frame" x="507" y="7" width="130" height="21"/>
+                                <rect key="frame" x="507" y="8" width="130" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iI0-Ce-V1H">
-                                <rect key="frame" x="440" y="3" width="59" height="30"/>
-                                <state key="normal" title="Dragon"/>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="adU-vW-W6y">
                                 <rect key="frame" x="0.0" y="356" width="96" height="58"/>
                                 <state key="normal" title="Map"/>
@@ -148,12 +139,48 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aa5-hf-vLB">
+                                <rect key="frame" x="199" y="8" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dragon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Qs-7K-c7J">
+                                <rect key="frame" x="442" y="8" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xyf-YI-n6t">
+                                <rect key="frame" x="43" y="8" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GemLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V4L-FW-pmz">
+                                <rect key="frame" x="88" y="8" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mE-st-PAY">
+                                <rect key="frame" x="620" y="4" width="116" height="30"/>
+                                <state key="normal" title="Settings"/>
+                                <connections>
+                                    <segue destination="oNf-Hx-qnz" kind="show" id="KIn-q0-m0r"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <nil key="simulatedStatusBarMetrics"/>
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="dragonLabel" destination="ecR-mF-tqq" id="JY3-bZ-rLE"/>
+                        <outlet property="gemLabel" destination="V4L-FW-pmz" id="jN3-8O-50d"/>
+                        <outlet property="goldLabel" destination="mBW-pi-Bqu" id="F5B-5x-y4k"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -162,7 +189,7 @@
         <!--Map-->
         <scene sceneID="fZv-tX-Yko">
             <objects>
-                <viewController title="Map" id="DvJ-gu-T5R" customClass="Map_ViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Map_ViewController" title="Map" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DvJ-gu-T5R" customClass="Map_ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="8Jw-za-5aD"/>
                         <viewControllerLayoutGuide type="bottom" id="EAP-MR-OKr"/>
@@ -183,32 +210,12 @@
                                 <rect key="frame" x="0.0" y="0.0" width="736" height="35"/>
                                 <color key="backgroundColor" red="0.54768386989999995" green="0.25933434039999997" blue="0.06769607306" alpha="1" colorSpace="calibratedRGB"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9C8-gL-c7p">
-                                <rect key="frame" x="178" y="3" width="46" height="30"/>
-                                <state key="normal" title="Gold"/>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GoldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2I-8E-lzf">
-                                <rect key="frame" x="245" y="7" width="130" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gnl-gl-F18">
                                 <rect key="frame" x="620" y="3" width="116" height="30"/>
                                 <state key="normal" title="Settings"/>
                                 <connections>
                                     <segue destination="oNf-Hx-qnz" kind="show" id="kfM-Lb-wKl"/>
                                 </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DragonLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9d3-zw-J8V">
-                                <rect key="frame" x="507" y="7" width="130" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lgQ-Oi-vdX">
-                                <rect key="frame" x="440" y="3" width="59" height="30"/>
-                                <state key="normal" title="Dragon"/>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="loI-Lf-m3j">
                                 <rect key="frame" x="0.0" y="356" width="736" height="58"/>
@@ -234,6 +241,42 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="PRb-7K-IeC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GoldLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mhb-Qn-xBu">
+                                <rect key="frame" x="245" y="7" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="DragonLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6fF-fw-Llw">
+                                <rect key="frame" x="507" y="7" width="130" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gold" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XL0-wB-v7Y">
+                                <rect key="frame" x="199" y="7" width="43" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Dragon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DA7-af-4gn">
+                                <rect key="frame" x="442" y="7" width="57" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gem" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JU7-it-8HJ">
+                                <rect key="frame" x="43" y="7" width="37" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="GemLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Neg-mq-aSL">
+                                <rect key="frame" x="88" y="7" width="78" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -241,6 +284,9 @@
                     <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
+                        <outlet property="dragonLabel" destination="6fF-fw-Llw" id="w3T-8H-7NV"/>
+                        <outlet property="gemLabel" destination="Neg-mq-aSL" id="KAO-dP-9gW"/>
+                        <outlet property="goldLabel" destination="mhb-Qn-xBu" id="1gM-Xj-1aA"/>
                         <outlet property="lowerBoundView" destination="loI-Lf-m3j" id="5y5-yM-gjc"/>
                         <outlet property="mapImageView" destination="a30-EV-kf8" id="nQk-6j-8dT"/>
                         <outlet property="mapScrollView" destination="Q7W-DS-0kf" id="JGw-wb-nZY"/>
@@ -390,8 +436,7 @@
         <image name="pokemon_dp_map.png" width="400" height="351"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="coW-mI-W9m"/>
-        <segue reference="PRb-7K-IeC"/>
+        <segue reference="cTk-bY-twm"/>
         <segue reference="kfM-Lb-wKl"/>
     </inferredMetricsTieBreakers>
 </document>

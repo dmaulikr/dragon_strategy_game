@@ -17,8 +17,9 @@ enum OCBuildingType {OCMainBuilding, OCDragonsDen, OCTreasury, OCFountain, OCSpr
 @property NSMutableArray *levelDescriptions; //Full of strings, 0 lvl description...
 //...could be the general building info
 @property NSString *imageName;
-@property int level;
-@property int maxLevelAllowed; //If we assume an endless game, ignore
+@property int level; //building lvl
+@property int maxLevelAllowed; //If we assume an endless game, ignore, not the same as current
+//max building lvl
 @property enum OCBuildingType type;
 
 

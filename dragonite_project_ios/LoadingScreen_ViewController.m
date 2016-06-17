@@ -19,6 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self.activityIndicator startAnimating];
+    
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
     //Set region button coordinates for map view
@@ -33,13 +36,18 @@
     [region.questList addObject:questPtr];
     OCQuest *questPtr2 = [[OCQuest alloc] initWithDistanceFromBase:500 withDifficultyLevel:10 withRequiredDragonType:OCwind withDragonExperienceReward:5 atRegion:0 withIndex:1];
     [region.questList addObject:questPtr2];
+    
     //self.region.imageName = @"pokemon_dp_map.png";
-    [region setImageInfoX:50 y:40 width:100 height:200];
+    [region setImageInfoX:150 y:240 width:400 height:300];
     [region.questButtonCoordinates addObject:@30];
     [region.questButtonCoordinates addObject:@40];
     [region.questButtonCoordinates addObject:@70];
     [region.questButtonCoordinates addObject:@60];
     [appDelegate.regionList addObject:region];
+    
+    
+    //Set achievements
+    appDelegate.lastAchievementCheckDate = [NSDate date];
     
     
     //Start timer
@@ -97,6 +105,14 @@
     [appDelegate.player addNewDragon:dragon];
     dragon = nil;
     
+    [self.activityIndicator stopAnimating];
+    
+}
+
+- (void) viewDidAppear:(BOOL)animated {
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    Map_ViewController *mapScene = [storyboard instantiateViewControllerWithIdentifier:@"Map_ViewController"];
+    [self presentViewController:mapScene animated:YES completion:nil];
 }
 
 -(void) timerCheck {
@@ -116,7 +132,35 @@
         [appDelegate.player updateDragonEnergies];
     }
     
-    NSLog(@"time...");
+    
+    //Work on this later!!!!!!
+    
+    //check for achievements every 5~ seconds
+    /*if (([[NSDate date] compare:[NSDate dateWithTimeInterval:5 sinceDate:appDelegate.lastAchievementCheckDate]] == NSOrderedDescending)) {
+        
+        int unlockedAchievementCount = 0;
+        OCAchievement *achievementUnlocked;
+        for (OCAchievement *achievement in appDelegate.achievementList) {
+            if (!achievement.unlocked && [achievement check] == YES) {
+                ++unlockedAchievementCount;
+                achievementUnlocked = achievement;
+            }
+        }
+        if (unlockedAchievementCount == 1) {
+            
+        }
+        
+        else if (unlockedAchievementCount > 1) {
+            
+        }
+        
+        //NSLog(@"checked for achievements");
+        appDelegate.lastAchievementCheckDate = [NSDate date];
+    } */
+    
+    
+    
+    //NSLog(@"time...");
 }
 
 - (void)didReceiveMemoryWarning {
