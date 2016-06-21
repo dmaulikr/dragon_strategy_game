@@ -11,7 +11,7 @@
 @implementation OCDragon
 
 //decide how to deal with names
--(id) initNewDragonOfType:(enum OCDragonType) type_in withStatsRange:(int) range_in  ThatIsLegendary:(BOOL) legendary_in isMythical:(BOOL) mythical_in {
+-(id) initNewDragonOfType:(enum OCDragonType) type_in withStatsRange:(int) range_in  ThatIsLegendary:(BOOL) legendary_in {
     
     self = [super init];
     if (self)
@@ -44,7 +44,7 @@
         self.experience = 0;
         self.questsCompleted = 0;
         self.isLegendary = legendary_in;
-        self.isMythical = mythical_in;
+        //self.isMythical = mythical_in;
         
         self.availableStatPoints = 0;
         self.availableSkillPoints = 0;

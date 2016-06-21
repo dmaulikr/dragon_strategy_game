@@ -48,6 +48,9 @@
     
     //Set achievements
     appDelegate.lastAchievementCheckDate = [NSDate date];
+    OCAchievement *achievement1 = [[OCAchievement alloc] initWithTitle:@"7 Heads" withExplanation:@"Roar" withTag:0];
+    OCAchievement *achievement2 = [[OCAchievement alloc] initWithTitle:@"5 Heads" withExplanation:@"Roar" withTag:1];
+    appDelegate.achievementList = [[NSArray alloc] initWithObjects:achievement1, achievement2, nil];
     
     
     //Start timer
@@ -59,7 +62,7 @@
     
     OCDragon *dragon = [[OCDragon alloc] init];
     
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO];
     dragon.level = 3;
     dragon.name = @"Khalimus";
     dragon.experience = 50;
@@ -67,13 +70,13 @@
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO];
     dragon.name = @"Zheltia";
     [appDelegate.player addNewDragon:dragon];
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO];
     dragon.name = @"Jiekha";
     dragon.effectiveStats.strength = 500;
     [appDelegate.player addNewDragon:dragon];
@@ -81,25 +84,25 @@
     
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO];
     dragon.name = @"Mumu";
     [appDelegate.player addNewDragon:dragon];
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO];
     dragon.name = @"Spitza";
     [appDelegate.player addNewDragon:dragon];
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCfire withStatsRange:4 ThatIsLegendary:NO];
     dragon.name = @"Ktaskia";
     [appDelegate.player addNewDragon:dragon];
     dragon = nil;
     
     dragon = [[OCDragon alloc] init];
-    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO isMythical:NO];
+    [dragon initNewDragonOfType:OCwind withStatsRange:4 ThatIsLegendary:NO];
     dragon.name = @"Uud";
     dragon.effectiveStats.strength = 100;
     [appDelegate.player addNewDragon:dragon];
@@ -136,31 +139,80 @@
     //Work on this later!!!!!!
     
     //check for achievements every 5~ seconds
-    /*if (([[NSDate date] compare:[NSDate dateWithTimeInterval:5 sinceDate:appDelegate.lastAchievementCheckDate]] == NSOrderedDescending)) {
+    if (([[NSDate date] compare:[NSDate dateWithTimeInterval:5 sinceDate:appDelegate.lastAchievementCheckDate]] == NSOrderedDescending)) {
         
         int unlockedAchievementCount = 0;
         OCAchievement *achievementUnlocked;
         for (OCAchievement *achievement in appDelegate.achievementList) {
-            if (!achievement.unlocked && [achievement check] == YES) {
+            if (!achievement.unlocked && [achievement check:appDelegate.player] == YES) {
+                achievement.unlocked = YES;
                 ++unlockedAchievementCount;
                 achievementUnlocked = achievement;
             }
         }
         if (unlockedAchievementCount == 1) {
             
+            //Find the view controller on the top
+            UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            while (topController.presentedViewController) {
+                topController = topController.presentedViewController;
+            }
+            
+            
+            self.achievementLabel = [[UILabel alloc] init];
+            self.achievementLabel.frame = CGRectMake(0,  topController.view.frame.size.height*4/5, topController.view.frame.size.width, topController.view.frame.size.height*1/5);
+            self.achievementLabel.backgroundColor = [UIColor yellowColor];
+            self.achievementLabel.layer.borderColor = [UIColor orangeColor].CGColor;
+            self.achievementLabel.layer.borderWidth = 2.0f;
+            
+            self.achievementLabel.text = [NSString stringWithFormat:@"You have unlocked %@", achievementUnlocked.title];
+            NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString: self.achievementLabel.attributedText];
+            [text addAttribute:NSForegroundColorAttributeName
+                         value:[UIColor redColor]
+                         range:NSMakeRange(18, text.length-18)];
+            [self.achievementLabel setAttributedText: text];
+            self.achievementLabel.textAlignment = NSTextAlignmentCenter;
+            
+            [topController.view addSubview:self.achievementLabel];
+            NSTimer *achievementViewTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(closeAchievementNotification) userInfo:self.achievementLabel repeats:NO];
+
         }
         
         else if (unlockedAchievementCount > 1) {
             
+            //Find the view controller on the top
+            UIViewController *topController = [UIApplication sharedApplication].keyWindow.rootViewController;
+            
+            while (topController.presentedViewController) {
+                topController = topController.presentedViewController;
+            }
+            
+            
+            self.achievementLabel = [[UILabel alloc] init];
+            self.achievementLabel.frame = CGRectMake(0,  topController.view.frame.size.height*4/5, topController.view.frame.size.width, topController.view.frame.size.height*1/5);
+            self.achievementLabel.backgroundColor = [UIColor yellowColor];
+            self.achievementLabel.layer.borderColor = [UIColor orangeColor].CGColor;
+            self.achievementLabel.layer.borderWidth = 2.0f;
+            
+            self.achievementLabel.text = [NSString stringWithFormat:@"You have unlocked %d new achievements", unlockedAchievementCount];
+            self.achievementLabel.textAlignment = NSTextAlignmentCenter;
+            
+            [topController.view addSubview:self.achievementLabel];
+            NSTimer *achievementViewTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(closeAchievementNotification) userInfo:self.achievementLabel repeats:NO];
         }
         
         //NSLog(@"checked for achievements");
         appDelegate.lastAchievementCheckDate = [NSDate date];
-    } */
+    }
     
     
     
     //NSLog(@"time...");
+}
+
+- (void)closeAchievementNotification {
+    [self.achievementLabel removeFromSuperview];
 }
 
 - (void)didReceiveMemoryWarning {

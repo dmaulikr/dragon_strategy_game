@@ -27,7 +27,7 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 @property int experience;
 @property int questsCompleted;
 @property BOOL isLegendary;
-@property BOOL isMythical;
+//@property BOOL isMythical;
 
 
 //add these to the constructors
@@ -35,9 +35,10 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 @property int availableSkillPoints;
 @property BOOL onQuest;
 @property OCDragonQuestInfo *questInfo;
+@property BOOL isResting;
 
 //Use this to create random dragons. set the values by using property methods if needed.
--(id) initNewDragonOfType:(enum OCDragonType) type_in withStatsRange:(int) range_in ThatIsLegendary:(BOOL) legendary_in isMythical:(BOOL) mythical_in;
+-(id) initNewDragonOfType:(enum OCDragonType) type_in withStatsRange:(int) range_in ThatIsLegendary:(BOOL) legendary_in;
 
 
 -(void)improveStatsByStrength:(double) strength_in Speed:(double) speed_in Endurance:(double) endurance_in Capacity:(double) capacity_in;

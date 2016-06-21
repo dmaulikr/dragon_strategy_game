@@ -7,16 +7,20 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "OCPlayer.h"
 
 //enum AchievementType{Quest};
 
 @interface OCAchievement : NSObject
 
+@property NSString *title;
 @property NSString *explanation;
 @property BOOL unlocked;
 //@property enum AchievementType type;
 @property int tag;
 
-- (BOOL)check;
+
+- (id)initWithTitle:(NSString *)title_in withExplanation:(NSString *)explanation_in withTag:(int) tag_in;
+- (BOOL)check:(OCPlayer *)player;
 
 @end

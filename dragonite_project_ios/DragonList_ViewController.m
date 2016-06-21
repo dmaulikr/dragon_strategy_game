@@ -10,6 +10,19 @@
 
 enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel};
 
+
+/*@interface NSLayoutConstraint (Description)
+
+@end
+
+@implementation NSLayoutConstraint (Description)
+
+-(NSString *)description {
+    return [NSString stringWithFormat:@"id: %@, constant: %f", self.identifier, self.constant];
+}
+
+@end*/
+
 @interface DragonList_ViewController ()
 
 //@property int selectedDragonViewIndex;//the dragon view for which the stats and skills
@@ -38,7 +51,7 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
     self.statsButtonIndex = 9;
     self.questInfoLabelIndex = 4;
     self.questTimeLabelIndex = 5;
-    NSLog(@"ghj");
+    //NSLog(@"ghj");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -80,13 +93,16 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
         [view addSubview:imageView];
         
         
+        
         //create name label
         UILabel *nameLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 10, 120, 20)];
         [nameLabel setBackgroundColor:[UIColor /*clearColor*/ blueColor]];
         nameLabel.textColor = [UIColor whiteColor];
         [nameLabel setText:dragon.name];
         nameLabel.textAlignment = NSTextAlignmentCenter;
+        nameLabel.userInteractionEnabled = NO;
         [view addSubview:nameLabel];
+        
         
         //create type label
         UILabel *typeLabel = [[UILabel alloc]initWithFrame:CGRectMake(110, 40, 120, 20)];
@@ -184,6 +200,18 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
         [view addSubview:skillButton];
         
         
+        //create hidden name button
+        UIButton *nameButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        [nameButton addTarget:self
+                       action:@selector(showDragonNameView:) forControlEvents:UIControlEventTouchUpInside];
+        nameButton.frame = CGRectMake(110, 10, 120, 20);
+        nameButton.tag = dragonCount;
+        nameButton.backgroundColor = [UIColor clearColor];
+        //nameButton.hidden = YES;
+        nameButton.enabled = YES;
+        [view addSubview:nameButton];
+        
+        
         
         [self.stackView addArrangedSubview:view];
         
@@ -204,7 +232,7 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
     
     CGFloat content_y = self.scrollView.contentSize.height;
     CGFloat stack_y = self.stackView.frame.size.height;
-    NSLog(@"hey");
+    //NSLog(@"hey");
 }
 
 
@@ -304,6 +332,34 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
         
     }
     
+}
+
+- (IBAction)showDragonNameView:(UIButton *) sender {
+    
+    DragonName_ViewController *viewController = [self.storyboard instantiateViewControllerWithIdentifier:@"DragonName_ViewController"];
+    
+    UIView *blackView =[[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    [blackView setBackgroundColor:[UIColor blackColor]];
+    blackView.alpha = 0;
+    [self.view addSubview:blackView];
+    
+    viewController.dragonIndex = sender.tag;
+    [self addChildViewController:viewController];
+    viewController.view.frame = self.view.frame;
+    [self.view addSubview:viewController.view];
+    viewController.view.alpha = 0;
+    [viewController didMoveToParentViewController:self];
+    
+    viewController.dragonNameLabel = [[sender superview].subviews objectAtIndex:1];
+    
+    [UIView animateWithDuration:0.25 delay:0.0 options:UIViewAnimationOptionCurveLinear animations:^
+     {
+         blackView.alpha = 0.5;
+         viewController.view.alpha = 1;
+     }
+                     completion:nil];
+    
+    //NSLog(@"hey");
 }
 
 

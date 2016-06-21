@@ -15,4 +15,5 @@
 }
 
 @property (weak, nonatomic) IBOutlet UIActivityIndicatorView *activityIndicator;
+@property UILabel *achievementLabel;
 @end

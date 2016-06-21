@@ -10,10 +10,34 @@
 
 @implementation OCAchievement
 
-- (BOOL)check {
+- (id)initWithTitle:(NSString *)title_in withExplanation:(NSString *)explanation_in withTag:(int) tag_in {
+    
+    self = [super init];
+    if (self)
+    {
+        self.title = title_in;
+        self.explanation = explanation_in;
+        self.unlocked = NO;
+        self.tag = tag_in;
+    }
+    return self;
+}
+
+- (BOOL)check:(OCPlayer *)player {
     switch (self.tag) {
-        case 1: {
             
+        case 0: {
+            if ([player.dragonList count] >= 7) {
+                
+                return YES;
+            }
+            break;
+        }
+        case 1: {
+            if ([player.dragonList count] >= 5) {
+                
+                return YES;
+            }
             break;
         }
         default:

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
+#import "DragonName_ViewController.h"
 
 @interface DragonList_ViewController : UIViewController  {
     AppDelegate *appDelegate;
