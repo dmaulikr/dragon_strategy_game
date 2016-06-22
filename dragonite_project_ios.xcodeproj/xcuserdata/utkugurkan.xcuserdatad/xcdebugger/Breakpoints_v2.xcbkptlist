@@ -218,11 +218,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dragonite_project_ios/LoadingScreen_ViewController.m"
-            timestampString = "488227923.296778"
+            timestampString = "488239821.647197"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "77"
-            endingLineNumber = "77"
+            startingLineNumber = "81"
+            endingLineNumber = "81"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -490,11 +490,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dragonite_project_ios/LoadingScreen_ViewController.m"
-            timestampString = "488227923.296778"
+            timestampString = "488248792.297157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "126"
-            endingLineNumber = "126"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-timerCheck"
             landmarkType = "5">
          </BreakpointContent>
@@ -602,11 +602,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dragonite_project_ios/LoadingScreen_ViewController.m"
-            timestampString = "488227923.296778"
+            timestampString = "488239895.16873"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "109"
-            endingLineNumber = "109"
+            startingLineNumber = "114"
+            endingLineNumber = "114"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -778,11 +778,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dragonite_project_ios/LoadingScreen_ViewController.m"
-            timestampString = "488227923.296778"
+            timestampString = "488249914.323746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "143"
-            endingLineNumber = "143"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
             landmarkName = "-timerCheck"
             landmarkType = "5">
          </BreakpointContent>
@@ -794,11 +794,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dragonite_project_ios/LoadingScreen_ViewController.m"
-            timestampString = "488227923.296778"
+            timestampString = "488249914.323746"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "177"
-            endingLineNumber = "177"
+            startingLineNumber = "168"
+            endingLineNumber = "168"
             landmarkName = "-timerCheck"
             landmarkType = "5">
          </BreakpointContent>
@@ -809,13 +809,29 @@
             shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "dragonite_project_ios/LoadingScreen_ViewController.m"
-            timestampString = "488227923.296778"
+            filePath = "dragonite_project_ios/GlobalPopUp.m"
+            timestampString = "488237629.857569"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "164"
-            endingLineNumber = "164"
-            landmarkName = "-timerCheck"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "+createAchievementPopUpSingleUnlock:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dragonite_project_ios/GlobalPopUp.m"
+            timestampString = "488237786.271784"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "36"
+            endingLineNumber = "36"
+            landmarkName = "+createAchievementPopUpSingleUnlock:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -826,12 +842,60 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "dragonite_project_ios/LoadingScreen_ViewController.m"
-            timestampString = "488227923.296778"
+            timestampString = "488248792.297157"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "170"
-            endingLineNumber = "170"
-            landmarkName = "-timerCheck"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "-viewDidAppear:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dragonite_project_ios/OCMythicalDragon.m"
+            timestampString = "488250438.348767"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "79"
+            endingLineNumber = "79"
+            landmarkName = "-hasBeenDiscovered"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dragonite_project_ios/OCMythicalDragon.m"
+            timestampString = "488249869.130183"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+            landmarkName = "-hasBeenDiscovered"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "dragonite_project_ios/OCMythicalDragon.m"
+            timestampString = "488250605.147781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "65"
+            endingLineNumber = "65"
+            landmarkName = "-hasBeenDiscovered"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

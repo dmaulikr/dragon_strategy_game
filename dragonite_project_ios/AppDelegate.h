@@ -11,6 +11,7 @@
 #import "OCRegion.h"
 #import "OCskill.h"
 #import "OCAchievement.h"
+#import "OCMythicalDragon.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate> {
     //@public int count;
@@ -20,17 +21,13 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
-//@property NSTimer *mainTimer;
 @property OCPlayer *player;
 @property NSMutableArray *skillTree;
 @property NSMutableArray *regionList;
 @property NSArray *regionButtonCoordinates;
 @property NSArray *achievementList;
 @property NSDate *lastAchievementCheckDate;
-
-
-
-
+@property NSArray *mythicalDragonList;
 
 @end
 

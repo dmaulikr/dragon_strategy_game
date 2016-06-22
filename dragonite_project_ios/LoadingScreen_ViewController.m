@@ -48,9 +48,13 @@
     
     //Set achievements
     appDelegate.lastAchievementCheckDate = [NSDate date];
-    OCAchievement *achievement1 = [[OCAchievement alloc] initWithTitle:@"7 Heads" withExplanation:@"Roar" withTag:0];
+    /*OCAchievement *achievement1 = [[OCAchievement alloc] initWithTitle:@"7 Heads" withExplanation:@"Roar" withTag:0];
     OCAchievement *achievement2 = [[OCAchievement alloc] initWithTitle:@"5 Heads" withExplanation:@"Roar" withTag:1];
-    appDelegate.achievementList = [[NSArray alloc] initWithObjects:achievement1, achievement2, nil];
+    appDelegate.achievementList = [[NSArray alloc] initWithObjects:achievement1, achievement2, nil];*/
+    
+    //Set mythical dragons
+    OCMythicalDragon *myth1 = [[OCMythicalDragon alloc] initWithName:@"Slifer" withTitle:@"the sky dragon" withImage:@"slifer.jpg"];
+    appDelegate.mythicalDragonList = [[NSArray alloc] initWithObjects:myth1, nil];
     
     
     //Start timer
@@ -108,6 +112,7 @@
     [appDelegate.player addNewDragon:dragon];
     dragon = nil;
     
+    
     [self.activityIndicator stopAnimating];
     
 }
@@ -116,6 +121,11 @@
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     Map_ViewController *mapScene = [storyboard instantiateViewControllerWithIdentifier:@"Map_ViewController"];
     [self presentViewController:mapScene animated:YES completion:nil];
+    
+    
+    
+    //TEEEEEEEEEEEEEST--DELETE LATER
+    [[appDelegate.mythicalDragonList objectAtIndex:0] hasBeenDiscovered];
 }
 
 -(void) timerCheck {
@@ -126,6 +136,9 @@
             OCRegion *region = [appDelegate.regionList objectAtIndex:dragon.questInfo.regionNo];
             OCQuest *quest = [region.questList objectAtIndex:dragon.questInfo.questNo];
             [quest finishQuest:dragon and:appDelegate.player];
+            
+            //TTEEEESSTTT--DELETE LATER
+            //[[appDelegate.mythicalDragonList objectAtIndex:0] hasBeenDiscovered];
         }
     }
     
@@ -161,7 +174,7 @@
             
             
             self.achievementLabel = [[UILabel alloc] init];
-            self.achievementLabel.frame = CGRectMake(0,  topController.view.frame.size.height*4/5, topController.view.frame.size.width, topController.view.frame.size.height*1/5);
+            self.achievementLabel.frame = CGRectMake(0, topController.view.frame.size.height*4/5, topController.view.frame.size.width, topController.view.frame.size.height*1/5);
             self.achievementLabel.backgroundColor = [UIColor yellowColor];
             self.achievementLabel.layer.borderColor = [UIColor orangeColor].CGColor;
             self.achievementLabel.layer.borderWidth = 2.0f;
