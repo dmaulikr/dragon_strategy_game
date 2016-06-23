@@ -230,8 +230,8 @@ enum tags {DragonView = 1, StatsView, SkillsView, QuestInfoLabel, QuestTimeLabel
     
     self.scrollView.contentSize = CGSizeMake(0, (viewHeight) * dragonCount);
     
-    CGFloat content_y = self.scrollView.contentSize.height;
-    CGFloat stack_y = self.stackView.frame.size.height;
+    //CGFloat content_y = self.scrollView.contentSize.height;
+    //CGFloat stack_y = self.stackView.frame.size.height;
     //NSLog(@"hey");
 }
 

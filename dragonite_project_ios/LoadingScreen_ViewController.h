@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 #import "Map_ViewController.h"
+#import "MainContainer_ViewController.h"
 
 @interface LoadingScreen_ViewController : UIViewController {
     AppDelegate *appDelegate;

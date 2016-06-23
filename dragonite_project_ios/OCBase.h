@@ -15,5 +15,4 @@
 @property NSMutableArray *buildingCoordinates;
 @property NSString *image;
 
-
 @end

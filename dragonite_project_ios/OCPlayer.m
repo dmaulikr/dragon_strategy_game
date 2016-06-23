@@ -18,6 +18,7 @@
         self.gender = gender_in;
         self.gold = 0;
         self.gem = 0;
+        self.numberOfDifferentQuestsCompleted = 0;
         
         //max dragon count?
         

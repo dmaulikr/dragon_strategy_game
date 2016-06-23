@@ -21,6 +21,7 @@
 @property int gem;
 @property int numberOfResets;
 @property NSDate *lastEnergyUpdateDate;
+@property int numberOfDifferentQuestsCompleted;
 
 -(id) initPlayerWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in;
 

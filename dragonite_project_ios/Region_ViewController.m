@@ -141,8 +141,6 @@
     //clear contents of the scrollview
     [self.dragonScrollView.subviews makeObjectsPerformSelector:@selector(removeFromSuperview)];
     
-    //scrollView.pagingEnabled = YES;
-    
     int buttonsAdded = 0;
     int dragonIndex = 0;
     
@@ -198,7 +196,8 @@
     
     self.selectedDragon = [appDelegate.player.dragonList objectAtIndex:sender.tag];
     
-    self.questLengthVal.text = [NSString stringWithFormat:[self stringFromTimeInterval:[self.selectedDragon calculateLengthForQuestWithDifficulty:self.selectedQuest.difficultyLevel]]];
+    //check this line
+    self.questLengthVal.text = [self stringFromTimeInterval:[self.selectedDragon calculateLengthForQuestWithDifficulty:self.selectedQuest.difficultyLevel]];
     self.questSuccessChanceVal.text = [NSString stringWithFormat:@"%d%%", [self.selectedQuest successRate0To100:self.selectedDragon]];
     self.dragonCapacityVal.text = [NSString stringWithFormat:@"%d", [self.selectedDragon maxGoldThatCanBeCarried]];
     

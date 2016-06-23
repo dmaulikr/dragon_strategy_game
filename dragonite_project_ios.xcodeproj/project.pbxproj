@@ -32,6 +32,8 @@
 		A98D604C1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */; };
 		A99BB4D01D0C90FD00FD11B4 /* witch_king.png in Resources */ = {isa = PBXBuildFile; fileRef = A99BB4CF1D0C90FD00FD11B4 /* witch_king.png */; };
 		A99BB4D21D0CC3F100FD11B4 /* main_map.png in Resources */ = {isa = PBXBuildFile; fileRef = A99BB4D11D0CC3F100FD11B4 /* main_map.png */; };
+		A9C007591D1BD87F0081C3E9 /* MainContainer_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C007581D1BD87F0081C3E9 /* MainContainer_ViewController.m */; };
+		A9C0075C1D1C11BD0081C3E9 /* Building_ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C0075B1D1C11BD0081C3E9 /* Building_ViewController.m */; };
 		A9C2FBCF1D13532000B65069 /* OCAchievement.m in Sources */ = {isa = PBXBuildFile; fileRef = A9C2FBCE1D13532000B65069 /* OCAchievement.m */; };
 		A9CAF44D1CFC855000D8C1E1 /* OCDragon.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF44A1CFC855000D8C1E1 /* OCDragon.m */; };
 		A9CAF44E1CFC855000D8C1E1 /* OCPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = A9CAF44C1CFC855000D8C1E1 /* OCPlayer.m */; };
@@ -104,6 +106,10 @@
 		A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoadingScreen_ViewController.m; sourceTree = "<group>"; };
 		A99BB4CF1D0C90FD00FD11B4 /* witch_king.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = witch_king.png; sourceTree = "<group>"; };
 		A99BB4D11D0CC3F100FD11B4 /* main_map.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = main_map.png; sourceTree = "<group>"; };
+		A9C007571D1BD87F0081C3E9 /* MainContainer_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainContainer_ViewController.h; sourceTree = "<group>"; };
+		A9C007581D1BD87F0081C3E9 /* MainContainer_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainContainer_ViewController.m; sourceTree = "<group>"; };
+		A9C0075A1D1C11BD0081C3E9 /* Building_ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Building_ViewController.h; sourceTree = "<group>"; };
+		A9C0075B1D1C11BD0081C3E9 /* Building_ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Building_ViewController.m; sourceTree = "<group>"; };
 		A9C2FBCD1D13532000B65069 /* OCAchievement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCAchievement.h; sourceTree = "<group>"; };
 		A9C2FBCE1D13532000B65069 /* OCAchievement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCAchievement.m; sourceTree = "<group>"; };
 		A9CAF4491CFC855000D8C1E1 /* OCDragon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCDragon.h; sourceTree = "<group>"; };
@@ -198,18 +204,22 @@
 				A98D60151CEE648E008F4AE7 /* AppDelegate.m */,
 				A98D604A1CEE7C22008F4AE7 /* LoadingScreen_ViewController.h */,
 				A98D604B1CEE7C22008F4AE7 /* LoadingScreen_ViewController.m */,
+				A9C007571D1BD87F0081C3E9 /* MainContainer_ViewController.h */,
+				A9C007581D1BD87F0081C3E9 /* MainContainer_ViewController.m */,
+				A91267F11D07598E00CC24C7 /* DragonList_ViewController.h */,
+				A91267F21D07598E00CC24C7 /* DragonList_ViewController.m */,
+				A9054A1A1D18D47F00B30AFA /* DragonName_ViewController.h */,
+				A9054A1B1D18D47F00B30AFA /* DragonName_ViewController.m */,
 				A92F4DDA1CEF50BE00BB7FC1 /* Base_ViewController.h */,
 				A92F4DDB1CEF50BE00BB7FC1 /* Base_ViewController.m */,
+				A9C0075A1D1C11BD0081C3E9 /* Building_ViewController.h */,
+				A9C0075B1D1C11BD0081C3E9 /* Building_ViewController.m */,
 				A98D60441CEE6D29008F4AE7 /* Map_ViewController.h */,
 				A98D60451CEE6D29008F4AE7 /* Map_ViewController.m */,
 				A93A92181CFFB1B3006FFBBC /* Region_ViewController.h */,
 				A93A92191CFFB1B3006FFBBC /* Region_ViewController.m */,
 				A98D60471CEE6E14008F4AE7 /* Settings_ViewController.h */,
 				A98D60481CEE6E14008F4AE7 /* Settings_ViewController.m */,
-				A91267F11D07598E00CC24C7 /* DragonList_ViewController.h */,
-				A91267F21D07598E00CC24C7 /* DragonList_ViewController.m */,
-				A9054A1A1D18D47F00B30AFA /* DragonName_ViewController.h */,
-				A9054A1B1D18D47F00B30AFA /* DragonName_ViewController.m */,
 				A98D601A1CEE648E008F4AE7 /* Main.storyboard */,
 				A98D601D1CEE648E008F4AE7 /* Assets.xcassets */,
 				A98D601F1CEE648E008F4AE7 /* LaunchScreen.storyboard */,
@@ -386,6 +396,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A9CAF44E1CFC855000D8C1E1 /* OCPlayer.m in Sources */,
+				A9C007591D1BD87F0081C3E9 /* MainContainer_ViewController.m in Sources */,
 				A9CAF4531CFC85A700D8C1E1 /* OCCharacter.m in Sources */,
 				A98D60491CEE6E14008F4AE7 /* Settings_ViewController.m in Sources */,
 				A9054A191D18CDBF00B30AFA /* OCMythicalDragon.m in Sources */,
@@ -400,6 +411,7 @@
 				A98D60131CEE648E008F4AE7 /* main.m in Sources */,
 				A93522EC1CFD08CB00A36F98 /* OCRegion.m in Sources */,
 				A97B71891CFC6FA800192C32 /* OCMultiplierSkill.m in Sources */,
+				A9C0075C1D1C11BD0081C3E9 /* Building_ViewController.m in Sources */,
 				A93208851CFF4D12004DB9B7 /* OCDragonStats.m in Sources */,
 				A98D60461CEE6D29008F4AE7 /* Map_ViewController.m in Sources */,
 				A978B6AF1D03B26B004311FC /* OCBuilding.m in Sources */,

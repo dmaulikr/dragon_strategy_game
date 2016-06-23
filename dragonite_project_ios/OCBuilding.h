@@ -14,15 +14,19 @@ enum OCBuildingType {OCMainBuilding, OCDragonsDen, OCTreasury, OCFountain, OCSpr
 @interface OCBuilding : NSObject
 
 @property NSString *name;
-@property NSMutableArray *levelDescriptions; //Full of strings, 0 lvl description...
+@property NSArray *levelDescriptions; //Full of strings, 0 lvl description...
 //...could be the general building info
 @property NSString *imageName;
 @property int level; //building lvl
-@property int maxLevelAllowed; //If we assume an endless game, ignore, not the same as current
-//max building lvl
+@property int maxLevelAllowed; //If we assume an endless game, ignore, not the same as
+//current max building lvl
 @property enum OCBuildingType type;
 
 
--(void) applyEffect:(OCPlayer *) player;
+- (void)applyEffect:(OCPlayer *) player;
+- (NSString *)getGeneralInformation;
+- (NSString *)getCurrentLevelInformation;
+- (NSString *)getNextLevelInformation;
+- (int)upgradeCost;
 
 @end

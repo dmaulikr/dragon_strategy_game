@@ -24,6 +24,7 @@
 @property int difficultyLevel;
 @property int dragonExperienceReward;
 @property enum OCDragonType requiredType;
+@property BOOL successfullyCompletedAtLeastOnce;
 
 -(id) initWithDistanceFromBase:(double) distance_in withDifficultyLevel:(int) level_in withRequiredDragonType:(enum OCDragonType) type_in withDragonExperienceReward:(int) exp_in atRegion:(int) region_idx withIndex:(int) quest_idx;
 -(void) startQuest:(OCDragon *) dragon;

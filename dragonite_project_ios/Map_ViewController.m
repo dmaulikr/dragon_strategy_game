@@ -20,9 +20,9 @@
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    self.gemLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gem];
+   /* self.gemLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gem];
     self.goldLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gold];
-    self.dragonLabel.text = [NSString stringWithFormat:@"%d/%d", [appDelegate.player numberOfDragonsAvailable], (int)[appDelegate.player.dragonList count] ];
+    self.dragonLabel.text = [NSString stringWithFormat:@"%d/%d", [appDelegate.player numberOfDragonsAvailable], (int)[appDelegate.player.dragonList count] ];*/
     
     self.mapScrollView.contentSize=CGSizeMake(self.mapImageView.frame.size.width, self.mapImageView.frame.size.height); //qswdersdtytgefdw
     self.mapScrollView.minimumZoomScale=1.0;
@@ -63,9 +63,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)viewWillAppear:(BOOL)animated {
+/*- (void)viewWillAppear:(BOOL)animated {
     self.dragonLabel.text = [NSString stringWithFormat:@"%d/%d", [appDelegate.player numberOfDragonsAvailable], (int)[appDelegate.player.dragonList count] ];
-}
+}*/
 
 /*
 #pragma mark - Navigation
@@ -106,7 +106,7 @@
     frame.origin = position;
     button.frame = frame;
     
-    if (button.frame.origin.y <= upperBound ||
+    /*if (button.frame.origin.y <= upperBound ||
         button.frame.origin.y+button.frame.size.height >= lowerBound) {
         button.enabled = NO;
         button.hidden = YES;
@@ -114,7 +114,7 @@
     else {
         button.enabled = YES;
         button.hidden = NO;
-    }
+    }*/
     
     NSLog(@"tag:%d, coordinates:%f,%f", (int)button.tag, button.frame.origin.x, button.frame.origin.y);
 }
@@ -143,7 +143,7 @@
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     Region_ViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Region_ViewController"];
-    vc.regionIndex = sender.tag;
+    vc.regionIndex = (int)sender.tag;
     [self presentViewController:vc animated:YES completion:nil];
 }
 

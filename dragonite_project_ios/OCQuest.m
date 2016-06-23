@@ -21,6 +21,7 @@
         self.dragonExperienceReward = exp_in;
         self.regionNo = region_idx;
         self.index = quest_idx;
+        self.successfullyCompletedAtLeastOnce = NO;
         
         self.counter = 0;
         self.lastCounterUpdate = [NSDate date];
@@ -39,7 +40,12 @@
     
     //CUT DOWN ENERGY FROM DRAGON!!!!!!! don't forget
     
-    if ([self successful:dragon]) {
+    if ([self successful:dragon]) {  // ^_^ Yeay
+        
+        if (!self.successfullyCompletedAtLeastOnce) {
+            self.successfullyCompletedAtLeastOnce = YES;
+            player.numberOfDifferentQuestsCompleted += 1;
+        }
         
         int rewardGold = [self calculateGoldReward];
         
@@ -55,7 +61,7 @@
         if (self.counter == 1) self.lastCounterUpdate = [NSDate date];
     }
     
-    else {
+    else { // :(
         //still give the poor dragon some exp
         //be careful, a player shouldn't be able to send a low level dragon
         //to a high level quest, fail but gain more exp

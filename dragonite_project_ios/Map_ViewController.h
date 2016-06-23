@@ -21,8 +21,8 @@
 @property (weak, nonatomic) IBOutlet UIImageView *mapImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *upperBoundView;
 @property (weak, nonatomic) IBOutlet UIImageView *lowerBoundView;
-@property (weak, nonatomic) IBOutlet UILabel *gemLabel;
+/*@property (weak, nonatomic) IBOutlet UILabel *gemLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goldLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dragonLabel;
+@property (weak, nonatomic) IBOutlet UILabel *dragonLabel;*/
 
 @end

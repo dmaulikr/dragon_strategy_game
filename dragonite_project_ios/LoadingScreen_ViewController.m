@@ -58,7 +58,7 @@
     
     
     //Start timer
-    NSTimer *mainTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
+    //NSTimer *mainTimer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(timerCheck) userInfo:nil repeats:YES ];
     
     
     appDelegate.player = [[OCPlayer alloc] init];
@@ -118,14 +118,20 @@
 }
 
 - (void) viewDidAppear:(BOOL)animated {
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    /*UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     Map_ViewController *mapScene = [storyboard instantiateViewControllerWithIdentifier:@"Map_ViewController"];
-    [self presentViewController:mapScene animated:YES completion:nil];
+    [self presentViewController:mapScene animated:YES completion:nil]; */
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
+    MainContainer_ViewController *containerScene = [storyboard instantiateViewControllerWithIdentifier:@"MainContainer_ViewController"];
+    [self presentViewController:containerScene animated:YES completion:nil];
+    
+    containerScene.currentChildView = Map;
     
     
     
     //TEEEEEEEEEEEEEST--DELETE LATER
-    [[appDelegate.mythicalDragonList objectAtIndex:0] hasBeenDiscovered];
+    //[[appDelegate.mythicalDragonList objectAtIndex:0] hasBeenDiscovered];
 }
 
 -(void) timerCheck {
