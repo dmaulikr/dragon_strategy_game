@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "OCDragonQuestInfo.h"
 #import "OCDragonStats.h"
+#import "Formulas.h"
 
 enum OCDragonGender {OCDragonfemale, OCDragonmale};
-enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
+enum OCDragonType {OCfire, OCwater, OCwind, OCgod};
 
 @interface OCDragon : NSObject
 
@@ -32,37 +33,38 @@ enum OCDragonType {OCfire, OCwater, OCwind, OCearth, OCother};
 
 //add these to the constructors
 @property int availableStatPoints;
-@property int availableSkillPoints;
+//@property int availableSkillPoints;
 @property BOOL onQuest;
 @property OCDragonQuestInfo *questInfo;
 @property BOOL isResting;
+@property BOOL isFavorite;
+
+@property NSString *imageName;
+
+//for testing purposes (god dragon)
+@property NSTimeInterval previousQuestTime;
+@property BOOL isGod;
 
 //Use this to create random dragons. set the values by using property methods if needed.
--(id) initNewDragonOfType:(enum OCDragonType) type_in withStatsRange:(int) range_in ThatIsLegendary:(BOOL) legendary_in;
-
-
--(void)improveStatsByStrength:(double) strength_in Speed:(double) speed_in Endurance:(double) endurance_in Capacity:(double) capacity_in;
-
--(int) experienceRequiredToLevelUp;
-
--(double) maxEnergy;
-
--(void)levelUp;
-
--(void)gainExperience:(int) exp_gained;
-
--(void)spendEnergy:(double) energy_spent;
-
--(void)increaseEnergy:(double) energy_gained;
-
--(int) maxGoldThatCanBeCarried;
-
--(void) goToQuestNumber:(int) quest_idx atRegion:(int) region_idx withDifficultyLevel:(int) quest_level;
-
--(int) calculateLengthForQuestWithDifficulty:(int) quest_level;
-
+- (id)initNewDragonOfType:(enum OCDragonType)typeIn withStatsRange:(int)rangeIn ThatIsLegendary:(BOOL)legendaryIn;
+- (id)initDragon;
++ (void)updateStatsPerDragonLevelTo:(int)val;
++ (int)StatsPerDragonLevel;
++ (void)updateNewDragonStatsBoundTo:(int)val;
++ (int)NewDragonStatsBound;
+- (NSComparisonResult)compareAccordingToLevelAndFavorite:(OCDragon *)otherDragon;
+- (NSComparisonResult)compareAccordingToQuestEndDate:(OCDragon *)otherDragon;
+- (void)improveStatsByStrength:(int)strengthIn Speed:(int)speedIn Endurance:(int)enduranceIn;
+- (int)experienceRequiredToLevelUp;
+- (double)maxEnergy;
+- (void)levelUp;
+- (void)gainExperience:(int)expGained;
+- (void)spendEnergy:(double)energySpent;
+- (void)increaseEnergy:(double)energyGained;
+- (void)goToQuestNumber:(int)questIndex atRegion:(int)regionIndex withDifficultyLevel:(int)questLevel;
+- (int)calculateLengthForQuestWithDifficulty:(int)questLevel isExploration:(BOOL)isExploration;
 - (NSString *)typeText;
-
 - (NSTimeInterval)remainingQuestTime;
+- (void)calculateEffectiveStats;
 
 @end

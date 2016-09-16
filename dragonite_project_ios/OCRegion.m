@@ -10,15 +10,12 @@
 
 @implementation OCRegion
 
--(id) initWithDistanceFromBase:(int) distance_in withRegionNo:(int) region_idx {
-    
+- (id)initWithRegionNo:(int)regionIndex {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         //self.imageName = region_image_in;
-        self.distanceFromBase = distance_in;
-        self.regionNumber = region_idx;
-        self.explored = NO;
+        self.regionNumber = regionIndex;
+        //self.explored = NO;
         
         self.questList = [[NSMutableArray alloc] init];
         self.questButtonCoordinates = [[NSMutableArray alloc] init];
@@ -28,7 +25,14 @@
     return self;
 }
 
-- (void)setImageInfoX:(float) x_in y:(float) y_in width:(float) width_in height:(float)height_in {
+
+- (BOOL)isExplored {
+    //quest at index 0 is the exploration quest
+    OCQuest *explorationQuest = [self.questList objectAtIndex:0];
+    return explorationQuest.successfullyCompletedAtLeastOnce;
+}
+
+- (void)setImageInfoX:(float)x_in y:(float)y_in width:(float)width_in height:(float)height_in {
     self.imageOrigin = CGPointMake(x_in, y_in);
     self.imageSize = CGSizeMake(width_in, height_in);    
 }

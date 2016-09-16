@@ -20,13 +20,17 @@
     
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
     
-   /* self.gemLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gem];
-    self.goldLabel.text = [NSString stringWithFormat:@"%d", appDelegate.player.gold];
-    self.dragonLabel.text = [NSString stringWithFormat:@"%d/%d", [appDelegate.player numberOfDragonsAvailable], (int)[appDelegate.player.dragonList count] ];*/
+    UIImage *mapImage = [UIImage imageNamed:@"main_map.png"];
     
-    self.mapScrollView.contentSize=CGSizeMake(self.mapImageView.frame.size.width, self.mapImageView.frame.size.height); //qswdersdtytgefdw
-    self.mapScrollView.minimumZoomScale=1.0;
-    self.mapScrollView.maximumZoomScale=8.0;
+    self.mapScrollView.backgroundColor = [UIColor redColor];
+    self.mapImageView.backgroundColor = [UIColor blueColor];
+    
+    
+    self.mapScrollView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+    self.mapScrollView.contentSize = self.mapImageView.frame.size;
+    
+    self.mapScrollView.minimumZoomScale=0.3;
+    self.mapScrollView.maximumZoomScale=0.7;
     
     self.mapScrollView.bouncesZoom = NO;
     self.mapScrollView.bounces = NO;
@@ -38,24 +42,50 @@
     
     self.mapScrollView.userInteractionEnabled = YES;
     
+    //hide the indicators
+    [self.mapScrollView setShowsHorizontalScrollIndicator:NO];
+    [self.mapScrollView setShowsVerticalScrollIndicator:NO];
     
     
     buttons = [[NSMutableArray alloc] init];
     
     for (int i = 0; i < [appDelegate.regionButtonCoordinates count]/2; ++i) {
         
-        UIButton *button = [UIButton buttonWithType:UIButtonTypeContactAdd];
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
         button.tag = i;
-        button.frame = CGRectMake([[appDelegate.regionButtonCoordinates objectAtIndex:i*2] intValue], [[appDelegate.regionButtonCoordinates objectAtIndex:i*2+1] intValue], 20, 20);
+        button.frame = CGRectMake([[appDelegate.regionButtonCoordinates objectAtIndex:i*2] intValue], [[appDelegate.regionButtonCoordinates objectAtIndex:i*2+1] intValue], 35, 35);
         [button addTarget:self
-                   action:@selector(sayHi:) forControlEvents:UIControlEventTouchUpInside];
+                   action:@selector(loadRegion:) forControlEvents:UIControlEventTouchUpInside];
+        OCRegion *region = [appDelegate.regionList objectAtIndex:i];
+        [[button imageView] setContentMode: UIViewContentModeScaleAspectFit];
+        if ([region isExplored])
+            [button setImage:[UIImage imageNamed:@"exploredRegionButtonUp"] forState:UIControlStateNormal];
+        else [button setImage:[UIImage imageNamed:@"unexploredRegionButtonUp"] forState:UIControlStateNormal];
+        
         [self.view addSubview:button];
         
         [buttons addObject:button];
     }
     
-    upperBound = self.upperBoundView.frame.origin.y+self.upperBoundView.frame.size.height;
-    lowerBound = self.lowerBoundView.frame.origin.y;
+    
+    //center the map and zoom out (maybe)
+    [self.mapScrollView setZoomScale:0.5 animated:YES];
+    [self.mapScrollView setContentOffset:CGPointMake(self.mapImageView.center.x - 400, self.mapImageView.center.y - 170)  animated:YES];
+    
+    //NSNotificationCenter stuff
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(changeButtonImage:)
+                                                 name:@"ExploredRegion"
+                                               object:nil];
+    
+    
+    //Set map filter for explored/unexplored
+    /*MapFilter *filter = [[MapFilter alloc] initWithFrame:CGRectMake(0, 0, self.mapScrollView.contentSize.width, self.mapScrollView.contentSize.height) ];
+    filter.backgroundColor = [UIColor clearColor];
+    filter.alpha = 0.7;
+    filter.userInteractionEnabled = NO;
+    [self.mapImageView addSubview:filter]; */
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -116,7 +146,7 @@
         button.hidden = NO;
     }*/
     
-    NSLog(@"tag:%d, coordinates:%f,%f", (int)button.tag, button.frame.origin.x, button.frame.origin.y);
+    //NSLog(@"tag:%d, coordinates:%f,%f", (int)button.tag, button.frame.origin.x, button.frame.origin.y);
 }
 
 //////////////////////////////////////////////////////////////////////////////////////
@@ -138,13 +168,21 @@
 }
 
 
--(IBAction) sayHi:(UIButton *) sender {
+-(IBAction) loadRegion:(UIButton *) sender {
     NSLog(@"hi");
+    
+    //stop the timer that's in the main container
+    [self.timerInMainContainer invalidate];
     
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle: nil];
     Region_ViewController * vc = [storyboard instantiateViewControllerWithIdentifier:@"Region_ViewController"];
     vc.regionIndex = (int)sender.tag;
     [self presentViewController:vc animated:YES completion:nil];
+}
+
+- (void)changeButtonImage:(NSNotification *) notification {
+    UIButton *button = [buttons objectAtIndex:[[notification object] intValue]];
+    [button setImage:[UIImage imageNamed:@"exploredRegionButtonUp"] forState:UIControlStateNormal];
 }
 
 @end

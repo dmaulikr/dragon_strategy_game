@@ -13,7 +13,6 @@
     AppDelegate *appDelegate;
 }
 
-
 - (IBAction)closeButton:(id)sender;
 
 @property (weak, nonatomic) IBOutlet UIView *containerView;

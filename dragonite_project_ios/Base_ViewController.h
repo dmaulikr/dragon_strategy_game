@@ -8,14 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #include "AppDelegate.h"
+#import "Building_ViewController.h"
 
 @interface Base_ViewController : UIViewController {
     AppDelegate *appDelegate;
 }
 
-@property (weak, nonatomic) IBOutlet UILabel *gemLabel;
-@property (weak, nonatomic) IBOutlet UILabel *goldLabel;
-@property (weak, nonatomic) IBOutlet UILabel *dragonLabel;
+- (IBAction)showBuildingView:(UIButton *)sender;
 
 
 @end

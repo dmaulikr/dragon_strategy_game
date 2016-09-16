@@ -16,7 +16,7 @@
 @property NSString *imageName;
 @property BOOL discovered;
 
-- (id)initWithName:(NSString *)name_in withTitle:(NSString *)title_in withImage:(NSString *)image_name_in;
+- (id)initWithName:(NSString *)nameIn withTitle:(NSString *)titleIn withImage:(NSString *)imageNameIn;
 - (void)hasBeenDiscovered; //also creates the notification view
 
 @end

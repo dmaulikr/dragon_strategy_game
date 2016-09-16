@@ -14,7 +14,6 @@
     dragon.effectiveStats.strength *= [[self.statsEffectRate objectAtIndex:0] doubleValue];
     dragon.effectiveStats.speed *= [[self.statsEffectRate objectAtIndex:1] doubleValue];
     dragon.effectiveStats.endurance *= [[self.statsEffectRate objectAtIndex:2] doubleValue];
-    dragon.effectiveStats.capacity *= [[self.statsEffectRate objectAtIndex:3] doubleValue];
 }
 
 @end

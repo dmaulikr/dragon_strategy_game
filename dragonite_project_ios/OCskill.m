@@ -10,8 +10,7 @@
 
 @implementation OCSkill
 
--(id) initWithName:(NSString *) name_in withExplanation:(NSString *) explanation_in thatAffectsStrengthBy:(double) strength_in speedBy:(double) speed_in enduranceBy:(double) endurance_in capacityBy:(double) capacity_in {
-    
+-(id) initWithName:(NSString *) name_in withExplanation:(NSString *) explanation_in thatAffectsStrengthBy:(double) strength_in speedBy:(double) speed_in enduranceBy:(double) endurance_in {
     self = [super init];
     if (self) {
         
@@ -19,7 +18,7 @@
         self.name = [name_in copy];
         self.explanation = [explanation_in copy];
         //self.effectRate = rate_in;
-        self.statsEffectRate = [NSMutableArray arrayWithObjects: [NSNumber numberWithDouble: strength_in], [NSNumber numberWithDouble: speed_in], [NSNumber numberWithDouble: endurance_in], [NSNumber numberWithDouble: capacity_in], nil];
+        self.statsEffectRate = [NSMutableArray arrayWithObjects: [NSNumber numberWithDouble: strength_in], [NSNumber numberWithDouble: speed_in], [NSNumber numberWithDouble: endurance_in], nil];
         
     }
     return self;
@@ -33,7 +32,6 @@
     dragon.effectiveStats.strength += [[self.statsEffectRate objectAtIndex:0] doubleValue];
     dragon.effectiveStats.speed += [[self.statsEffectRate objectAtIndex:1] doubleValue];
     dragon.effectiveStats.endurance += [[self.statsEffectRate objectAtIndex:2] doubleValue];
-    dragon.effectiveStats.capacity += [[self.statsEffectRate objectAtIndex:3] doubleValue];
 }
 
 @end

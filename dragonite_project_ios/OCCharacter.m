@@ -10,7 +10,7 @@
 
 @implementation OCCharacter
 
--(id) initCharacterWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in withLevel:(int) level_in{
+/*-(id) initCharacterWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in withLevel:(int) level_in{
     self = [super init];
     if (self)
     {
@@ -19,6 +19,6 @@
         self.level = level_in;
     }
     return self;
-}
+} */
 
 @end

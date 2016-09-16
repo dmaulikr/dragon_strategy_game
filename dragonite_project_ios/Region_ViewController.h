@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "AppDelegate.h"
 //#import "OCRegion.h"
+#import "DragonViewForSelection.h"
 
 @interface Region_ViewController : UIViewController {
     AppDelegate *appDelegate;
@@ -20,12 +21,13 @@
 - (IBAction)startQuest:(id)sender;
 - (IBAction)backButton:(id)sender;
 
-
+@property (weak, nonatomic) IBOutlet UIView *topBoundary;
+@property (weak, nonatomic) IBOutlet UIView *questInformationContainer;
 
 @property (strong, nonatomic) IBOutlet UIView *regionView;
 @property (weak, nonatomic) IBOutlet UIImageView *regionImageView;
 @property (weak, nonatomic) IBOutlet UIScrollView *dragonScrollView;
-@property (weak, nonatomic) IBOutlet UILabel *noQuestsSelectedTitle;
+@property (weak, nonatomic) IBOutlet UILabel *questInstructionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *questLengthTitle;
 @property (weak, nonatomic) IBOutlet UILabel *questSuccessChanceTitle;
 @property (weak, nonatomic) IBOutlet UILabel *dragonCapacityTitle;

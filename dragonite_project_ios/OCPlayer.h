@@ -22,20 +22,38 @@
 @property int numberOfResets;
 @property NSDate *lastEnergyUpdateDate;
 @property int numberOfDifferentQuestsCompleted;
+@property int highestQuestDifficultyAchievedInCurrentReset;
+@property int highestQuestDifficultyAchievedInPreviousReset;
 
--(id) initPlayerWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in;
+//added later
+@property int totalNumberOfQuestsCompleted;
+@property int numberOfDragonsFound;
+@property int numberOfMythicalDragonsDiscovered;
 
--(void) earnGold:(int) gold_earned;
+@property BOOL adBonusIsActive; //this one works a little differently than the others
+@property BOOL goldBoostIsActive;
+@property BOOL expBoostIsActive;
+@property BOOL luckBoostIsActive;
 
--(void) spendGold:(int) gold_spent;
+@property NSDate *adBonusEndDate;
+@property NSDate *goldBoostEndDate;
+@property NSDate *expBoostEndDate;
+@property NSDate *luckBoostEndDate;
 
--(void) updateDragonEnergies;
+//more to add
+@property NSDate *nextCounterResetDate;
+@property int energyRegenTimeInterval;
 
--(void) addNewDragon:(OCDragon *) new_dragon;
 
--(void) releaseDragon:(OCDragon *) poor_dragon; //:(
-
-//-(void) checkIfQuestsEnded;
-
+- (id)initPlayerWithName:(NSString *)nameIn withGender:(enum OCCharacterGender)genderIn;
+- (id)initPlayer;
+- (void)earnGold:(int)goldEarned;
+- (void)spendGold:(int)goldSpent;
+- (void)updateDragonEnergies;
+- (void)addNewDragon:(OCDragon *)newDragon;
+- (void)releaseDragon:(OCDragon *)poorDragon; //:(
+//- (void)checkIfQuestsEnded;
 - (int)numberOfDragonsAvailable;
+- (void)reset;
+
 @end

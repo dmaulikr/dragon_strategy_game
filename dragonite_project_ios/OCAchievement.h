@@ -11,16 +11,36 @@
 
 //enum AchievementType{Quest};
 
+/* list of tags and what they are
+
+0 = complete x number of quests
+1 = complete x number of different quests
+ 
+ */
+
 @interface OCAchievement : NSObject
 
 @property NSString *title;
-@property NSString *explanation;
+@property NSString *explanationMainBody;
 @property BOOL unlocked;
 //@property enum AchievementType type;
 @property int tag;
 
+@property BOOL isVisible;
+@property int level;
+@property int maxLevel;
+//@property int helperVariableInt;
+//@property double helperVariableDouble;
+//@property NSString *explanationHelperString;
 
-- (id)initWithTitle:(NSString *)title_in withExplanation:(NSString *)explanation_in withTag:(int) tag_in;
+//@property OCAchievement *previousAchievement;
+//@property OCAchievement *nextAchievement;
+//@property int indexInList; //0 = bronze, 1 = silver, 2 = gold maybe?
+
+- (id)initWithTitle:(NSString *)titleIn withExplanation:(NSString *)explanationIn withTag:(int) tagIn isVisible:(BOOL)visibleIn;
+- (NSString *)getExplanation;
+- (NSString *)getNotificationText;
 - (BOOL)check:(OCPlayer *)player;
+- (void)unlock;
 
 @end

@@ -10,7 +10,7 @@
 
 @implementation UITextField (DisableCopyPaste)
 
--(BOOL)canPerformAction:(SEL)action withSender:(id)sender
+- (BOOL)canPerformAction:(SEL)action withSender:(id)sender
 {
     [UIMenuController sharedMenuController].menuVisible = NO;
     return NO;
@@ -29,24 +29,27 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     appDelegate = (AppDelegate *)[[UIApplication sharedApplication] delegate];
+    
     self.view.backgroundColor = [UIColor clearColor];
     self.view.opaque = YES;
     OCDragon *dragon = [appDelegate.player.dragonList objectAtIndex:self.dragonIndex];
     self.nameTextField.text = dragon.name;
     
     self.containerView.alpha = 1;
+    CAGradientLayer *gradient = [CAGradientLayer layer];
+    gradient.frame = self.containerView.bounds;
+    gradient.colors = [NSArray arrayWithObjects:(id)[[UIColor colorWithRed:0.84 green:0.13 blue:0.13 alpha:1.0] CGColor], (id)[[UIColor colorWithRed:0.23 green:0.22 blue:0.20 alpha:1.0] CGColor], nil];
+    [self.containerView.layer insertSublayer:gradient atIndex:0];
     self.containerView.backgroundColor = [UIColor orangeColor];
     self.nameTextField.alpha = 1;
+    
+    
     
     UITapGestureRecognizer *singleFingerTap =
     [[UITapGestureRecognizer alloc] initWithTarget:self
                                             action:@selector(closeView)];
     [self.view addGestureRecognizer:singleFingerTap];
-    //[singleFingerTap release];
     
-    
-    //[self.nameTextField selectAll:self.nameTextField];
-    //[self.nameTextField setSelectedTextRange:[self.nameTextField textRangeFromPosition:self.nameTextField.beginningOfDocument toPosition:self.nameTextField.endOfDocument]];
     self.nameTextField.delegate = self;
     //self.nameTextField.men
 }
@@ -97,7 +100,7 @@
     return YES;
 }
 
-- (void) saveNameAndAdjustLabelAccordingToText:(UITextField *)textField {
+- (void)saveNameAndAdjustLabelAccordingToText:(UITextField *)textField {
     if (textField.text.length > 0) {
         OCDragon *dragon = [appDelegate.player.dragonList objectAtIndex:self.dragonIndex];
         dragon.name = textField.text;

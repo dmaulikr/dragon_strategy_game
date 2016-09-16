@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9525" systemVersion="14F27" minimumToolsVersion="Xcode 7.0">
+    <entity name="Achievement" syncable="YES">
+        <attribute name="explanation" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tag" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="unlocked" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="Building" syncable="YES">
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Dragon" syncable="YES">
+        <attribute name="availableStatPoints" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="baseEndurance" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="baseSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="baseStrength" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="effectiveEndurance" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="effectiveSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="effectiveStrength" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="energy" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="experience" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="initialEndurance" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="initialSpeed" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="initialStrength" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="isFavorite" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isGod" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isLegendary" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isResting" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="level" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="onQuest" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="questEndDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="questNo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="questRegionNo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="questsCompleted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="questStartDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="type" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="DragonStats" syncable="YES">
+        <attribute name="endurance" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="speed" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="strength" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="MythicalDragon" syncable="YES">
+        <attribute name="discovered" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="imageName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Player" syncable="YES">
+        <attribute name="adBonusEndDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="adBonusIsActive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="energyRegenPerMinute" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="energyRegenTimeInterval" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="expBoostEndDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="expBoostIsActive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="gem" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="gold" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="goldBoostEndDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="goldBoostIsActive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="highestQuestDifficultyAchievedInCurrentReset" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="highestQuestDifficultyAchievedInPreviousReset" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastEnergyUpdateDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="luckBoostEndDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="luckBoostIsActive" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="maxBuildingLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxDragonCount" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="maxGold" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="nextCounterResetDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="numberOfDifferentQuestsCompleted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfDragonsFound" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfMythicalDragonsDiscovered" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="numberOfResets" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="totalNumberOfQuestsCompleted" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="Quest" syncable="YES">
+        <attribute name="counter" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="difficultyLevel" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="dragonType" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="index" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="lastCounterUpdate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="numberOfDragonsCurrentlyOnThisQuest" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="regionNo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="successfullyCompletedAtLeastOnce" optional="YES" attributeType="Boolean" syncable="YES"/>
+    </entity>
+    <entity name="QuestInfo" syncable="YES">
+        <attribute name="endDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="questNo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="regionNo" optional="YES" attributeType="Integer 64" defaultValueString="0" syncable="YES"/>
+        <attribute name="startDate" optional="YES" attributeType="Date" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Achievement" positionX="27" positionY="162" width="128" height="105"/>
+        <element name="Building" positionX="0" positionY="144" width="128" height="60"/>
+        <element name="Dragon" positionX="-45" positionY="0" width="128" height="435"/>
+        <element name="DragonStats" positionX="-18" positionY="108" width="128" height="90"/>
+        <element name="MythicalDragon" positionX="45" positionY="171" width="128" height="105"/>
+        <element name="Player" positionX="0" positionY="117" width="128" height="405"/>
+        <element name="Quest" positionX="18" positionY="162" width="128" height="165"/>
+        <element name="QuestInfo" positionX="9" positionY="117" width="128" height="105"/>
+    </elements>
+</model>

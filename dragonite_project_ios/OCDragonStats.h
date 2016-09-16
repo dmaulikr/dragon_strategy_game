@@ -10,11 +10,10 @@
 
 @interface OCDragonStats : NSObject
 
-@property double strength;
-@property double speed;
-@property double endurance;
-@property double capacity;
+@property int strength;
+@property int speed;
+@property int endurance;
 
--(id) initWithStrength:(double) strength_in withSpeed:(double) speed_in withEndurance:(double) endurance_in withCapacity:(double) capacity_in;
+- (id)initWithStrength:(int)strengthIn withSpeed:(int)speedIn withEndurance:(int)enduranceIn;
 
 @end

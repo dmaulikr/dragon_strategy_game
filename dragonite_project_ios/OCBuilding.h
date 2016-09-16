@@ -8,13 +8,15 @@
 
 #import <Foundation/Foundation.h>
 #import "OCPlayer.h"
+#import "Formulas.h"
 
-enum OCBuildingType {OCMainBuilding, OCDragonsDen, OCTreasury, OCFountain, OCSpring};
+enum OCBuildingType {OCMainBuilding, OCDragonsDen, OCTreasury, OCFountain, OCSpring}; /*should be the same order as we insert buildings to the buildings array for the first time */
 
 @interface OCBuilding : NSObject
 
 @property NSString *name;
-@property NSArray *levelDescriptions; //Full of strings, 0 lvl description...
+@property NSString *description; //why did I have to synthesize this manually?
+//@property NSArray *levelDescriptions; //Full of strings, 0 lvl description...
 //...could be the general building info
 @property NSString *imageName;
 @property int level; //building lvl
@@ -22,11 +24,17 @@ enum OCBuildingType {OCMainBuilding, OCDragonsDen, OCTreasury, OCFountain, OCSpr
 //current max building lvl
 @property enum OCBuildingType type;
 
+//variables to calculate upgrade costs
+@property double priceConstant;
+@property int levelOffset;
 
-- (void)applyEffect:(OCPlayer *) player;
+
+- (id)initWithName:(NSString *)nameIn withImageName:(NSString *)imageNameIn withType:(enum OCBuildingType)typeIn;
+- (void)applyEffect:(OCPlayer *)player;
 - (NSString *)getGeneralInformation;
 - (NSString *)getCurrentLevelInformation;
 - (NSString *)getNextLevelInformation;
 - (int)upgradeCost;
+- (void)reset;
 
 @end

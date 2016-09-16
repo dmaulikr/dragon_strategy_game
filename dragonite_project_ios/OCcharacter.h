@@ -16,7 +16,6 @@ enum OCCharacterGender {OCCharacterfemale, OCCharactermale};
 @property enum OCCharacterGender gender;
 @property int level;
 
--(id) initCharacterWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in
-                  withLevel:(int) level_in;
+//-(id) initCharacterWithName:(NSString *) name_in withGender:(enum OCCharacterGender) gender_in withLevel:(int) level_in;
 
 @end

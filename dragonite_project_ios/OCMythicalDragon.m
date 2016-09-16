@@ -14,13 +14,12 @@
 
 @implementation OCMythicalDragon
 
-- (id)initWithName:(NSString *)name_in withTitle:(NSString *)title_in withImage:(NSString *)image_name_in {
+- (id)initWithName:(NSString *)nameIn withTitle:(NSString *)titleIn withImage:(NSString *)imageNameIn {
     self = [super init];
-    if (self)
-    {
-        self.name = name_in;
-        self.title = title_in;
-        self.imageName = image_name_in;
+    if (self) {
+        self.name = nameIn;
+        self.title = titleIn;
+        self.imageName = imageNameIn;
         self.discovered = NO;
     }
     return self;
@@ -70,30 +69,6 @@
     [topController.view addSubview:dragonPopUp];
     
     [self performSelector:@selector(closeView:) withObject:dragonPopUp afterDelay:3.0];
-    
-    /*dispatch_async(dispatch_get_main_queue(), ^{
-        if ([NSThread isMainThread]) NSLog(@"İDK HOW");
-        [self closeView:dragonPopUp];
-    }); */
-    
-    
-    
-    /*UILabel *dragonLabel = [[UILabel alloc] init];
-    self.achievementLabel.frame = CGRectMake(0,  topController.view.frame.size.height*4/5, topController.view.frame.size.width, topController.view.frame.size.height*1/5);
-    self.achievementLabel.backgroundColor = [UIColor yellowColor];
-    self.achievementLabel.layer.borderColor = [UIColor orangeColor].CGColor;
-    self.achievementLabel.layer.borderWidth = 2.0f;
-    
-    self.achievementLabel.text = [NSString stringWithFormat:@"You have unlocked %@", achievementUnlocked.title];
-    NSMutableAttributedString *text = [[NSMutableAttributedString alloc] initWithAttributedString: self.achievementLabel.attributedText];
-    [text addAttribute:NSForegroundColorAttributeName
-                 value:[UIColor redColor]
-                 range:NSMakeRange(18, text.length-18)];
-    [self.achievementLabel setAttributedText: text];
-    self.achievementLabel.textAlignment = NSTextAlignmentCenter;
-    
-    [topController.view addSubview:self.achievementLabel];
-    NSTimer *achievementViewTimer = [NSTimer scheduledTimerWithTimeInterval:3 target:self selector:@selector(closeAchievementNotification) userInfo:self.achievementLabel repeats:NO];*/
 }
 
 

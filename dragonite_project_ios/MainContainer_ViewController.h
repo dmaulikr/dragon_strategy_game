@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "Map_ViewController.h"
 #import "Base_ViewController.h"
+//#import "CircularProgressView.h"
 //#import "AppDelegate.h"
+#import "SideNotificationCenter.h"
 
 enum Screen {Map, Base};
 
@@ -18,29 +20,54 @@ enum Screen {Map, Base};
 }
 
 - (IBAction)changeChildView:(id)sender;
+- (IBAction)resetAction:(id)sender;
 
-
-
+@property NSTimer *mainTimer;
 @property UILabel *achievementLabel;
 @property Map_ViewController *mapView;
 @property Base_ViewController *baseView;
-
-
 @property (weak, nonatomic) IBOutlet UILabel *gemLabel;
 @property (weak, nonatomic) IBOutlet UILabel *goldLabel;
 @property (weak, nonatomic) IBOutlet UILabel *dragonLabel;
+@property (weak, nonatomic) IBOutlet UIView *topBoundary;
+@property (weak, nonatomic) IBOutlet UIView *goldProgressContainerView;
+@property (weak, nonatomic) IBOutlet UIProgressView *goldProgressView;
+@property (weak, nonatomic) IBOutlet UIImageView *goldIconImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *gemIconImageView;
+@property (weak, nonatomic) IBOutlet UIImageView *dragonIconImageView;
+@property (weak, nonatomic) IBOutlet UIButton *gemPlusButton;
+@property (weak, nonatomic) IBOutlet UIButton *settingsButton;
+@property (weak, nonatomic) IBOutlet UIButton *resetButton;
+@property (weak, nonatomic) IBOutlet UIButton *achievementButton;
+@property (weak, nonatomic) IBOutlet UIButton *adsButton;
 
-@property (weak, nonatomic) IBOutlet UIImageView *topBoundaryImage;
-@property (weak, nonatomic) IBOutlet UIImageView *bottomBoundaryImage;
+//reset button constraints
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *resetButtonHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *resetButtonBottomConstraint;
 
-//Can I have this with the same name?
+//settings button constraints
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *settingsButtonHeightConstraint;
+
 @property (weak, nonatomic) IBOutlet UIButton *changeChildButton;
-
-@property (weak, nonatomic) IBOutlet UILabel *currentChildViewLabel;
 @property (weak, nonatomic) IBOutlet UIButton *dragonsButton;
 
-
+@property SideNotificationCenter *sideNotificationCenter;
 
 @property enum Screen currentChildView;
+
+
+@property (strong) NSMutableArray *savedDragons;
+@property (strong) NSMutableArray *savedPlayers;
+@property (strong) NSMutableArray *savedQuests;
+
+//explanation view
+@property UIView *explanationView;
+
+@property NSDate *lastResetButtonAnimationDate;
+@property NSDate *lastSettingsButtonAnimationDate;
+
+@property UIView *viewToHide; //view that hides the other views during the loading process
+
+//@property NSTimeInterval *adBoostDuration;
 
 @end

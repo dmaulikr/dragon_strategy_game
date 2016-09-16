@@ -10,14 +10,12 @@
 
 @implementation OCDragonStats
 
--(id) initWithStrength:(double) strength_in withSpeed:(double) speed_in withEndurance:(double) endurance_in withCapacity:(double) capacity_in {
+- (id)initWithStrength:(int)strengthIn withSpeed:(int)speedIn withEndurance:(int)enduranceIn {
     self = [super init];
-    if (self)
-    {
-        self.strength = strength_in;
-        self.speed = speed_in;
-        self.endurance = endurance_in;
-        self.capacity = capacity_in;
+    if (self) {
+        self.strength = strengthIn;
+        self.speed = speedIn;
+        self.endurance = enduranceIn;
     }
     return self;
 }
